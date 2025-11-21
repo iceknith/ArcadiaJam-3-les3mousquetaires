@@ -1,10 +1,11 @@
 extends Node
 
 var organs = {
-	"name" : {
+	"arm" : {
 		"image" : "",
 		"icon" : "",
 		"effect" : "",
-		"value" : 0
+		"value" : 1,
+		"price" : 1
 	}
 }

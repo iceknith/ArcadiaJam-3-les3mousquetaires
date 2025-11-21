@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://c4fbw2wyq73q1"]
+[gd_scene load_steps=2 format=3 uid="uid://c4fbw2wyq73q1"]
+
+[ext_resource type="Script" uid="uid://fu8hksojkt4j" path="res://src/GameScenes/shop.gd" id="1_2fllm"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -7,3 +9,56 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_2fllm")
+
+[node name="Organcontainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 333.0
+offset_top = 157.0
+offset_right = 1051.0
+offset_bottom = 283.0
+theme_override_constants/separation = 50
+
+[node name="Slot1" type="Button" parent="Organcontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "Arm "
+
+[node name="Slot2" type="Button" parent="Organcontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Slot3" type="Button" parent="Organcontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Slot4" type="Button" parent="Organcontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Slot5" type="Button" parent="Organcontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Coincontainer" type="HBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 493.0
+offset_top = 371.0
+offset_right = 945.0
+offset_bottom = 507.0
+theme_override_constants/separation = 54
+
+[node name="Slot1" type="Button" parent="Coincontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Slot2" type="Button" parent="Coincontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+
+[node name="Slot3" type="Button" parent="Coincontainer"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 2
+text = "coin 3"
+
+[connection signal="pressed" from="Organcontainer/Slot1" to="." method="_on_slot_1_pressed"]
