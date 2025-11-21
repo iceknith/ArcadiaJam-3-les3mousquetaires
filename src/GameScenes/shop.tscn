@@ -48,17 +48,24 @@ offset_right = 945.0
 offset_bottom = 507.0
 theme_override_constants/separation = 54
 
-[node name="Slot1" type="Button" parent="Coincontainer"]
+[node name="coin_slot1" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="Slot2" type="Button" parent="Coincontainer"]
+[node name="coin_slot2" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
-[node name="Slot3" type="Button" parent="Coincontainer"]
+[node name="coin_slot3" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "coin 3"
 
 [connection signal="pressed" from="Organcontainer/Slot1" to="." method="_on_slot_1_pressed"]
+[connection signal="pressed" from="Organcontainer/Slot2" to="." method="_on_slot_2_pressed"]
+[connection signal="pressed" from="Organcontainer/Slot3" to="." method="_on_slot_3_pressed"]
+[connection signal="pressed" from="Organcontainer/Slot4" to="." method="_on_slot_4_pressed"]
+[connection signal="pressed" from="Organcontainer/Slot5" to="." method="_on_slot_5_pressed"]
+[connection signal="pressed" from="Coincontainer/coin_slot1" to="." method="_on_coin_slot_1_pressed"]
+[connection signal="pressed" from="Coincontainer/coin_slot2" to="." method="_on_coin_slot_2_pressed"]
+[connection signal="pressed" from="Coincontainer/coin_slot3" to="." method="_on_coin_slot_3_pressed"]
