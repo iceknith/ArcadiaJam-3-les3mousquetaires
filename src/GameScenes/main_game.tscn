@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://df73jwxyyl64o"]
+
+[ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
+[ext_resource type="PackedScene" uid="uid://c4fbw2wyq73q1" path="res://src/GameScenes/shop.tscn" id="2_3vl0c"]
+[ext_resource type="PackedScene" uid="uid://dy74rt86qrt0a" path="res://src/GameScenes/table_topdown.tscn" id="3_qhh1e"]
+
+[node name="MainGame" type="Node"]
+
+[node name="TableNormale" parent="." instance=ExtResource("1_aptux")]
+
+[node name="Shop" parent="." instance=ExtResource("2_3vl0c")]
+visible = false
+
+[node name="TableTopdown" parent="." instance=ExtResource("3_qhh1e")]
+visible = false

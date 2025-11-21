@@ -1,0 +1,1 @@
+class_name Coin extends AnimatedSprite2D
