@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cipya148it67n" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
 [ext_resource type="Shader" uid="uid://bich8wnvqea64" path="res://src/Shaders/CRTV.gdshader" id="9_blnsy"]
 [ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="10_8wwc8"]
+[ext_resource type="PackedScene" uid="uid://d3kfhs30n01gv" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wwc8"]
 shader = ExtResource("9_blnsy")
@@ -18,7 +19,6 @@ shader_parameter/curve = 0.10000000475
 shader_parameter/color_offset = 0.5
 shader_parameter/mask_brightness = 0.6000000285
 shader_parameter/aspect = 1.0
-[ext_resource type="PackedScene" uid="uid://d3kfhs30n01gv" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
 
 [node name="MainGame" type="Node"]
 script = ExtResource("1_2rdtk")
