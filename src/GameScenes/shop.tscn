@@ -61,6 +61,14 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 text = "coin 3"
 
+[node name="exit_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 206.0
+offset_right = 166.0
+offset_bottom = 290.0
+text = "go back"
+
 [connection signal="pressed" from="Organcontainer/Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Organcontainer/Slot2" to="." method="_on_slot_2_pressed"]
 [connection signal="pressed" from="Organcontainer/Slot3" to="." method="_on_slot_3_pressed"]
@@ -69,3 +77,4 @@ text = "coin 3"
 [connection signal="pressed" from="Coincontainer/coin_slot1" to="." method="_on_coin_slot_1_pressed"]
 [connection signal="pressed" from="Coincontainer/coin_slot2" to="." method="_on_coin_slot_2_pressed"]
 [connection signal="pressed" from="Coincontainer/coin_slot3" to="." method="_on_coin_slot_3_pressed"]
+[connection signal="pressed" from="exit_button" to="." method="_on_exit_button_pressed"]

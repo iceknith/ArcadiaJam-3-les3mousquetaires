@@ -1,7 +1,7 @@
 extends Node
 
-var wave
-
+var wave:int 
+var scoreThreshold:int = 10
 
 
 
@@ -12,7 +12,17 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	afficheScore()
+
+
+func collect_coins() -> int:
+	var coins = get_tree().get_nodes_in_group("coins")
+	var total := 0.0
+
+	for coin in coins:
+		total += coin.value
+		coin.queue_free()
+	return total
 
 
 func _on_table_normale_shop() -> void:
@@ -25,8 +35,3 @@ func _on_table_normale_play() -> void:
 	$Shop.visible = false
 	$TableNormale.visible = false
 	$TableTopdown.visible = true
-
-
-
-func _on_shop_on_bought():
-	$TableNormale.update_pieces()

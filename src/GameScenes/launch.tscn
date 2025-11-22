@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://fbgnjrdaqaac"]
+
+[ext_resource type="Script" uid="uid://dt31axoo3dc8m" path="res://src/GameScenes/launch.gd" id="1_gu6eo"]
+
+[node name="Launch" type="Node2D"]
+script = ExtResource("1_gu6eo")

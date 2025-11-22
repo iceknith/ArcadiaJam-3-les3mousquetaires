@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://bhh3posgxeirv"]
+
+[ext_resource type="Texture2D" uid="uid://c1gkqok305f4n" path="res://src/debugSprites/1euro.png" id="1_0msn4"]
+[ext_resource type="Script" uid="uid://g1cik0pvqtko" path="res://src/topdownElements/coin.gd" id="1_e3qj5"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_dkdi1"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_0msn4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Node2D" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_dkdi1")
+script = ExtResource("1_e3qj5")
+metadata/_custom_type_script = "uid://g1cik0pvqtko"

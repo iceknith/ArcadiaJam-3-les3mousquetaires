@@ -1,5 +1,5 @@
 extends Control
-
+signal exitShop
 signal on_bought
 
 var available_organs = [
@@ -146,3 +146,7 @@ func _on_coin_slot_2_pressed():
 
 func _on_coin_slot_3_pressed():
 	buy_piece(2)
+	
+
+func _on_exit_button_pressed() -> void:
+	exitShop.emit()
