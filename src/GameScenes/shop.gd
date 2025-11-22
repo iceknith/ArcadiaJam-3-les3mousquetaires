@@ -68,8 +68,8 @@ func restock() -> void:
 		i+=1
 
 func get_random_piece() -> Dictionary:
-	var piece_name = OrganVars.pieces.keys()[randi_range(0,OrganVars.pieces.size()-1)]
-	var piece = OrganVars.pieces[piece_name]
+	var piece_name = PieceVars.pieces.keys()[randi_range(0,PieceVars.pieces.size()-1)]
+	var piece = PieceVars.pieces[piece_name]
 	piece["name"] = piece_name
 	return piece
 

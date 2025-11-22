@@ -22,29 +22,11 @@ var organs = {
 		"value" : 1,
 		"price" : 10
 	},
-		"tooth" : {
+	"tooth" : {
 		"image" : "",
 		"icon" : "",
 		"effect" : "",
 		"value" : 1,
 		"price" : 0
-	}
-}
-
-var pieces:Dictionary = {
-	"red" : {
-		"effect" : "",
-		"value" : 0,
-		"price" : 0
-	},
-	"green" : {
-		"effect" : "",
-		"value" : 0,
-		"price" : 1
-	},
-	"blue" : {
-		"effect" : "",
-		"value" : 0,
-		"price" : 2
 	}
 }

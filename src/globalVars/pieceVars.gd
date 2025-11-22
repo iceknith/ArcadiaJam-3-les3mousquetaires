@@ -1,10 +1,19 @@
 extends Node
 
 var pieces:Dictionary = {
-	"normale" : {
+	"red" : {
 		"effect" : "",
-		"value" : 1,
-		"image" : "",
-		"chance" : 0.5
+		"value" : 0,
+		"price" : 0
+	},
+	"green" : {
+		"effect" : "",
+		"value" : 0,
+		"price" : 1
+	},
+	"blue" : {
+		"effect" : "",
+		"value" : 0,
+		"price" : 2
 	}
 }
