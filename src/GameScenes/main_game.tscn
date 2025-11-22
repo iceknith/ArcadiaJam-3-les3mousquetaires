@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://fbgnjrdaqaac" path="res://src/GameScenes/launch.tscn" id="5_0as73"]
 [ext_resource type="PackedScene" uid="uid://bhh3posgxeirv" path="res://src/topdownElements/coin.tscn" id="6_nbtn3"]
 [ext_resource type="PackedScene" uid="uid://bad838s86tujd" path="res://src/topdownElements/hand.tscn" id="6_xyymd"]
-[ext_resource type="PackedScene" uid="uid://cipya148it67n" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
+[ext_resource type="PackedScene" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
 
 [node name="MainGame" type="Node"]
 script = ExtResource("1_2rdtk")

@@ -29,7 +29,7 @@ func nb_piece() -> int:
 
 var wave:int = 0
 var debt:int = 10
-var round:int = 5
-var money:int = 10
+var round:int = 2
+var money:int = 0
 
 var score = 0

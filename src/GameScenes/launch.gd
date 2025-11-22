@@ -28,6 +28,7 @@ var play:bool = false
 
 
 func _ready() -> void:
+	RandomNumberGenerator.new().randomize()
 	$handSpawnDelay.wait_time = handSpawnDelay
 	$startDelay.wait_time = spawnStartDelay
 
