@@ -46,3 +46,6 @@ func _on_shop_exit_shop():
 	$Shop.visible = false
 	$TableNormale.visible = true
 	$TableTopdown.visible = false
+	
+	$TableNormale/delete_popup.hide()
+	$TableNormale.update_pieces()
