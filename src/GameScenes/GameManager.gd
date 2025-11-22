@@ -8,7 +8,6 @@ func _ready() -> void:
 	PlayerVars.wave = 0
 	$Info_popup.visible=false
 	$Info_popup/HBoxContainer.visible = false
-	$Info_popup/Restart.visible=false
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -34,10 +33,11 @@ func gameloop():
 
 	
 func new_wave()->void:
+	print("hey ?")
 	if game_over: return
 	PlayerVars.round_left = PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
-	PlayerVars.debt = PlayerVars.wave*2 # TODO
+	PlayerVars.debt = 0
 	$top_UI.refresh()
 	$Shop.restock()
 
@@ -81,6 +81,8 @@ func _on_table_normale_play() -> void:
 		
 		$TableTopdown/Launch.launch()
 		playRound()
+	else:
+		gameOver()
 
 
 func _on_shop_exit_shop():
@@ -128,11 +130,11 @@ func _on_choix_3_pressed() -> void:
 	exitBonusSelection()
 
 func bonusSelection() ->void:
-	new_wave()
-	$Info_popup/AnimationPlayer.play("gameover_popup")
+	$Info_popup/AnimationPlayer.play("selectScreenPopup")
 	$Info_popup/Label.text = "DEBUG"
 	$Info_popup.visible = true
 	$Info_popup/HBoxContainer.visible=true
+	$CursorHand.z_index = 100
 	
 	#var bonus = $Info_popup/HBoxContainer.get_children()
 	#for slot:Button in bonus:
@@ -142,8 +144,8 @@ func bonusSelection() ->void:
 
 
 func exitBonusSelection() ->void:
-	$Info_popup.visible = false
-	$Info_popup/HBoxContainer.visible=false
+	$Info_popup/HBoxContainer.hide()
+	new_wave()
 
 # GAME OVER ============================================
 	
@@ -151,11 +153,12 @@ func gameOver() -> void:
 	game_over = true
 	print("GAME OVER !")
 	$Info_popup.visible=true
-	$Info_popup/Restart.visible=true
 	$Info_popup/HBoxContainer.visible=false
 	$Info_popup/AnimationPlayer.play("gameover_popup")
 	var message = "GAME OVER"
 	$Info_popup/Label.text = message
-	
-func _on_restart_pressed() -> void:
-	load("res://src/GameScenes/main_game.tscn")
+
+
+func restart_game() -> void:
+	print("y")
+	get_tree().reload_current_scene()
