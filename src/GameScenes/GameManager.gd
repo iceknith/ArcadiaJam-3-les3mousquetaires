@@ -52,7 +52,6 @@ func playRound() -> void:
 	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
-	$top_UI.refresh()
 	PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 
@@ -64,12 +63,17 @@ func _on_table_normale_shop() -> void:
 
 #ENTER ROUND
 func _on_table_normale_play() -> void:
-	$Shop.visible = false
-	$TableNormale.visible = false
-	$TableTopdown.visible = true
-	
-	$Launch.launch()
-	playRound()
+	if check_selected_coin():
+		$Shop.visible = false
+		$TableNormale.visible = false
+		$TableTopdown.visible = true
+		
+		$Launch.launch()
+		playRound()
+
+func check_selected_coin():
+	return (PlayerVars.pieces[PlayerVars.selectedPiece]!="")
+
 
 func _on_shop_exit_shop():
 	$Shop.visible = false

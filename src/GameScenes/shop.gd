@@ -36,7 +36,7 @@ func update()->void:
 	var organ_slots = $Organcontainer.get_children()
 	for slot:Button in organ_slots:
 		if available_organs[i] != {}:
-			slot.tooltip_text =  available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
+			slot.tooltip_text = available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
 			slot.get_node("TextureRect").texture = load(OrganVars.organs[available_organs[i]["name"]].image)
 		else:
@@ -49,7 +49,7 @@ func update()->void:
 		if available_pieces[i] != {}:
 			slot.tooltip_text = available_pieces[i]["name"] + "\n " + str(available_pieces[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
-			slot.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png") #sprite à modifier
+			slot.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
 			slot.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[available_pieces[i]["name"]]["color"])
 		else:
 			slot.tooltip_text=""
