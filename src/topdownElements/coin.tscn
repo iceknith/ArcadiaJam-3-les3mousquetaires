@@ -1,63 +1,20 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhh3posgxeirv"]
+[gd_scene load_steps=4 format=3 uid="uid://bhh3posgxeirv"]
 
+[ext_resource type="Texture2D" uid="uid://c1gkqok305f4n" path="res://src/debugSprites/1euro.png" id="1_0msn4"]
 [ext_resource type="Script" uid="uid://g1cik0pvqtko" path="res://src/topdownElements/coin.gd" id="1_e3qj5"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-1.png" id="1_u8i6e"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-3.png" id="2_hngi6"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-6.png" id="3_m8p65"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-8.png" id="4_jqldy"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-10.png" id="5_5eejx"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-12.png" id="6_wtd87"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-14.png" id="7_b4rju"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-17.png" id="8_hursm"]
-[ext_resource type="Texture2D" path="res://src/debugSprites/coins/coin-20.png" id="9_8buim"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_dkdi1"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_u8i6e")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_hngi6")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_m8p65")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_jqldy")
-}, {
-"duration": 1.0,
-"texture": ExtResource("5_5eejx")
-}, {
-"duration": 1.0,
-"texture": ExtResource("6_wtd87")
-}, {
-"duration": 1.0,
-"texture": ExtResource("7_b4rju")
-}, {
-"duration": 1.0,
-"texture": ExtResource("8_hursm")
-}, {
-"duration": 1.0,
-"texture": ExtResource("9_8buim")
+"texture": ExtResource("1_0msn4")
 }],
 "loop": true,
-"name": &"fly",
-"speed": 5.0
-}, {
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_u8i6e")
-}],
-"loop": true,
-"name": &"stop",
+"name": &"default",
 "speed": 5.0
 }]
 
-[node name="Hand" type="AnimatedSprite2D"]
-scale = Vector2(0.1, 0.1)
+[node name="Node2D" type="AnimatedSprite2D"]
 sprite_frames = SubResource("SpriteFrames_dkdi1")
-animation = &"stop"
-frame_progress = 1.0
-speed_scale = 6.0
 script = ExtResource("1_e3qj5")
+metadata/_custom_type_script = "uid://g1cik0pvqtko"

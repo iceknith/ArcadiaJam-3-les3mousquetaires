@@ -15,6 +15,16 @@ func _process(delta: float) -> void:
 	afficheScore()
 
 
+func collect_coins() -> int:
+	var coins = get_tree().get_nodes_in_group("coins")
+	var total := 0.0
+
+	for coin in coins:
+		total += coin.value
+		coin.queue_free()
+	return total
+
+
 func _on_table_normale_shop() -> void:
 	$Shop.visible = true
 	$TableNormale.visible = false
@@ -25,6 +35,8 @@ func _on_table_normale_play() -> void:
 	$Shop.visible = false
 	$TableNormale.visible = false
 	$TableTopdown.visible = true
+	
+	$Launch.launch()
 
 func _on_shop_exit_shop() -> void:
 	$Shop.visible = false
@@ -33,4 +45,5 @@ func _on_shop_exit_shop() -> void:
 	
 	
 func afficheScore() -> void:
+	PlayerVars.score += collect_coins()
 	$PlayerScore.text = "socre:" + str(PlayerVars.score) + "/" + str(scoreThreshold) + "\n" + "money:"+str(PlayerVars.money)

@@ -1,6 +1,9 @@
 class_name launch
 extends Node2D
 
+@export var hand_scene : PackedScene
+@export var coin_scene : PackedScene
+
 # all vars
 var nombre_hands = PlayerVars.organes.get("arm")
 var score
@@ -16,4 +19,7 @@ func _process(delta: float) -> void:
 
 func launch() -> void:
 	for h in nombre_hands:
-		pass
+		var hand_instance = hand_scene.instantiate()
+		add_child(hand_instance)
+		var coin_instance = coin_scene.instantiate()
+		add_child(hand_instance)
