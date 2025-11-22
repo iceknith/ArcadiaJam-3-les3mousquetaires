@@ -3,6 +3,7 @@ extends Node
 var base_rounds
 var game_over = false
 
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerVars.wave = 0
