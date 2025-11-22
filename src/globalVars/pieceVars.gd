@@ -9,7 +9,8 @@ var pieces:Dictionary = {
 	"red" : {
 		"effect" : "",
 		"value" : 0,
-		"price" : 0
+		"price" : 0,
+		"color" : ""
 	},
 	"green" : {
 		"effect" : "",
