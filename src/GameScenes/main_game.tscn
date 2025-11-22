@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://df73jwxyyl64o"]
+[gd_scene load_steps=9 format=3 uid="uid://df73jwxyyl64o"]
 
 [ext_resource type="Script" uid="uid://begcex3rwt0lr" path="res://src/GameScenes/GameManager.gd" id="1_2rdtk"]
 [ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://fbgnjrdaqaac" path="res://src/GameScenes/launch.tscn" id="5_0as73"]
 [ext_resource type="PackedScene" uid="uid://bhh3posgxeirv" path="res://src/topdownElements/coin.tscn" id="6_nbtn3"]
 [ext_resource type="PackedScene" uid="uid://bad838s86tujd" path="res://src/topdownElements/hand.tscn" id="6_xyymd"]
+[ext_resource type="PackedScene" uid="uid://cipya148it67n" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
 
 [node name="MainGame" type="Node"]
 script = ExtResource("1_2rdtk")
@@ -19,23 +20,14 @@ visible = false
 [node name="TableTopdown" parent="." instance=ExtResource("3_qhh1e")]
 visible = false
 
-[node name="PlayerScore" type="Label" parent="."]
-offset_left = 33.0
-offset_top = 27.0
-offset_right = 319.0
-offset_bottom = 152.0
-theme_override_colors/font_color = Color(0.47397572, 0.47397572, 0.47397572, 1)
-theme_override_font_sizes/font_size = 50
-text = "XX/XX
-money
-"
-
 [node name="Launch" parent="." instance=ExtResource("5_0as73")]
 position = Vector2(2, 0)
 hand_scene = ExtResource("6_xyymd")
 coin_scene = ExtResource("6_nbtn3")
 
 [node name="Timer" type="Timer" parent="Launch"]
+
+[node name="top_UI" parent="." instance=ExtResource("8_ltw7p")]
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]

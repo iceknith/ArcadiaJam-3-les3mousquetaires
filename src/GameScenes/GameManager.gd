@@ -12,11 +12,9 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	afficheScore()
+	pass
 	
-func afficheScore() -> void:
-	PlayerVars.score += collect_coins()
-	$PlayerScore.text = "score:" + str(PlayerVars.score) + "/" + str(scoreThreshold) + "\n" + "money:"+str(PlayerVars.money)
+
 
 
 func collect_coins() -> int:
@@ -47,5 +45,11 @@ func _on_shop_exit_shop():
 	$TableNormale.visible = true
 	$TableTopdown.visible = false
 	
+	$top_UI.refresh()
 	$TableNormale/delete_popup.hide()
 	$TableNormale.update_pieces()
+	
+
+
+func _on_shop_on_bought():
+	$top_UI.refresh()

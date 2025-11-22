@@ -34,7 +34,7 @@ func update()->void:
 	var organ_slots = $Organcontainer.get_children()
 	for slot:Button in organ_slots:
 		if available_organs[i] != {}:
-			slot.text = available_organs[i]["name"] + " :\n " + str(available_organs[i]["price"]) + "$"
+			slot.tooltip_text =  available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
 		else:
 			slot.text=""
 		i+=1
@@ -42,7 +42,7 @@ func update()->void:
 	var piece_slots = $Coincontainer.get_children()
 	for slot:Button in piece_slots:
 		if available_pieces[i] != {}:
-			slot.text = available_pieces[i]["name"] + " :\n " + str(available_pieces[i]["price"]) + "$"
+			slot.tooltip_text = available_pieces[i]["name"] + "\n " + str(available_pieces[i]["price"]) + "$"
 		else:
 			slot.text=""
 		i+=1
@@ -58,7 +58,7 @@ func restock() -> void:
 		available_organs[i]["price"]= organ["price"]
 		i+=1
 	i=0
-	
+
 	var piece
 	var piece_slots = $Coincontainer.get_children()
 	for slot:Button in piece_slots:

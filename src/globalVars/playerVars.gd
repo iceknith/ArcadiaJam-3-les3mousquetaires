@@ -25,7 +25,9 @@ func nb_piece() -> int:
 			count+=1
 	return count
 
-var wave = 0
+var wave:int = 0
+var debt:int = 10
+var round:int = 5
 var money:int = 10
 
 var score = 0
