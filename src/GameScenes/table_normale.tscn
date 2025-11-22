@@ -1,12 +1,23 @@
-[gd_scene load_steps=6 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=11 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
-[ext_resource type="Texture2D" uid="uid://f1kbhod5adfv" path="res://src/debugSprites/table_scene.png" id="1_e35ac"]
+[ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
+[ext_resource type="Texture2D" uid="uid://clf7q0s63sfx8" path="res://assets/in-game/bgs/elements/table.png" id="3_001cw"]
+[ext_resource type="Texture2D" uid="uid://culyap7qil10c" path="res://assets/in-game/bgs/elements/merchant.png" id="3_djbji"]
 [ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="3_k0q6d"]
+[ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="3_pcvq8"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1dxgy"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_k0q6d"]
+
+[sub_resource type="Animation" id="Animation_djbji"]
+resource_name = "base_anim"
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_ake5v"]
+_data = {
+&"base_anim": SubResource("Animation_djbji")
+}
 
 [node name="TableNormale" type="Control"]
 layout_mode = 3
@@ -19,16 +30,43 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1dxgy")
 
-[node name="TextureRect" type="TextureRect" parent="."]
+[node name="wall" type="TextureRect" parent="."]
 modulate = Color(1, 1, 1, 0.7921569)
 z_index = -99
 layout_mode = 0
-offset_left = -5.0
-offset_top = 114.0
-offset_right = 1345.0
-offset_bottom = 733.0
-scale = Vector2(0.84708345, 0.8564333)
-texture = ExtResource("1_e35ac")
+offset_left = 2.0
+offset_top = 3.0
+offset_right = 1352.0
+offset_bottom = 646.0
+scale = Vector2(0.85232586, 1.0018804)
+texture = ExtResource("2_pcvq8")
+expand_mode = 2
+
+[node name="croupier" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 172.0
+offset_top = 126.99999
+offset_right = 1324.0
+offset_bottom = 770.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.7, 0.7)
+texture = ExtResource("3_djbji")
+
+[node name="table" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 2.0000005
+offset_right = 1352.0
+offset_bottom = 645.0
+scale = Vector2(0.85232586, 1.0018804)
+texture = ExtResource("3_001cw")
+expand_mode = 2
 
 [node name="play_button" type="Button" parent="."]
 layout_mode = 0
@@ -36,6 +74,7 @@ offset_left = 914.0
 offset_top = 399.0
 offset_right = 1101.0
 offset_bottom = 610.0
+theme = ExtResource("3_pcvq8")
 text = "PLAY
 "
 
@@ -45,6 +84,7 @@ offset_left = 895.0
 offset_top = 52.0
 offset_right = 1121.0
 offset_bottom = 208.0
+theme = ExtResource("3_pcvq8")
 text = "SHOP
 "
 
@@ -63,36 +103,48 @@ columns = 2
 [node name="coin1" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+theme = ExtResource("3_pcvq8")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="coin2" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+theme = ExtResource("3_pcvq8")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin3" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+theme = ExtResource("3_pcvq8")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin4" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+theme = ExtResource("3_pcvq8")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin5" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+theme = ExtResource("3_pcvq8")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin6" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+theme = ExtResource("3_pcvq8")
+theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
@@ -101,6 +153,7 @@ visible = false
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
+theme = ExtResource("3_pcvq8")
 icon = ExtResource("3_k0q6d")
 expand_icon = true
 
@@ -117,24 +170,32 @@ layout_mode = 0
 offset_right = 110.0
 offset_bottom = 23.0
 size_flags_horizontal = 4
+theme = ExtResource("3_pcvq8")
 text = "Are you sure ?"
 
 [node name="confirm" type="Button" parent="delete_popup"]
 layout_mode = 0
-offset_left = 8.0
-offset_top = 30.0
-offset_right = 45.0
-offset_bottom = 61.0
+offset_left = 7.0
+offset_top = 35.0
+offset_right = 62.0
+offset_bottom = 74.0
+theme = ExtResource("3_pcvq8")
 text = "YES
 "
 
 [node name="cancel" type="Button" parent="delete_popup"]
 layout_mode = 0
-offset_left = 64.0
-offset_top = 30.0
-offset_right = 101.0
-offset_bottom = 61.0
+offset_left = 123.0
+offset_top = 35.0
+offset_right = 169.0
+offset_bottom = 74.0
+theme = ExtResource("3_pcvq8")
 text = "NO"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_ake5v")
+}
 
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="shop_button" to="." method="_on_shop_button_pressed"]
