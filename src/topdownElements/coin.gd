@@ -7,6 +7,7 @@ signal onLanded(a,b)
 @export var value:float = 1
 @export var price:int = 1
 @export var effect = "aucun"
+@export var coinName:String
 
 @export_group("Mouvements")
 @export var mouvementMedian:Vector2 = Vector2(0,-500)
@@ -35,6 +36,13 @@ func _ready() -> void:
 	positionFinale = clamp(positionFinale, 
 		visibleRect.position, 
 		visibleRect.position + visibleRect.size)
+	
+	if resultat: 
+		$Label.label_settings.font_color = goodSideColor
+		$Label.text = "+ " + str(value)
+	else: 
+		$Label.label_settings.font_color = badSideColor
+		$Label.text = "Oops"
 	
 	add_to_group("coins")
 	

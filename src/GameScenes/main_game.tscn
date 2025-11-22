@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://df73jwxyyl64o"]
+[gd_scene load_steps=27 format=3 uid="uid://df73jwxyyl64o"]
 
 [ext_resource type="Script" uid="uid://begcex3rwt0lr" path="res://src/GameScenes/GameManager.gd" id="1_2rdtk"]
 [ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="10_8wwc8"]
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="10_bu5p1"]
 [ext_resource type="Texture2D" uid="uid://cr7fkrncxgp6i" path="res://assets/menues/armMouse.png" id="11_b173h"]
+[ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="12_54xyp"]
 [ext_resource type="PackedScene" uid="uid://fywtbwohbctn" path="res://src/GameScenes/player_list.tscn" id="13_54xyp"]
 
 [sub_resource type="Animation" id="Animation_patp3"]
@@ -256,6 +257,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CursorHand:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_2s2ie"]
 resource_name = "topDownStop"
@@ -308,6 +321,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("CursorHand:modulate")
+tracks/4/interp = 2
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_patp3"]
 _data = {
@@ -349,6 +374,72 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TableNormale:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_cid7t"]
+resource_name = "gameover_popup"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart_game"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("../TableNormale:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_bu5p1"]
 resource_name = "infoPopUpShow"
@@ -377,11 +468,64 @@ tracks/1/keys = {
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TableNormale:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 1.74),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [false, true]
+}
+
+[sub_resource type="Animation" id="Animation_uwvy7"]
+resource_name = "selectScreenPopup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("../TableNormale:visible")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b173h"]
 _data = {
 &"RESET": SubResource("Animation_b173h"),
-&"infoPopUpShow": SubResource("Animation_bu5p1")
+&"gameover_popup": SubResource("Animation_cid7t"),
+&"infoPopUpShow": SubResource("Animation_bu5p1"),
+&"selectScreenPopup": SubResource("Animation_uwvy7")
 }
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_8wwc8"]
@@ -411,7 +555,6 @@ position = Vector2(2, 0)
 hand_scene = ExtResource("6_xyymd")
 coin_scene = ExtResource("6_nbtn3")
 placementOffset = Vector2(0, 0)
-coinCastDelay = 0.8
 handSpawnDelay = 0.8
 metadata/_edit_lock_ = true
 
@@ -484,7 +627,6 @@ libraries = {
 }
 
 [node name="HBoxContainer" type="GridContainer" parent="Info_popup"]
-visible = false
 custom_minimum_size = Vector2(99, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -505,13 +647,58 @@ columns = 3
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Info_popup/HBoxContainer/choix1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_54xyp")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="choix2" type="Button" parent="Info_popup/HBoxContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Info_popup/HBoxContainer/choix2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_54xyp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Info_popup/HBoxContainer/choix2"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = -61.0
+offset_right = 429.0
+offset_bottom = -6.0
+theme_override_font_sizes/font_size = 40
+text = "BONUS SELECTION SCREEN"
+
 [node name="choix3" type="Button" parent="Info_popup/HBoxContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Info_popup/HBoxContainer/choix3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_54xyp")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ShaderRect" type="ColorRect" parent="."]
 visible = false

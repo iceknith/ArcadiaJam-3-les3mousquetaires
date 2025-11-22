@@ -106,7 +106,6 @@ func _on_confirm_pressed():
 	$delete_coin.hide()
 	force_select_coin()
 
-
 func _on_cancel_pressed():
 	$delete_popup.hide()
 

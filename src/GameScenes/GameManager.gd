@@ -1,18 +1,18 @@
 extends Node
 
+#all vals
 var base_rounds
 var game_over = false
 
-
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerVars.wave = 0
 	$Info_popup.visible=false
+	$Info_popup/HBoxContainer.visible = false
+	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Move light to mouse
 	var mousePos = get_viewport().get_mouse_position()
@@ -35,22 +35,17 @@ func gameloop():
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
 		PlayerVars.money -= PlayerVars.debt
 		bonusSelection()
-	elif PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0:
-		gameOver()
 
-
-func gameOver() -> void:
-	var message = "GAME OVER"
-	afficherMessage(message)
 	
 func new_wave()->void:
-	PlayerVars.round_left = PlayerVars.organes["leg"]
+	print("hey ?")
+	if game_over: return
+	PlayerVars.round_left = PlayerVars.organes["leg"]-1
 	PlayerVars.wave +=1
-	PlayerVars.debt = PlayerVars.wave*2 # TODO
+	PlayerVars.debt = 0
 	$top_UI.refresh()
 	$Shop.restock()
-	
-	#INFO POPUP
+
 	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
@@ -62,7 +57,9 @@ func collect_coins() -> float:
 		if coin.resultat:
 			total += coin.value
 	return total
-	
+
+func check_selected_coin():
+	return (PlayerVars.pieces[PlayerVars.selectedPiece]!="")
 
 func playRound() -> void:
 	PlayerVars.round_left-=1
@@ -70,6 +67,10 @@ func playRound() -> void:
 func backToMenu() -> void:
 	PlayerVars.money += collect_coins()
 	$top_UI.refresh()
+	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
+		gameOver()
+
+# MAIN UI ELMENTS ============================================
 
 # SHOP
 func _on_table_normale_shop() -> void:
@@ -85,9 +86,8 @@ func _on_table_normale_play() -> void:
 		
 		$TableTopdown/Launch.launch()
 		playRound()
-
-func check_selected_coin():
-	return (PlayerVars.pieces[PlayerVars.selectedPiece]!="")
+	else:
+		gameOver()
 
 
 func _on_shop_exit_shop():
@@ -116,7 +116,9 @@ func afficherMessage(message:String)->void:
 	$Info_popup/AnimationPlayer.play("infoPopUpShow")
 	$Info_popup/Label.text = message
 
-# SELECTION BONUS FIN WAVE
+# SELECTION BONUS FIN WAVE ============================================
+var bouton_1_bonus
+
 
 func _on_choix_1_pressed() -> void:
 	print("option 1 chosie")
@@ -133,11 +135,31 @@ func _on_choix_3_pressed() -> void:
 	exitBonusSelection()
 
 func bonusSelection() ->void:
+	$Info_popup/AnimationPlayer.play("selectScreenPopup")
+	$Info_popup/Label.text = "DEBUG"
 	$Info_popup.visible = true
 	$Info_popup/HBoxContainer.visible=true
+	$CursorHand.z_index = 100
+	
+
+
 
 func exitBonusSelection() ->void:
-	$Info_popup.visible = false
-	$Info_popup/HBoxContainer.visible=false
+	$Info_popup/HBoxContainer.hide()
 	new_wave()
+
+# GAME OVER ============================================
 	
+func gameOver() -> void:
+	game_over = true
+	print("GAME OVER !")
+	$Info_popup.visible=true
+	$Info_popup/HBoxContainer.visible=false
+	$Info_popup/AnimationPlayer.play("gameover_popup")
+	var message = "GAME OVER"
+	$Info_popup/Label.text = message
+
+
+func restart_game() -> void:
+	print("y")
+	get_tree().reload_current_scene()
