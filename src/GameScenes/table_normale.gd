@@ -25,9 +25,18 @@ func _on_shop_button_pressed() -> void:
 func update_pieces():
 	var pieces = $GridContainer.get_children()
 	var i = 0
+	var piece_name = ""
 	
 	for coin:Button in pieces:
-		coin.text = PlayerVars.pieces[i]
+		piece_name = PlayerVars.pieces[i]
+		if piece_name != "":
+			coin.tooltip_text= piece_name
+			print(PlayerVars.pieces[i])
+			coin.get_node("TextureRect").show()
+			coin.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
+			coin.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[PlayerVars.pieces[i]]["color"])
+		else:
+			coin.get_node("TextureRect").hide()
 		coin.disabled = PlayerVars.pieces[i] == ""
 		i+=1
 
