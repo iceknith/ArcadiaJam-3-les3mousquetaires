@@ -28,13 +28,16 @@ func _process(delta):
 	pass
 
 
+
 func update()->void:
+	$Organcontainer/Slot1/TextureRect.texture = load("res://assets/in-game/organs/eye.png")
 	on_bought.emit()
 	var i = 0
 	var organ_slots = $Organcontainer.get_children()
 	for slot:Button in organ_slots:
 		if available_organs[i] != {}:
 			slot.tooltip_text =  available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
+			slot.get_node("TextureRect").texture = load("res://assets/in-game/organs/" + available_organs[i]["name"] +".png")
 		else:
 			slot.text=""
 		i+=1

@@ -15,12 +15,19 @@ var organs = {
 		"value" : 1,
 		"price" : 2
 	},
-	"lung" : {
+	"lungs" : {
 		"image" : "",
 		"icon" : "",
 		"effect" : "",
 		"value" : 1,
 		"price" : 10
+	},
+	"liver" : {
+		"image" : "",
+		"icon" : "",
+		"effect" : "",
+		"value" : 1,
+		"price" : 8
 	},
 	"tooth" : {
 		"image" : "",
