@@ -13,7 +13,8 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	#Move light to mouse
+	$PointLight2D.global_position = get_viewport().get_mouse_position()
 
 
 func gameloop():
@@ -97,17 +98,10 @@ func _on_table_topdown_round_finised() -> void:
 	backToMenu()
 	
 	gameloop()
-	
-
 
 func _on_shop_on_bought():
 	$top_UI.refresh()
 
 func afficherMessage(message:String,time:float)->void:
-	$Info_popup.visible = true
+	$Info_popup/AnimationPlayer.play("infoPopUpShow")
 	$Info_popup/Label.text = message
-	$Info_popup/popupTimer.wait_time = time
-	$Info_popup/popupTimer.start()
-
-func _on_popup_timer_timeout() -> void:
-	$Info_popup.visible = false

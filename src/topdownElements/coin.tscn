@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bhh3posgxeirv"]
+[gd_scene load_steps=7 format=3 uid="uid://bhh3posgxeirv"]
 
 [ext_resource type="Texture2D" uid="uid://dkhidasixtyx6" path="res://assets/in-game/coin/coin_no_color.png" id="1_0msn4"]
 [ext_resource type="Script" uid="uid://g1cik0pvqtko" path="res://src/topdownElements/coin.gd" id="1_e3qj5"]
@@ -190,6 +190,9 @@ _data = {
 &"mouvementAnim": SubResource("Animation_dkdi1")
 }
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0msn4"]
+load_path = "res://.godot/imported/light.png-932c1a6057a3123b5cd0aaa0ecfcde15.ctex"
+
 [node name="Coin" type="Sprite2D"]
 modulate = Color(0, 0, 0, 0)
 texture = ExtResource("1_0msn4")
@@ -206,3 +209,6 @@ libraries = {
 &"": SubResource("AnimationLibrary_1fq1m")
 }
 autoplay = "mouvementAnim"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = SubResource("CompressedTexture2D_0msn4")
