@@ -4,7 +4,7 @@ var organes:Dictionary = {
 	"arm" : 2,
 	"leg" : 2,
 	"tooth" : 0,
-	"lung" : 2,
+	"lungs" : 2,
 	"liver" : 1,
 	"rib" : 0,
 	"eye" : 2
@@ -18,6 +18,11 @@ var pieces:Array = [
 	"",
 	""
 ]
+
+var bonus:Array = [
+	
+]
+
 var selectedPiece:int = 0
 
 func nb_piece() -> int:

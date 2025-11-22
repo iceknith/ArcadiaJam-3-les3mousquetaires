@@ -37,7 +37,8 @@ func _ready() -> void:
 
 # fonction appelé par le game manager
 func launch() -> void:
-	nombre_hands = PlayerVars.organes.get("arm")
+	nombre_hands = PlayerVars.organes.get("arm") + PlayerVars.organes.get("tooth")
+	PlayerVars.organes["tooth"]=0
 	$startDelay.start()
 	currentHandNumber = 0
 

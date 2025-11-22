@@ -15,6 +15,8 @@ func refresh():
 	$money.text = str(PlayerVars.money) + " / " + str(PlayerVars.debt)
 	if PlayerVars.round_left > 1:
 		$round_left.text = str(PlayerVars.round_left) + " rounds left"
-	else:
+	elif PlayerVars.round_left == 1:
 		$round_left.text = "Last round"
+	else:
+		$round_left.text = str(PlayerVars.round_left) + " rounds left"
 	
