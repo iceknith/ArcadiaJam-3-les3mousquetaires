@@ -58,10 +58,15 @@ func _process(delta: float) -> void:
 func placeHand() ->void:
 	var hand_instance = hand_scene.instantiate()
 	# position main
+	RandomNumberGenerator.new().randomize()
 	var x_position = screen_width/2 + randf_range(-1,1)* spawnRange
 	var y_position = screen_height - hand_hauteur_position
 	var placement = Vector2(x_position,y_position)
 	hand_instance.global_position = placement
+	
+	hand_instance.scale +=0.5*Vector2(randf()*hand_instance.scale.x,randf()*hand_instance.scale.x)
+	
+	#instancie piece
 	add_child(hand_instance)
 	get_tree().create_timer(coinCastDelay).timeout.connect(placeCoin.bind(placement + placementOffset))
 	
@@ -87,7 +92,9 @@ func _on_table_topdown_round_finised() -> void:
 func change_coin_type(coin:Coin) ->void:
 	nom_piece = PlayerVars.pieces[PlayerVars.selectedPiece]
 	dico_piece = PieceVars.pieces[nom_piece]
+	print("current piece -->"+str(dico_piece))
 	coin.chance = dico_piece["luck"]
 	coin.value = dico_piece["value"]
 	coin.effect = dico_piece["effect"]
+	coin.variance+=Vector2(randf()*dico_piece["value"]*20,randf()*dico_piece["value"]*20)
 	coin.goodSideColor = dico_piece["color"]

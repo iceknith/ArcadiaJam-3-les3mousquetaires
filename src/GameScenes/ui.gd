@@ -14,7 +14,7 @@ func _process(delta):
 func refresh():
 	$money.text = str(PlayerVars.money) + " / " + str(PlayerVars.debt)
 	if PlayerVars.round_left > 1:
-		$round_left.text = str(PlayerVars.round_left) + " flips left"
+		$round_left.text = str(PlayerVars.round_left) + " rounds left"
 	else:
-		$round_left.text = "Last flip"
+		$round_left.text = "Last round"
 	

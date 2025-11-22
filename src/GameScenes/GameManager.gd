@@ -27,7 +27,7 @@ func gameloop():
 	if game_over: return
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
 		PlayerVars.money -= PlayerVars.debt
-		new_wave()
+		bonusSelection()
 	elif PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0:
 		gameOver()
 
@@ -108,3 +108,32 @@ func _on_shop_on_bought():
 func afficherMessage(message:String)->void:
 	$Info_popup/AnimationPlayer.play("infoPopUpShow")
 	$Info_popup/Label.text = message
+
+# SELECTION FIN WAVE
+
+func _on_choix_1_pressed() -> void:
+	print("option 1 chosie")
+	exitBonusSelection()
+	pass # Replace with function body.
+
+
+func _on_choix_2_pressed() -> void:
+	print("option 2 chosie")
+	exitBonusSelection()
+	pass # Replace with function body.
+
+
+func _on_choix_3_pressed() -> void:
+	print("option 3 chosie")
+	exitBonusSelection()
+	pass # Replace with function body.
+
+func bonusSelection() ->void:
+	$Info_popup.visible = true
+	$Info_popup/HBoxContainer.visible=true
+
+func exitBonusSelection() ->void:
+	$Info_popup.visible = false
+	$Info_popup/HBoxContainer.visible=false
+	new_wave()
+	
