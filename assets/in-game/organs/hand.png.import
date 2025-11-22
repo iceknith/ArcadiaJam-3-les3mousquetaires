@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cg26o328wx2ig"
-path="res://.godot/imported/feet.png-53088dc489652ac5b621b685582d2fd0.ctex"
+uid="uid://cxj5dxwy04knr"
+path="res://.godot/imported/hand.png-0ac4ee5b88b6ad6eb45b8f62c30149d1.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/in-game/organs/feet.png"
-dest_files=["res://.godot/imported/feet.png-53088dc489652ac5b621b685582d2fd0.ctex"]
+source_file="res://assets/in-game/organs/hand.png"
+dest_files=["res://.godot/imported/hand.png-0ac4ee5b88b6ad6eb45b8f62c30149d1.ctex"]
 
 [params]
 

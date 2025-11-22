@@ -37,7 +37,7 @@ func update()->void:
 	for slot:Button in organ_slots:
 		if available_organs[i] != {}:
 			slot.tooltip_text =  available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
-			slot.get_node("TextureRect").texture = load("res://assets/in-game/organs/" + available_organs[i]["name"] +".png")
+			slot.get_node("TextureRect").texture = load(OrganVars.organs[available_organs[i]["name"]].image)
 		else:
 			slot.text=""
 		i+=1

@@ -1,7 +1,24 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://cw2c2a8jmrhke"]
+[gd_resource type="Theme" load_steps=5 format=3 uid="uid://cw2c2a8jmrhke"]
 
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="1_if6vc"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_if6vc"]
+bg_color = Color(0.19607843, 0.19607843, 0.19607843, 0.5882353)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ssy0u"]
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.8, 0.8, 0.8, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rnpv8"]
+bg_color = Color(0, 0, 0, 1)
 
 [resource]
 default_font = ExtResource("1_if6vc")
 default_font_size = 30
+Button/styles/hover = SubResource("StyleBoxFlat_if6vc")
+Button/styles/normal = SubResource("StyleBoxFlat_ssy0u")
+Button/styles/pressed = SubResource("StyleBoxFlat_rnpv8")
