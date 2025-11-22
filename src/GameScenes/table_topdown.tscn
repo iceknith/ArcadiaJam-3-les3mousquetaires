@@ -1,19 +1,19 @@
 [gd_scene load_steps=3 format=3 uid="uid://dy74rt86qrt0a"]
 
-[ext_resource type="Texture2D" uid="uid://cdtg57d4mn8md" path="res://src/debugSprites/table.png" id="1_nakkt"]
 [ext_resource type="Script" uid="uid://dy4smmjokfsnh" path="res://src/GameScenes/table_topdown.gd" id="1_q7kqu"]
+[ext_resource type="Texture2D" uid="uid://o8dy4on3a472" path="res://assets/in-game/table/table2.png" id="2_q7kqu"]
 
 [node name="TableTopdown" type="Node2D"]
 script = ExtResource("1_q7kqu")
 
-[node name="TableVueDuDessus" type="Sprite2D" parent="."]
-position = Vector2(571, 305)
-scale = Vector2(0.8385185, 1)
-
-[node name="Table" type="Sprite2D" parent="."]
-modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
-position = Vector2(565, 312)
-texture = ExtResource("1_nakkt")
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(1152, 648)
+offset_left = -153.139
+offset_right = 1305.1395
+offset_bottom = 648.0
+texture = ExtResource("2_q7kqu")
+expand_mode = 3
+stretch_mode = 5
 
 [node name="scoreTimeDelay" type="Timer" parent="."]
 wait_time = 10.0

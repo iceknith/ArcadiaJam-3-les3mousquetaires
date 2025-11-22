@@ -61,17 +61,19 @@ func backToMenu() -> void:
 func _on_table_normale_shop() -> void:
 	if game_over: return
 	$Shop.visible = true
-	$TableNormale.visible = false
-	$TableTopdown.visible = false
+	#$TableNormale.visible = false
+	#$TableTopdown.visible = false
+	$TransitionPlayer.play("shopLaunch")
 
 #ENTER ROUND
 func _on_table_normale_play() -> void:
 	if check_selected_coin():
 		$Shop.visible = false
-		$TableNormale.visible = false
-		$TableTopdown.visible = true
+		#$TableNormale.visible = false
+		#$TableTopdown.visible = true
+		$TransitionPlayer.play("topDownLaunch")
 		
-		$Launch.launch()
+		$TableTopdown/Launch.launch()
 		playRound()
 
 func check_selected_coin():
@@ -81,8 +83,9 @@ func check_selected_coin():
 func _on_shop_exit_shop():
 	if game_over: return
 	$Shop.visible = false
-	$TableNormale.visible = true
-	$TableTopdown.visible = false
+	#$TableNormale.visible = true
+	#$TableTopdown.visible = false
+	$TransitionPlayer.play("shopStop")
 	
 	$top_UI.refresh()
 	$TableNormale/delete_popup.hide()
@@ -91,8 +94,10 @@ func _on_shop_exit_shop():
 #EXIT ROUND
 func _on_table_topdown_round_finised() -> void:
 	$Shop.visible = false
-	$TableNormale.visible = true
-	$TableTopdown.visible = false
+	#$TableNormale.visible = true
+	#$TableTopdown.visible = false
+	$TransitionPlayer.play("topDownStop")
+	
 	$top_UI.refresh()
 	backToMenu()
 	
