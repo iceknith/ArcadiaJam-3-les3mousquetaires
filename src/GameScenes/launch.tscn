@@ -4,3 +4,7 @@
 
 [node name="Launch" type="Node2D"]
 script = ExtResource("1_gu6eo")
+
+[node name="handSpawnDelay" type="Timer" parent="."]
+
+[connection signal="timeout" from="handSpawnDelay" to="." method="_on_hand_spawn_delay_timeout"]

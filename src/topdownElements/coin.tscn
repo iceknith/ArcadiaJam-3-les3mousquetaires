@@ -15,6 +15,7 @@ animations = [{
 }]
 
 [node name="Node2D" type="AnimatedSprite2D"]
+modulate = Color(1, 1, 1, 0.12941177)
 sprite_frames = SubResource("SpriteFrames_dkdi1")
 script = ExtResource("1_e3qj5")
 metadata/_custom_type_script = "uid://g1cik0pvqtko"

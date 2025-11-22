@@ -16,7 +16,7 @@ func _process(delta: float) -> void:
 	
 func afficheScore() -> void:
 	PlayerVars.score += collect_coins()
-	$PlayerScore.text = "score:" + str(PlayerVars.score) + "/" + str(scoreThreshold) + "\n" + "money:"+str(PlayerVars.money)
+	$PlayerScore.text = "score:" + str(PlayerVars.money)
 
 
 func collect_coins() -> int:

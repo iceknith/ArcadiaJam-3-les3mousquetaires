@@ -35,8 +35,6 @@ position = Vector2(2, 0)
 hand_scene = ExtResource("6_xyymd")
 coin_scene = ExtResource("6_nbtn3")
 
-[node name="Timer" type="Timer" parent="Launch"]
-
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]
 [connection signal="exitShop" from="Shop" to="." method="_on_shop_exit_shop"]
