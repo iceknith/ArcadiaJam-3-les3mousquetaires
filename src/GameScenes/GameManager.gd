@@ -5,6 +5,7 @@ var base_rounds
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerVars.wave = 0
+	$Info_popup.visible=false
 	new_wave()
 
 
@@ -20,11 +21,13 @@ func gameloop():
 	elif PlayerVars.round_left <= 0:
 		gameOver()
 
-	if PlayerVars.money > 999:
-		win()
 
 func gameOver() -> void:
-	#TODO MESSAGE GAME OVER / GAME OVER SCREEN
+	#INFO POPUP
+	$Info_popup.visible = true
+	$Info_popup/Label.text = "GAME OVER"
+	$Info_popup/popupTimer.wait_time = 99
+	$Info_popup/popupTimer.start()
 	pass
 
 func new_wave()->void:
@@ -33,9 +36,13 @@ func new_wave()->void:
 	PlayerVars.debt = PlayerVars.wave*2 # TODO
 	$top_UI.refresh()
 	$Shop.restock()
-
-func win()->void:
-	pass
+	
+	#INFO POPUP
+	$Info_popup.visible = true
+	if(PlayerVars.wave==1): $Info_popup/Label.text = "Let's play a game..."
+	else: $Info_popup/Label.text = "NOUVELLE VAGUE"
+	$Info_popup/popupTimer.wait_time = 2.5
+	$Info_popup/popupTimer.start()
 
 
 
@@ -96,3 +103,7 @@ func _on_table_topdown_round_finised() -> void:
 
 func _on_shop_on_bought():
 	$top_UI.refresh()
+
+
+func _on_popup_timer_timeout() -> void:
+	$Info_popup.visible = false

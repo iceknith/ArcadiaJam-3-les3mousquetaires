@@ -17,11 +17,6 @@ var available_pieces = [
 	{}
 ]
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	restock()
-	update()
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -30,7 +25,6 @@ func _process(delta):
 
 
 func update()->void:
-	$Organcontainer/Slot1/TextureRect.texture = load("res://assets/in-game/organs/eye.png")
 	on_bought.emit()
 	var i = 0
 	var organ_slots = $Organcontainer.get_children()
@@ -39,9 +33,11 @@ func update()->void:
 			slot.tooltip_text = available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
 			slot.get_node("TextureRect").texture = load(OrganVars.organs[available_organs[i]["name"]].image)
+			slot.disabled = false
 		else:
 			slot.tooltip_text=""
 			slot.get_node("TextureRect").hide()
+			slot.disabled = true
 		i+=1
 	i=0
 	var piece_slots = $Coincontainer.get_children()
@@ -51,9 +47,11 @@ func update()->void:
 			slot.get_node("TextureRect").show()
 			slot.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
 			slot.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[available_pieces[i]["name"]]["color"])
+			slot.disabled = false
 		else:
 			slot.tooltip_text=""
 			slot.get_node("TextureRect").hide()
+			slot.disabled = true
 		i+=1
 
 
@@ -75,6 +73,8 @@ func restock() -> void:
 		available_pieces[i]["name"]= piece["name"]
 		available_pieces[i]["price"]= piece["price"]
 		i+=1
+	
+	update()
 
 func get_random_piece() -> Dictionary:
 	var piece_name = PieceVars.pieces.keys()[randi_range(0,PieceVars.pieces.size()-1)]
