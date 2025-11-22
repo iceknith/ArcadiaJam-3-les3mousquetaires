@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=11 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
 [ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
 [ext_resource type="Texture2D" uid="uid://clf7q0s63sfx8" path="res://assets/in-game/bgs/elements/table.png" id="3_001cw"]
 [ext_resource type="Texture2D" uid="uid://culyap7qil10c" path="res://assets/in-game/bgs/elements/merchant.png" id="3_djbji"]
+[ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="3_k0q6d"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="3_pcvq8"]
 [ext_resource type="Texture2D" uid="uid://xj6yutcfpswx" path="res://assets/menues/cross.png" id="6_djbji"]
 
@@ -41,6 +42,7 @@ texture = ExtResource("2_pcvq8")
 expand_mode = 2
 
 [node name="croupier" type="TextureRect" parent="."]
+z_index = -2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -57,6 +59,7 @@ scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_djbji")
 
 [node name="table" type="TextureRect" parent="."]
+z_index = -1
 layout_mode = 0
 offset_left = 2.0
 offset_top = 2.0000005
@@ -89,8 +92,6 @@ text = "SHOP
 [node name="selection_coin" type="Node2D" parent="."]
 
 [node name="GridContainer" type="GridContainer" parent="."]
-modulate = Color(0.8761613, 0.5507587, 0, 1)
-self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
 offset_left = 14.115
 offset_top = 400.0
@@ -107,6 +108,19 @@ theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
+[node name="TextureRect" type="TextureRect" parent="GridContainer/coin1"]
+z_index = -1
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k0q6d")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="coin2" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -115,6 +129,19 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/coin2"]
+z_index = -1
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k0q6d")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="coin3" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
@@ -125,6 +152,19 @@ theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
+[node name="TextureRect" type="TextureRect" parent="GridContainer/coin3"]
+z_index = -1
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k0q6d")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="coin4" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -133,6 +173,19 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/coin4"]
+z_index = -1
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k0q6d")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="coin5" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
@@ -143,6 +196,19 @@ theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
+[node name="TextureRect" type="TextureRect" parent="GridContainer/coin5"]
+z_index = -1
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k0q6d")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="coin6" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
@@ -151,6 +217,19 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+
+[node name="TextureRect" type="TextureRect" parent="GridContainer/coin6"]
+z_index = -1
+texture_filter = 2
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_k0q6d")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="delete_coin" type="Button" parent="."]
 visible = false
