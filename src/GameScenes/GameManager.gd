@@ -9,12 +9,19 @@ func _ready() -> void:
 	PlayerVars.wave = 0
 	$Info_popup.visible=false
 	new_wave()
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	#Move light to mouse
-	$PointLight2D.global_position = get_viewport().get_mouse_position()
-
+	var mousePos = get_viewport().get_mouse_position()
+	mousePos.y = max(0, mousePos.y)
+	$PointLight2D.global_position = mousePos
+	$CursorHand.global_position = mousePos - $CursorHand/fingerMarker.position*$CursorHand.global_scale
+	
+	if Input.is_action_pressed("click"): $CursorHand.frame = 1
+	else: $CursorHand.frame = 0
 
 func gameloop():
 	if game_over: return
@@ -27,8 +34,7 @@ func gameloop():
 
 func gameOver() -> void:
 	var message = "GAME OVER"
-	game_over = true
-	afficherMessage(message,99)
+	afficherMessage(message)
 	
 func new_wave()->void:
 	PlayerVars.round_left = PlayerVars.organes["leg"]
@@ -38,8 +44,8 @@ func new_wave()->void:
 	$Shop.restock()
 	
 	#INFO POPUP
-	var message = "NEW WAVE \n your debt is :"+str(PlayerVars.debt)+" pieces"
-	afficherMessage(message,2)
+	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	afficherMessage(message)
 
 
 func collect_coins() -> float:
@@ -62,16 +68,12 @@ func backToMenu() -> void:
 func _on_table_normale_shop() -> void:
 	if game_over: return
 	$Shop.visible = true
-	#$TableNormale.visible = false
-	#$TableTopdown.visible = false
 	$TransitionPlayer.play("shopLaunch")
 
 #ENTER ROUND
 func _on_table_normale_play() -> void:
 	if check_selected_coin():
 		$Shop.visible = false
-		#$TableNormale.visible = false
-		#$TableTopdown.visible = true
 		$TransitionPlayer.play("topDownLaunch")
 		
 		$TableTopdown/Launch.launch()
@@ -84,8 +86,6 @@ func check_selected_coin():
 func _on_shop_exit_shop():
 	if game_over: return
 	$Shop.visible = false
-	#$TableNormale.visible = true
-	#$TableTopdown.visible = false
 	$TransitionPlayer.play("shopStop")
 	
 	$top_UI.refresh()
@@ -95,8 +95,6 @@ func _on_shop_exit_shop():
 #EXIT ROUND
 func _on_table_topdown_round_finised() -> void:
 	$Shop.visible = false
-	#$TableNormale.visible = true
-	#$TableTopdown.visible = false
 	$TransitionPlayer.play("topDownStop")
 	
 	$top_UI.refresh()
@@ -107,7 +105,7 @@ func _on_table_topdown_round_finised() -> void:
 func _on_shop_on_bought():
 	$top_UI.refresh()
 
-func afficherMessage(message:String,time:float)->void:
+func afficherMessage(message:String)->void:
 	$Info_popup/AnimationPlayer.play("infoPopUpShow")
 	$Info_popup/Label.text = message
 
