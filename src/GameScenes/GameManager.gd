@@ -37,11 +37,11 @@ func new_wave()->void:
 	if game_over: return
 	PlayerVars.round_left = PlayerVars.organes["leg"]-1
 	PlayerVars.wave +=1
-	PlayerVars.debt = 0
+	PlayerVars.debt = PlayerVars.wave ** 2 #TODO
 	$top_UI.refresh()
 	$Shop.restock()
 
-	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	var message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
 
@@ -60,7 +60,7 @@ func playRound() -> void:
 	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
-	PlayerVars.money += collect_coins()
+	#PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
 		gameOver()
@@ -134,12 +134,13 @@ func bonusSelection() ->void:
 	$Info_popup/Label.text = "DEBUG"
 	$Info_popup.visible = true
 	$Info_popup/HBoxContainer.visible=true
-	$CursorHand.z_index = 100
+	$CursorHand.z_index = 101
 	
 
 
 
 func exitBonusSelection() ->void:
+	$CursorHand.z_index = 100
 	$Info_popup/HBoxContainer.hide()
 	new_wave()
 
@@ -157,4 +158,6 @@ func gameOver() -> void:
 
 func restart_game() -> void:
 	print("y")
+	PlayerVars.set_script(null)
+	PlayerVars.set_script(preload("res://src/globalVars/playerVars.gd"))
 	get_tree().reload_current_scene()
