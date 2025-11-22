@@ -1,6 +1,5 @@
 extends Control
 
-
 signal on_bought
 
 var available_organs = [
@@ -30,6 +29,7 @@ func _process(delta):
 
 
 func update()->void:
+	on_bought.emit()
 	var i = 0
 	var organ_slots = $Organcontainer.get_children()
 	for slot:Button in organ_slots:
@@ -68,21 +68,18 @@ func restock() -> void:
 		i+=1
 
 func get_random_piece() -> Dictionary:
-	return {
-		"price" = 1, 
-		"name" = "red"
-		}
+	var piece_name = OrganVars.pieces.keys()[randi_range(0,OrganVars.pieces.size()-1)]
+	var piece = OrganVars.pieces[piece_name]
+	piece["name"] = piece_name
+	return piece
 
 
 func get_random_organ() -> Dictionary:
-	return {
-		"name" : "arm",
-		"image" : "",
-		"icon" : "",
-		"effect" : "",
-		"value" : 1,
-		"price" : 1
-		}
+	var organ_name = OrganVars.organs.keys()[randi_range(0,OrganVars.organs.size()-1)]
+	var organ = OrganVars.organs[organ_name]
+	organ["name"] = organ_name
+	return organ
+
 
 func buy_organ(slot:int) -> void:
 	if available_organs[slot] == {}:
@@ -101,18 +98,24 @@ func buy_organ(slot:int) -> void:
 func buy_piece(slot:int) -> void:
 	if available_pieces[slot] == {}:
 		return
-	if PlayerVars.money >= available_pieces[slot]["price"]: #verif inventaire à ajouter
+	if PlayerVars.money >= available_pieces[slot]["price"]:
+		if PlayerVars.nb_piece() < 6: #verif inventaire à ajouter
 		#achat de la piece
-		PlayerVars.money -= available_pieces[slot]["price"]
-		ajouter_piece(available_pieces[slot]["name"])
-		print("+1 piece ",available_pieces[slot]["name"])
-		available_pieces[slot] = {}
-		update()
+			PlayerVars.money -= available_pieces[slot]["price"]
+			ajouter_piece(available_pieces[slot]["name"])
+			print("+1 piece ",available_pieces[slot]["name"],", vous avez : ",PlayerVars.pieces)
+			available_pieces[slot] = {}
+			update()
+		else:
+			print("Inventaire plein")
 	else:
 		print("Pas assez d'argent")
 
 func ajouter_piece(name:String) -> void:
-	pass
+	for i in range(6):
+		if PlayerVars.pieces[i] == "":
+			PlayerVars.pieces[i] = name
+			return
 
 func _on_slot_1_pressed():
 	buy_organ(0)

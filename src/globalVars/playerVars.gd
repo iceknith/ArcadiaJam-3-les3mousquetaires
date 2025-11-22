@@ -7,9 +7,19 @@ var organes:Dictionary = {
 
 var pieces:Array = [
 	"red",
+	"red",
+	"red",
+	"red",
 	"",
 	""
 ]
+
+func nb_piece() -> int:
+	var count = 0
+	for i in range(6):
+		if (pieces[i]!=""):
+			count+=1
+	return count
 
 var wave = 0
 var money:int = 10

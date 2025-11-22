@@ -25,3 +25,8 @@ func _on_table_normale_play() -> void:
 	$Shop.visible = false
 	$TableNormale.visible = false
 	$TableTopdown.visible = true
+
+
+
+func _on_shop_on_bought():
+	$TableNormale.update_pieces()

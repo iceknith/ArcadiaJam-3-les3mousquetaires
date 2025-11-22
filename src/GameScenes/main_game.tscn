@@ -28,3 +28,4 @@ money
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]
+[connection signal="on_bought" from="Shop" to="." method="_on_shop_on_bought"]

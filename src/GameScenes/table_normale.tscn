@@ -12,6 +12,8 @@ layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+offset_right = -1152.0
+offset_bottom = -648.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_1dxgy")
@@ -57,38 +59,52 @@ theme_override_font_sizes/font_size = 50
 text = "tours restants"
 
 [node name="GridContainer" type="GridContainer" parent="."]
-modulate = Color(1, 1, 0, 1)
+modulate = Color(0.8761613, 0.5507587, 0, 1)
+self_modulate = Color(0, 0, 0, 1)
 layout_mode = 0
-offset_left = 35.000004
-offset_top = 412.0
-offset_right = 56.800003
-offset_bottom = 447.0
-scale = Vector2(6, 6)
+offset_left = 14.115
+offset_top = 400.0
+offset_right = 158.115
+offset_bottom = 618.00024
 columns = 2
 
 [node name="coin1" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="coin2" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin3" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin4" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin5" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="coin6" type="Button" parent="GridContainer"]
+custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="shop_button" to="." method="_on_shop_button_pressed"]
+[connection signal="toggled" from="GridContainer/coin1" to="." method="_on_coin_1_toggled"]
+[connection signal="toggled" from="GridContainer/coin2" to="." method="_on_coin_2_toggled"]
