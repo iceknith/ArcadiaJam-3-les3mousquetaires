@@ -69,6 +69,7 @@ theme_override_constants/separation = 50
 [node name="Slot1" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 theme_override_fonts/font = ExtResource("3_8qqtn")
 
@@ -87,6 +88,7 @@ stretch_mode = 5
 [node name="Slot2" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot2"]
@@ -104,6 +106,7 @@ stretch_mode = 5
 [node name="Slot3" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot3"]
@@ -121,6 +124,7 @@ stretch_mode = 5
 [node name="Slot4" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot4"]
@@ -138,6 +142,7 @@ stretch_mode = 5
 [node name="Slot5" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot5"]
@@ -163,6 +168,7 @@ theme_override_constants/separation = 54
 [node name="coin_slot1" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot1"]
@@ -181,6 +187,7 @@ stretch_mode = 5
 [node name="coin_slot2" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot2"]
@@ -198,6 +205,7 @@ stretch_mode = 5
 [node name="coin_slot3" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("2_270xf")
 
 [node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot3"]
