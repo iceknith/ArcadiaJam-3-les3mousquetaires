@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=12 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
 [ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="3_k0q6d"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="3_pcvq8"]
 [ext_resource type="Texture2D" uid="uid://xj6yutcfpswx" path="res://assets/menues/cross.png" id="6_djbji"]
+[ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="8_cn1ww"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1dxgy"]
 
@@ -89,6 +90,9 @@ text = "SHOP
 
 [node name="selection_coin" type="Node2D" parent="."]
 
+[node name="PointLight2D" type="PointLight2D" parent="."]
+texture = ExtResource("8_cn1ww")
+
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
 offset_left = 235.0
@@ -109,7 +113,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin1"]
-z_index = -1
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
@@ -131,7 +134,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin2"]
-z_index = -1
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
@@ -153,7 +155,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin3"]
-z_index = -1
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
@@ -175,7 +176,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin4"]
-z_index = -1
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
@@ -197,7 +197,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin5"]
-z_index = -1
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
@@ -219,7 +218,6 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin6"]
-z_index = -1
 texture_filter = 2
 layout_mode = 1
 anchors_preset = 15
