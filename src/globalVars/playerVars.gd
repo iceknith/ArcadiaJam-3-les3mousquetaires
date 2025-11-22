@@ -18,7 +18,7 @@ var pieces:Array = [
 	"",
 	""
 ]
-var selectedPiece = pieces[0]
+var selectedPiece:int = 0
 
 func nb_piece() -> int:
 	var count = 0

@@ -1,10 +1,12 @@
 extends Node
 
 var base_rounds
+var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	PlayerVars.wave = 0
+	$Info_popup.visible=false
 	new_wave()
 
 
@@ -17,29 +19,28 @@ func _process(delta: float) -> void:
 
 
 func gameloop():
+	if game_over: return
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
 		PlayerVars.money -= PlayerVars.debt
 		new_wave()
-	elif PlayerVars.round_left <= 0:
+	elif PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0:
 		gameOver()
 
-	if PlayerVars.money > 999:
-		win()
 
 func gameOver() -> void:
-	#TODO MESSAGE GAME OVER / GAME OVER SCREEN
-	pass
-
+	var message = "GAME OVER"
+	afficherMessage(message,99)
+	
 func new_wave()->void:
-	PlayerVars.round_left = 3 + PlayerVars.organes["leg"]
+	PlayerVars.round_left = PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
 	PlayerVars.debt = PlayerVars.wave*2 # TODO
 	$top_UI.refresh()
 	$Shop.restock()
-
-func win()->void:
-	pass
-
+	
+	#INFO POPUP
+	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	afficherMessage(message,2)
 
 
 func collect_coins() -> float:
@@ -55,26 +56,32 @@ func playRound() -> void:
 	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
-	$top_UI.refresh()
 	PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 
 # SHOP
 func _on_table_normale_shop() -> void:
+	if game_over: return
 	$Shop.visible = true
 	$TableNormale.visible = false
 	$TableTopdown.visible = false
 
 #ENTER ROUND
 func _on_table_normale_play() -> void:
-	$Shop.visible = false
-	$TableNormale.visible = false
-	$TableTopdown.visible = true
-	
-	$Launch.launch()
-	playRound()
+	if check_selected_coin():
+		$Shop.visible = false
+		$TableNormale.visible = false
+		$TableTopdown.visible = true
+		
+		$Launch.launch()
+		playRound()
+
+func check_selected_coin():
+	return (PlayerVars.pieces[PlayerVars.selectedPiece]!="")
+
 
 func _on_shop_exit_shop():
+	if game_over: return
 	$Shop.visible = false
 	$TableNormale.visible = true
 	$TableTopdown.visible = false
@@ -91,7 +98,18 @@ func _on_table_topdown_round_finised() -> void:
 	$top_UI.refresh()
 	backToMenu()
 	
+	gameloop()
+	
 
 
 func _on_shop_on_bought():
 	$top_UI.refresh()
+
+func afficherMessage(message:String,time:float)->void:
+	$Info_popup.visible = true
+	$Info_popup/Label.text = message
+	$Info_popup/popupTimer.wait_time = time
+	$Info_popup/popupTimer.start()
+
+func _on_popup_timer_timeout() -> void:
+	$Info_popup.visible = false
