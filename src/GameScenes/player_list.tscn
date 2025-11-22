@@ -1,0 +1,75 @@
+[gd_scene load_steps=4 format=3 uid="uid://fywtbwohbctn"]
+
+[ext_resource type="Script" uid="uid://8gkg70lmednt" path="res://src/GameScenes/player_list.gd" id="1_n034w"]
+[ext_resource type="Script" uid="uid://bc7weugwxcff8" path="res://src/GameScenes/container.gd" id="2_cnbi8"]
+[ext_resource type="Texture2D" uid="uid://btpwoeh1lv4tt" path="res://assets/in-game/organs/leg.png" id="2_h52i5"]
+
+[node name="Player_list" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_n034w")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 319.0
+offset_top = -432.0
+offset_right = 403.0
+offset_bottom = -201.0
+grow_vertical = 0
+text = "Wave 4
+
+Money : 15
+
+Debt : 112 
+
+
+
+"
+
+[node name="Container" type="GridContainer" parent="."]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 0
+offset_left = 22.0
+offset_top = 35.0
+offset_right = 1136.0
+offset_bottom = 258.0
+columns = 10
+script = ExtResource("2_cnbi8")
+
+[node name="TextureRect" type="TextureRect" parent="Container"]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_h52i5")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 170.0
+offset_top = 217.0
+offset_right = 254.0
+offset_bottom = 526.0
+grow_horizontal = 2
+text = "Flips : 12
+
+Rounds : 7
+
+value : 4
+
+Luck : 0.8
+
+
+
+
+
+"
