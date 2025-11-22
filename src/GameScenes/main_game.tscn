@@ -552,6 +552,7 @@ metadata/_edit_lock_ = true
 [connection signal="exitShop" from="Shop" to="." method="_on_shop_exit_shop"]
 [connection signal="on_bought" from="Shop" to="." method="_on_shop_on_bought"]
 [connection signal="roundFinised" from="TableTopdown" to="." method="_on_table_topdown_round_finised"]
+[connection signal="roundFinised" from="TableTopdown" to="TableTopdown/Launch" method="_on_table_topdown_round_finised"]
 [connection signal="pressed" from="Info_popup/HBoxContainer/choix1" to="." method="_on_choix_1_pressed"]
 [connection signal="pressed" from="Info_popup/HBoxContainer/choix2" to="." method="_on_choix_2_pressed"]
 [connection signal="pressed" from="Info_popup/HBoxContainer/choix3" to="." method="_on_choix_3_pressed"]

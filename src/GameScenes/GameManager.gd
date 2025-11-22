@@ -109,24 +109,21 @@ func afficherMessage(message:String)->void:
 	$Info_popup/AnimationPlayer.play("infoPopUpShow")
 	$Info_popup/Label.text = message
 
-# SELECTION FIN WAVE
+# SELECTION BONUS FIN WAVE
 
 func _on_choix_1_pressed() -> void:
 	print("option 1 chosie")
 	exitBonusSelection()
-	pass # Replace with function body.
 
 
 func _on_choix_2_pressed() -> void:
 	print("option 2 chosie")
 	exitBonusSelection()
-	pass # Replace with function body.
 
 
 func _on_choix_3_pressed() -> void:
 	print("option 3 chosie")
 	exitBonusSelection()
-	pass # Replace with function body.
 
 func bonusSelection() ->void:
 	$Info_popup.visible = true
