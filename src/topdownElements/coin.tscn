@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhh3posgxeirv"]
+[gd_scene load_steps=9 format=3 uid="uid://bhh3posgxeirv"]
 
 [ext_resource type="Texture2D" uid="uid://dkhidasixtyx6" path="res://assets/in-game/coin/coin_no_color.png" id="1_0msn4"]
 [ext_resource type="Script" uid="uid://g1cik0pvqtko" path="res://src/topdownElements/coin.gd" id="1_e3qj5"]
+[ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="3_dkdi1"]
 
 [sub_resource type="Animation" id="Animation_imjkf"]
 length = 0.001
@@ -85,10 +86,34 @@ tracks/6/keys = {
 "update": 0,
 "values": [0.0]
 }
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Label:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Label:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-71, -33)]
+}
 
 [sub_resource type="Animation" id="Animation_dkdi1"]
 resource_name = "mouvementAnim"
-length = 3.5
+length = 4.2
 tracks/0/type = "bezier"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -96,9 +121,9 @@ tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"points": PackedFloat32Array(11, -0.13333333, -6.919797, 0.2, -0.35747242, 11, -0.19999999, -0.22234154, 0, -11.017356, -0.017355956, -0.25, 0, 0.15556669, 2.5520525, 11, -0.099999994, -6.5734763, 0, -11.017356, 0.23747754, -0.0014577409, 1.4468882, 0.00039225817, -0.38933784, -0.017355956, -0.25, 0, 0.104804575, 5.389793, 11, -0.099999994, -6.5734763, 0, -11.017356, -0.017355956, -0.25, 0, 0.071471214, 6.200576, 11, -0.06742883, -4.9519105, 0, -11.017356, -0.017355956, -0.25, 0, 0.054804504, 6.3357067, 11, -0.034095466, -4.681649, 0, -11.017356, -0.017355956, -0.25, 0, 0.034810185, 6.3357067, 11, -0.037423134, -5.357302, 0, -11.017356, -0.017355956, -0.25, 0, 0.051476717, 5.389793, 11, -0.034095466, -4.681649, 0, -11.017356, -0.017355956, -0.25, 0, 0.051476836, 5.930315, 11, -0.034095466, -4.681649, 0, -11.017356, -0.017355956, -0.25, 0, 0.077779174, 6.200576, 11, -0.061120868, -4.4113884, 0, -11.017356, -0.017355956, -0.25, 0, 0.061112642, 6.200576, 11, -0.0777874, -5.357302, 0, -11.017356, -0.017355956, -0.25, 0, 0.08877945, 5.795184, 11, -0.10012066, -5.087041, 0, -11.017356, -0.017355956, -0.25, 0, 0.11479354, 5.795184, 11, -0.17410648, -5.222172, 0, -11.017356, -0.017355956, -0.25, 0, 0.22746587, 5.6600537, 10.642528, -0.19533181, -5.8106127, 0, -11.017356, -0.16791463, -0.25, 0, 0.22746587, 5.6600537, 11, -0.5666666, -1.4385166, 0, -11.017356),
-"times": PackedFloat32Array(0, 0.2, 0.21109998, 0.5, 0.50874645, 0.5111, 0.7, 0.7111, 0.85, 0.8611, 0.95, 0.9611, 1, 1.0111, 1.1, 1.1111, 1.2, 1.2111, 1.35, 1.3611, 1.5, 1.5110999, 1.7, 1.7111, 2, 2.0110998, 2.4, 2.4333334, 3.5)
+"handle_modes": PackedInt32Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+"points": PackedFloat32Array(11, -0.19999999, -0.22234154, 0, -11.017356, -0.017355956, -0.25, 0, 0.15556669, 2.5520525, 11, -0.099999994, -6.5734763, 0, -11.017356, 0.23747754, -0.0014577409, 1.4468882, 0.00039225817, -0.38933784, -0.017355956, -0.25, 0, 0.104804575, 5.389793, 11, -0.099999994, -6.5734763, 0, -11.017356, -0.017355956, -0.25, 0, 0.071471214, 6.200576, 11, -0.06742883, -4.9519105, 0, -11.017356, -0.017355956, -0.25, 0, 0.054804504, 6.3357067, 11, -0.034095466, -4.681649, 0, -11.017356, -0.017355956, -0.25, 0, 0.034810185, 6.3357067, 11, -0.037423134, -5.357302, 0, -11.017356, -0.017355956, -0.25, 0, 0.051476717, 5.389793, 11, -0.034095466, -4.681649, 0, -11.017356, -0.017355956, -0.25, 0, 0.051476836, 5.930315, 11, -0.034095466, -4.681649, 0, -11.017356, -0.017355956, -0.25, 0, 0.077779174, 6.200576, 11, -0.061120868, -4.4113884, 0, -11.017356, -0.017355956, -0.25, 0, 0.061112642, 6.200576, 11, -0.0777874, -5.357302, 0, -11.017356, -0.017355956, -0.25, 0, 0.08877945, 5.795184, 11, -0.10012066, -5.087041, 0, -11.017356, -0.017355956, -0.25, 0, 0.11479354, 5.795184, 11, -0.17410648, -5.222172, 0, -11.017356, -0.017355956, -0.25, 0, 0.22746587, 5.6600537, 10.642528, -0.19533181, -5.8106127, 0, -11.017356, -0.16791463, -0.25, 0, 0.22746587, 5.6600537, 11, -0.5666666, -1.4385166, 0, -11.017356),
+"times": PackedFloat32Array(0, 0.011099979, 0.3, 0.30874646, 0.3111, 0.5, 0.5111, 0.65000004, 0.66110003, 0.75, 0.7611, 0.8, 0.81110007, 0.90000004, 0.9111, 1, 1.0110999, 1.15, 1.1610999, 1.3, 1.3110999, 1.5, 1.5110999, 1.8, 1.8110998, 2.2, 2.2333333, 3.3)
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -107,10 +132,10 @@ tracks/1/path = NodePath(".:color_perc")
 tracks/1/interp = 2
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2, 0.5, 0.7, 0.85, 0.95, 1, 1.1, 1.2, 1.35, 1.5, 1.7, 2, 2.4, 3.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"times": PackedFloat32Array(0, 0.3, 0.5, 0.65000004, 0.75, 0.8, 0.90000004, 1, 1.15, 1.3, 1.5, 1.8, 2.2, 3.3),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
-"values": [0.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0]
+"values": [0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -119,7 +144,7 @@ tracks/2/path = NodePath(".:decided_color")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.975),
+"times": PackedFloat32Array(0, 0.77500004),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [false, true]
@@ -131,9 +156,9 @@ tracks/3/path = NodePath(".:dist_to_posFinale_perc")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(0, -0.25, 0, 0.25, 0, 0, -0.25, 0, 0.81193835, -0.029223036, 1, -0.70472836, -0.02658999, 0, 0, 1, -0.18151855, -0.007849932, 0, 0),
-"times": PackedFloat32Array(0, 0.2, 2.75, 3.5)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(0, -0.25, 0, 0.81193835, -0.029223036, 1, -0.70472836, -0.02658999, 0, 0, 1, -0.18151855, -0.007849932, 0, 0),
+"times": PackedFloat32Array(0, 2.55, 3.3)
 }
 tracks/4/type = "bezier"
 tracks/4/imported = false
@@ -142,9 +167,9 @@ tracks/4/path = NodePath(".:scale:x")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(1, 0, 0, 0.47024697, 0, 1, -0.033333335, 0, 0.4369136, 0, 2, -0.5, 0, 0.75, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 1.85, 3.5)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.033333335, 0, 0.4369136, 0, 2, -0.5, 0, 0.75, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.65, 3.3)
 }
 tracks/5/type = "bezier"
 tracks/5/imported = false
@@ -153,9 +178,9 @@ tracks/5/path = NodePath(".:scale:y")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"handle_modes": PackedInt32Array(0, 0, 0, 0),
-"points": PackedFloat32Array(1, 0, 0, 0.47024697, 0, 1, -0.033333335, 0, 0.4369136, 0, 2, -0.5, 0, 0.75, 0, 1, -0.25, 0, 0.25, 0),
-"times": PackedFloat32Array(0, 0.2, 1.85, 3.5)
+"handle_modes": PackedInt32Array(0, 0, 0),
+"points": PackedFloat32Array(1, -0.033333335, 0, 0.4369136, 0, 2, -0.5, 0, 0.75, 0, 1, -0.25, 0, 0.25, 0),
+"times": PackedFloat32Array(0, 1.65, 3.3)
 }
 tracks/6/type = "method"
 tracks/6/imported = false
@@ -164,7 +189,7 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(3.5),
+"times": PackedFloat32Array(4),
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [],
@@ -178,10 +203,34 @@ tracks/7/path = NodePath(".:modulateAlpha")
 tracks/7/interp = 2
 tracks/7/loop_wrap = true
 tracks/7/keys = {
-"times": PackedFloat32Array(0, 0.2),
+"times": PackedFloat32Array(0, 0.1),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.0, 1.0]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Label:modulate")
+tracks/8/interp = 2
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 3.1666667, 3.6666667, 3.8333333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 0), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Label:position")
+tracks/9/interp = 2
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(3.1666667, 3.8333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-71, -33), Vector2(-71, -100)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1fq1m"]
@@ -193,8 +242,12 @@ _data = {
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0msn4"]
 load_path = "res://.godot/imported/light.png-932c1a6057a3123b5cd0aaa0ecfcde15.ctex"
 
+[sub_resource type="LabelSettings" id="LabelSettings_0msn4"]
+font = ExtResource("3_dkdi1")
+font_size = 64
+shadow_size = 3
+
 [node name="Coin" type="Sprite2D"]
-modulate = Color(0, 0, 0, 0)
 texture = ExtResource("1_0msn4")
 hframes = 12
 script = ExtResource("1_e3qj5")
@@ -212,3 +265,12 @@ autoplay = "mouvementAnim"
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = SubResource("CompressedTexture2D_0msn4")
+
+[node name="Label" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+offset_left = -71.0
+offset_top = -33.0
+offset_right = 72.0
+offset_bottom = 31.0
+text = "Oops"
+label_settings = SubResource("LabelSettings_0msn4")

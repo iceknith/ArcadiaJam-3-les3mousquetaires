@@ -434,7 +434,6 @@ position = Vector2(2, 0)
 hand_scene = ExtResource("6_xyymd")
 coin_scene = ExtResource("6_nbtn3")
 placementOffset = Vector2(0, 0)
-coinCastDelay = 0.8
 handSpawnDelay = 0.8
 metadata/_edit_lock_ = true
 

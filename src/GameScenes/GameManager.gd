@@ -78,6 +78,8 @@ func _on_table_normale_play() -> void:
 		
 		$TableTopdown/Launch.launch()
 		playRound()
+	else:
+		gameOver()
 
 func check_selected_coin():
 	return (PlayerVars.pieces[PlayerVars.selectedPiece]!="")

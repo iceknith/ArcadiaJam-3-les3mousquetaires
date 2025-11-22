@@ -12,7 +12,7 @@ extends Node2D
 @export var placementOffset:Vector2
 @export_subgroup("Timer")
 @export var spawnStartDelay = 1.5
-@export var coinCastDelay = 0.8
+@export var coinCastDelay = 1.2
 @export var handSpawnDelay = 0.6
 
 # all vars
