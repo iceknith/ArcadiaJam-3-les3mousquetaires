@@ -93,11 +93,13 @@ text = "SHOP
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0
-offset_left = 14.115
-offset_top = 400.0
-offset_right = 158.115
-offset_bottom = 618.00024
-columns = 2
+offset_left = 235.0
+offset_top = 472.0
+offset_right = 853.0
+offset_bottom = 627.0
+theme_override_constants/h_separation = 204
+theme_override_constants/v_separation = 15
+columns = 3
 
 [node name="coin1" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
