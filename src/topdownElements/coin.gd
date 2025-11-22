@@ -1,4 +1,4 @@
-class_name Coin extends AnimatedSprite2D
+class_name Coin extends Sprite2D
 
 signal onLanded(a,b)
 
@@ -8,22 +8,41 @@ signal onLanded(a,b)
 @export var price:int = 1
 @export var effect = "aucun"
 
+@export_group("Mouvements")
+@export var mouvementMedian:Vector2 = Vector2(0,-500)
+@export var variance:Vector2 = Vector2(100,100)
+
 @export_group("Visuals")
-@export var speed:float = 100
-@export var weight:float = 10
+@export var goodSideColor:Color
+@export var badSideColor:Color
 
-var positionDepart: Vector2 
-var positionFinale: Vector2 = Vector2.ZERO
+@export_group("AnimationVars")
+@export var dist_to_posFinale_perc:float = 1
+@export var color_perc:float = 0
+@export var decided_color:bool = false
 
-var t: float = 0.0
-var scale_initiale: Vector2
+var positionFinale:Vector2
+var positionInit:Vector2
 
-var rng = RandomNumberGenerator.new()
+var resultat:bool
 
 func _ready() -> void:
-	var resultat = randf()
-	if resultat > chance:
-		add_to_group("coins")
+	resultat = randf() > chance
+	positionInit = position
+	positionFinale = positionInit + mouvementMedian + Vector2(randf()*variance.x, randf()*variance.y)
+	var visibleRect = get_window().get_visible_rect()
+	positionFinale = clamp(positionFinale, 
+		visibleRect.position, 
+		visibleRect.position + visibleRect.size)
+	
+	add_to_group("coins")
+	
+func _process(delta: float) -> void:
+	position = positionInit + (positionFinale - positionInit) * dist_to_posFinale_perc
+	if resultat && decided_color: 
+		modulate = badSideColor + (goodSideColor - badSideColor) * color_perc
+	else: 
+		modulate = goodSideColor + (badSideColor - goodSideColor) * color_perc
 
-	
-	
+func animEnded() -> void:
+	pass

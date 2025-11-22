@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=6 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
 [ext_resource type="Texture2D" uid="uid://f1kbhod5adfv" path="res://src/debugSprites/table_scene.png" id="1_e35ac"]
+[ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="3_k0q6d"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1dxgy"]
 
@@ -104,7 +105,53 @@ layout_mode = 2
 toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
+[node name="delete_coin" type="Button" parent="."]
+layout_mode = 0
+offset_right = 30.0
+offset_bottom = 30.0
+icon = ExtResource("3_k0q6d")
+expand_icon = true
+
+[node name="delete_popup" type="Control" parent="."]
+visible = false
+anchors_preset = 0
+offset_left = 466.0
+offset_top = 284.0
+offset_right = 536.0
+offset_bottom = 354.0
+
+[node name="Label" type="Label" parent="delete_popup"]
+layout_mode = 0
+offset_right = 110.0
+offset_bottom = 23.0
+size_flags_horizontal = 4
+text = "Are you sure ?"
+
+[node name="confirm" type="Button" parent="delete_popup"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 30.0
+offset_right = 45.0
+offset_bottom = 61.0
+text = "YES
+"
+
+[node name="cancel" type="Button" parent="delete_popup"]
+layout_mode = 0
+offset_left = 64.0
+offset_top = 30.0
+offset_right = 101.0
+offset_bottom = 61.0
+text = "NO"
+
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="shop_button" to="." method="_on_shop_button_pressed"]
 [connection signal="toggled" from="GridContainer/coin1" to="." method="_on_coin_1_toggled"]
 [connection signal="toggled" from="GridContainer/coin2" to="." method="_on_coin_2_toggled"]
+[connection signal="toggled" from="GridContainer/coin3" to="." method="_on_coin_3_toggled"]
+[connection signal="toggled" from="GridContainer/coin4" to="." method="_on_coin_4_toggled"]
+[connection signal="toggled" from="GridContainer/coin5" to="." method="_on_coin_5_toggled"]
+[connection signal="toggled" from="GridContainer/coin6" to="." method="_on_coin_6_toggled"]
+[connection signal="pressed" from="delete_coin" to="." method="_on_delete_coin_pressed"]
+[connection signal="pressed" from="delete_popup/confirm" to="." method="_on_confirm_pressed"]
+[connection signal="pressed" from="delete_popup/cancel" to="." method="_on_cancel_pressed"]
