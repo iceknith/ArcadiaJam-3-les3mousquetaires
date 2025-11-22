@@ -5,14 +5,16 @@ var organes:Dictionary = {
 	"leg" : 2,
 	"tooth" : 0,
 	"lung" : 2,
-	
+	"liver" : 1,
+	"rib" : 0,
+	"eye" : 2
 }
 
 var pieces:Array = [
+	"yellow",
 	"red",
 	"red",
-	"red",
-	"red",
+	"",
 	"",
 	""
 ]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=16 format=3 uid="uid://cipya148it67n"]
+[gd_scene load_steps=17 format=3 uid="uid://cipya148it67n"]
 
 [ext_resource type="Script" uid="uid://bjifb3n314qyc" path="res://src/GameScenes/ui.gd" id="1_mqhac"]
+[ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_mfi7c"]
 [ext_resource type="Texture2D" uid="uid://dvre3bnghdvwf" path="res://assets/in-game/coin/coin.png" id="2_mqhac"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mqhac"]
@@ -103,13 +104,14 @@ anchors_preset = 13
 anchor_left = 0.5
 anchor_right = 0.5
 anchor_bottom = 1.0
-offset_left = -157.0
-offset_top = 16.500002
-offset_right = 130.0
-offset_bottom = 16.5
+offset_left = -160.0
+offset_top = 28.0
+offset_right = 133.0
+offset_bottom = 28.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
+theme = ExtResource("2_mfi7c")
 theme_override_font_sizes/font_size = 32
 text = "current coins/debt"
 horizontal_alignment = 1
@@ -123,6 +125,7 @@ offset_top = 74.0
 offset_right = -4.0
 offset_bottom = 97.0
 grow_horizontal = 2
+theme = ExtResource("2_mfi7c")
 theme_override_font_sizes/font_size = 32
 text = "? flips left"
 horizontal_alignment = 1
@@ -132,4 +135,4 @@ position = Vector2(470, 42.5)
 rotation = 1.5707964
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_gr84p")
-frame_progress = 0.26460555
+frame_progress = 0.41296592
