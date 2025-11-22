@@ -15,7 +15,7 @@ var organs = {
 		"price" : 2,
 		"desc" : "+1 round/wave"
 	},
-	"lungs" : {
+	"lung" : {
 		"image" : "res://assets/in-game/organs/lungs.png",
 		"effect" : "",
 		"value" : 1,
