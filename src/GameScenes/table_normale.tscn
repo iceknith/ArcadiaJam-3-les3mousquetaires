@@ -73,6 +73,7 @@ offset_left = 530.0
 offset_top = 219.0
 offset_right = 645.0
 offset_bottom = 280.0
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 text = "PLAY
 "
@@ -83,6 +84,7 @@ offset_left = 986.0
 offset_top = 62.0
 offset_right = 1127.0
 offset_bottom = 125.0
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 text = "SHOP
 "
