@@ -12,12 +12,26 @@ var organes:Dictionary = {
 
 var pieces:Array = [
 	"yellow",
-	"red",
-	"red",
+	"",
+	"",
 	"",
 	"",
 	""
 ]
+
+var pieces_durability:Array = [
+	-1,
+	0,
+	0,
+	0,
+	0,
+	0
+]
+
+var bonus:Array = [
+	
+]
+
 var selectedPiece:int = 0
 
 func nb_piece() -> int:

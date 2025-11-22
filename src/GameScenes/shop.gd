@@ -45,7 +45,7 @@ func update()->void:
 	for slot:Button in piece_slots:
 		if available_pieces[i] != {}:
 			piece_name = available_pieces[i]["name"]
-			slot.tooltip_text = piece_name + " coin\nluck : " + str(PieceVars.pieces[piece_name]["luck"]) + "\n value : " + str(PieceVars.pieces[piece_name]["value"]) + "\n " + str(available_pieces[i]["price"]) + "$"
+			slot.tooltip_text = piece_name + " coin\nluck : " + str(PieceVars.pieces[piece_name]["luck"]) + "\n value : " + str(PieceVars.pieces[piece_name]["value"]) + "\n durability : " + str(PieceVars.pieces[piece_name]["dura"]) + "\n " + str(available_pieces[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
 			slot.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
 			slot.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[available_pieces[i]["name"]]["color"])
@@ -79,7 +79,9 @@ func restock() -> void:
 	update()
 
 func get_random_piece() -> Dictionary:
-	var piece_name = PieceVars.pieces.keys()[randi_range(0,PieceVars.pieces.size()-1)]
+	var piece_name = "yellow"
+	while (piece_name == "yellow"):
+		piece_name = PieceVars.pieces.keys()[randi_range(0,PieceVars.pieces.size()-1)]
 	var piece = PieceVars.pieces[piece_name]
 	piece["name"] = piece_name
 	return piece
@@ -126,6 +128,7 @@ func ajouter_piece(name:String) -> void:
 	for i in range(6):
 		if PlayerVars.pieces[i] == "":
 			PlayerVars.pieces[i] = name
+			PlayerVars.pieces_durability[i] = PieceVars.pieces[name]["dura"]
 			return
 
 func _on_slot_1_pressed():

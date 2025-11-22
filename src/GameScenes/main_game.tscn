@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://df73jwxyyl64o"]
+[gd_scene load_steps=28 format=3 uid="uid://df73jwxyyl64o"]
 
 [ext_resource type="Script" uid="uid://begcex3rwt0lr" path="res://src/GameScenes/GameManager.gd" id="1_2rdtk"]
 [ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
@@ -13,6 +13,7 @@
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="10_bu5p1"]
 [ext_resource type="Texture2D" uid="uid://cr7fkrncxgp6i" path="res://assets/menues/armMouse.png" id="11_b173h"]
 [ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="12_54xyp"]
+[ext_resource type="PackedScene" uid="uid://fywtbwohbctn" path="res://src/GameScenes/player_list.tscn" id="13_54xyp"]
 
 [sub_resource type="Animation" id="Animation_patp3"]
 length = 0.001
@@ -710,6 +711,9 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 metadata/_edit_lock_ = true
+
+[node name="Player_list" parent="." instance=ExtResource("13_54xyp")]
+visible = false
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]

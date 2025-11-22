@@ -1,7 +1,8 @@
 extends Node
 
 #all vals
-var base_rounds
+@export var base_rounds = -1
+@export var debt_coeff = 0
 var game_over = false
 
 func _ready() -> void:
@@ -23,7 +24,12 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("click"): $CursorHand.frame = 1
 	else: $CursorHand.frame = 0
 	
+	if Input.is_action_just_pressed("ui_accept"):
+		$Player_list.show()
+		$Player_list.refresh()
 	
+	if Input.is_action_just_released("ui_accept"):
+		$Player_list.hide()
 
 func gameloop():
 	if game_over: return
@@ -35,9 +41,9 @@ func gameloop():
 func new_wave()->void:
 	print("hey ?")
 	if game_over: return
-	PlayerVars.round_left = PlayerVars.organes["leg"]-1
+	PlayerVars.round_left = base_rounds + PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
-	PlayerVars.debt = PlayerVars.wave ** 2 #TODO
+	PlayerVars.debt = PlayerVars.debt + PlayerVars.wave * debt_coeff
 	$top_UI.refresh()
 	$Shop.restock()
 
@@ -60,7 +66,13 @@ func playRound() -> void:
 	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
-	#PlayerVars.money += collect_coins()
+	PlayerVars.pieces_durability[PlayerVars.selectedPiece] -= 1
+	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] == 0:
+		PlayerVars.pieces[PlayerVars.selectedPiece] = ""
+		$TableNormale.update_pieces()
+		$TableNormale.force_select_coin()
+		
+	PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
 		gameOver()
@@ -76,12 +88,14 @@ func _on_table_normale_shop() -> void:
 #ENTER ROUND
 func _on_table_normale_play() -> void:
 	if check_selected_coin():
+		
 		$Shop.visible = false
 		$TransitionPlayer.play("topDownLaunch")
 		
 		$TableTopdown/Launch.launch()
 		playRound()
-	else:
+		
+	elif PlayerVars.nb_piece() <= 0:
 		gameOver()
 
 
