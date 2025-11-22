@@ -28,7 +28,7 @@ var positionInit:Vector2
 var resultat:bool
 
 func _ready() -> void:
-	resultat = randf() > chance
+	resultat = randf() < chance
 	positionInit = position
 	positionFinale = positionInit + mouvementMedian + Vector2(randf()*variance.x, randf()*variance.y)
 	var visibleRect = get_window().get_visible_rect()

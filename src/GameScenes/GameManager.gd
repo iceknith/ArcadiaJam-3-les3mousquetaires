@@ -35,7 +35,7 @@ func gameloop():
 	
 func new_wave()->void:
 	if game_over: return
-	PlayerVars.round_left = PlayerVars.organes["leg"]-1
+	PlayerVars.round_left = PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
 	PlayerVars.debt = PlayerVars.wave*2 # TODO
 	$top_UI.refresh()
@@ -134,6 +134,10 @@ func bonusSelection() ->void:
 	$Info_popup.visible = true
 	$Info_popup/HBoxContainer.visible=true
 	
+	#var bonus = $Info_popup/HBoxContainer.get_children()
+	#for slot:Button in bonus:
+	#	slot.get_node("TextureRect").texture = load(BonusVars.bonus[available_organs[i]["name"]]["image"])
+
 
 
 

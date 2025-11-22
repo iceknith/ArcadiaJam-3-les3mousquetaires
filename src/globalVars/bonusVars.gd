@@ -1,6 +1,6 @@
 extends Node
 
-var organs = {
+var bonus = {
 	"bonus1" : {
 		"image" : "res://assets/in-game/organs/hand.png",
 		"effect" : "",

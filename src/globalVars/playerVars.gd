@@ -12,8 +12,8 @@ var organes:Dictionary = {
 
 var pieces:Array = [
 	"yellow",
-	"red",
-	"red",
+	"",
+	"",
 	"",
 	"",
 	""

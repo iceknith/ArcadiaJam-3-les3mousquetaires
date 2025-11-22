@@ -11,7 +11,7 @@ var pieces:Dictionary = {
 	"red" : {
 		"effect" : "",
 		"value" : 0.5,
-		"price" : 5,
+		"price" : 2,
 		"color" : 0xff083fff,
 		"luck" : 0.8
 		
