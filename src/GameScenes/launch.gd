@@ -6,21 +6,36 @@ extends Node2D
 @export var coin_scene : PackedScene
 
 @export_group("Spawn settings")
+@export var spawnRangeSize = 0.6
+@export var hand_hauteur_position = 60
+@export var handRandomSize =0.6
+@export_subgroup("Timer")
+@export var spawnStartDelay = 1.5
+@export var coinCastDelay = 0.8
+@export var handSpawnDelay = 0.6
 
-
-var nombre_hands =1
 # all vars
+var nombre_hands =1
 var left_border = 0
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
-var spawnRangeSize = 0.6
 var spawnRange = screen_width * spawnRangeSize /2
 var screen_height = ProjectSettings.get_setting("display/window/size/viewport_height")
-var hand_hauteur_position = 60
-var handRandomSize =0.6
 
 var canPlaceHand:bool = true
 var currentHandNumber = 0
 var play:bool = false
+
+
+
+func _ready() -> void:
+	$handSpawnDelay.wait_time = handSpawnDelay
+	$startDelay.wait_time = spawnStartDelay
+
+# fonction appelé par le game manager
+func launch() -> void:
+	nombre_hands = PlayerVars.organes.get("arm")
+	$startDelay.start()
+	currentHandNumber = 0
 
 # utilise le process car on travaille avec des timer 
 func _process(delta: float) -> void:
@@ -33,17 +48,8 @@ func _process(delta: float) -> void:
 	# DELAY
 	$handSpawnDelay.start()
 	canPlaceHand = false
-	print("ajkzkrzjl")
 	if currentHandNumber >= nombre_hands: play= false
-	
-func launch() -> void:
-	nombre_hands = PlayerVars.organes.get("arm")
-	play = true
 
-
-
-func _on_hand_spawn_delay_timeout() -> void:
-	canPlaceHand = true
 
 func placeHand() ->void:
 	var hand_instance = hand_scene.instantiate()
@@ -53,15 +59,22 @@ func placeHand() ->void:
 	var y_position = screen_height - hand_hauteur_position
 	var placement = Vector2(x_position,y_position)
 	hand_instance.global_position = placement
-	placeCoin(placement)
-	# autres settings
-	var handSize = hand_instance.scale.x + randf_range(-1,1)* handRandomSize
-	hand_instance.scale = Vector2(handSize, handSize)
-
-	
+	get_tree().create_timer(coinCastDelay).timeout.connect(placeCoin.bind(placement))
 	
 func placeCoin(position:Vector2) ->void:
 	var coin_instance = coin_scene.instantiate()
-	coin_instance.global_position = Vector2(screen_width/2,screen_height/2)
+	coin_instance.global_position = position #Vector2(screen_width/2,screen_height/2)
 	add_child(coin_instance)
-	
+
+func _on_hand_spawn_delay_timeout() -> void:
+	canPlaceHand = true
+
+
+func _on_start_delay_timeout() -> void:
+	play = true
+
+
+func _on_table_topdown_round_finised() -> void:
+	for child in get_children():
+		if child is Coin || child is hand:
+			child.queue_free()

@@ -1,8 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy74rt86qrt0a"]
+[gd_scene load_steps=3 format=3 uid="uid://dy74rt86qrt0a"]
 
 [ext_resource type="Texture2D" uid="uid://cdtg57d4mn8md" path="res://src/debugSprites/table.png" id="1_nakkt"]
+[ext_resource type="Script" uid="uid://dy4smmjokfsnh" path="res://src/GameScenes/table_topdown.gd" id="1_q7kqu"]
 
 [node name="TableTopdown" type="Node2D"]
+script = ExtResource("1_q7kqu")
 
 [node name="TableVueDuDessus" type="Sprite2D" parent="."]
 position = Vector2(571, 305)
@@ -12,3 +14,9 @@ scale = Vector2(0.8385185, 1)
 modulate = Color(0.4045111, 0.40451115, 0.4045111, 1)
 position = Vector2(565, 312)
 texture = ExtResource("1_nakkt")
+
+[node name="scoreTimeDelay" type="Timer" parent="."]
+wait_time = 10.0
+one_shot = true
+
+[connection signal="timeout" from="scoreTimeDelay" to="." method="_on_score_time_delay_timeout"]

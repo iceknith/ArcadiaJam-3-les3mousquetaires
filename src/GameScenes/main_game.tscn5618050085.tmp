@@ -40,4 +40,3 @@ coin_scene = ExtResource("6_nbtn3")
 [connection signal="exitShop" from="Shop" to="." method="_on_shop_exit_shop"]
 [connection signal="on_bought" from="Shop" to="." method="_on_shop_on_bought"]
 [connection signal="roundFinised" from="TableTopdown" to="." method="_on_table_topdown_round_finised"]
-[connection signal="roundFinised" from="TableTopdown" to="Launch" method="_on_table_topdown_round_finised"]

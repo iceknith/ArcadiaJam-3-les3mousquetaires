@@ -1,9 +1,8 @@
 extends Node
 
-var wave:int 
+
+var wave:int =0
 var scoreThreshold:int = 10
-
-
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,12 +11,21 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	afficheScore()
+	pass
+	#afficheScore()
 	
 func afficheScore() -> void:
 	PlayerVars.score += collect_coins()
 	$PlayerScore.text = "score:" + str(PlayerVars.money)
 
+func gameLoop() ->void:
+	wave +=1
+	PlayerVars.money = 0
+	scoreThreshold = wave*6 # TODO 
+	$Shop.restock()
+	
+	
+	
 
 func collect_coins() -> int:
 	var coins = get_tree().get_nodes_in_group("coins")
@@ -28,6 +36,8 @@ func collect_coins() -> int:
 		coin.queue_free()
 	return total
 
+func playRound() -> void:
+	PlayerVars.money = collect_coins()
 
 func _on_table_normale_shop() -> void:
 	$Shop.visible = true
@@ -41,6 +51,7 @@ func _on_table_normale_play() -> void:
 	$TableTopdown.visible = true
 	
 	$Launch.launch()
+	playRound()
 
 func _on_shop_exit_shop():
 	$Shop.visible = false
@@ -49,3 +60,8 @@ func _on_shop_exit_shop():
 	
 	$TableNormale/delete_popup.hide()
 	$TableNormale.update_pieces()
+
+func _on_table_topdown_round_finised() -> void:
+	$Shop.visible = false
+	$TableNormale.visible = true
+	$TableTopdown.visible = false

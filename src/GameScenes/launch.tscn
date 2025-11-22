@@ -4,7 +4,17 @@
 
 [node name="Launch" type="Node2D"]
 script = ExtResource("1_gu6eo")
+spawnStartDelay = 0.3
+coinCastDelay = 0.2
+handSpawnDelay = 0.8
 
 [node name="handSpawnDelay" type="Timer" parent="."]
+wait_time = 1.4
+one_shot = true
+
+[node name="startDelay" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
 
 [connection signal="timeout" from="handSpawnDelay" to="." method="_on_hand_spawn_delay_timeout"]
+[connection signal="timeout" from="startDelay" to="." method="_on_start_delay_timeout"]
