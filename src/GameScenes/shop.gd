@@ -37,9 +37,11 @@ func update()->void:
 	for slot:Button in organ_slots:
 		if available_organs[i] != {}:
 			slot.tooltip_text =  available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
+			slot.get_node("TextureRect").show()
 			slot.get_node("TextureRect").texture = load("res://assets/in-game/organs/" + available_organs[i]["name"] +".png")
 		else:
-			slot.text=""
+			slot.tooltip_text=""
+			slot.get_node("TextureRect").hide()
 		i+=1
 	i=0
 	var piece_slots = $Coincontainer.get_children()

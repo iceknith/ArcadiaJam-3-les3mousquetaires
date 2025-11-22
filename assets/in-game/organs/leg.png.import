@@ -2,25 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cahd12pmx1o0i"
-<<<<<<<< HEAD:assets/in-game/organs/leg.png.import
+uid="uid://btpwoeh1lv4tt"
 path="res://.godot/imported/leg.png-2140bb493f9f893d071c38b14972d596.ctex"
-========
-path="res://.godot/imported/feet.png-53088dc489652ac5b621b685582d2fd0.ctex"
->>>>>>>> f58565c6cb346e02c47f9930943e226a55178623:assets/in-game/organs/feet.png.import
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-<<<<<<<< HEAD:assets/in-game/organs/leg.png.import
 source_file="res://assets/in-game/organs/leg.png"
 dest_files=["res://.godot/imported/leg.png-2140bb493f9f893d071c38b14972d596.ctex"]
-========
-source_file="res://assets/in-game/organs/feet.png"
-dest_files=["res://.godot/imported/feet.png-53088dc489652ac5b621b685582d2fd0.ctex"]
->>>>>>>> f58565c6cb346e02c47f9930943e226a55178623:assets/in-game/organs/feet.png.import
 
 [params]
 
