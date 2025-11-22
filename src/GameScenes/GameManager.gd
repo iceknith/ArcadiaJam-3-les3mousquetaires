@@ -1,6 +1,7 @@
 extends Node
 
 var base_rounds
+var game_over = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,38 +13,34 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	gameloop()
+	
+	#Move light to mouse
+	$PointLight2D.global_position = get_viewport().get_mouse_position()
 
 
 func gameloop():
+	if game_over: return
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
 		PlayerVars.money -= PlayerVars.debt
 		new_wave()
-	elif PlayerVars.round_left <= 0:
+	elif PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0:
 		gameOver()
 
 
 func gameOver() -> void:
-	#INFO POPUP
-	$Info_popup.visible = true
-	$Info_popup/Label.text = "GAME OVER"
-	$Info_popup/popupTimer.wait_time = 99
-	$Info_popup/popupTimer.start()
-	pass
-
+	var message = "GAME OVER"
+	afficherMessage(message,99)
+	
 func new_wave()->void:
-	PlayerVars.round_left = 3 + PlayerVars.organes["leg"]
+	PlayerVars.round_left = PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
 	PlayerVars.debt = PlayerVars.wave*2 # TODO
 	$top_UI.refresh()
 	$Shop.restock()
 	
 	#INFO POPUP
-	$Info_popup.visible = true
-	if(PlayerVars.wave==1): $Info_popup/Label.text = "Let's play a game..."
-	else: $Info_popup/Label.text = "NOUVELLE VAGUE"
-	$Info_popup/popupTimer.wait_time = 2.5
-	$Info_popup/popupTimer.start()
-
+	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	afficherMessage(message,2)
 
 
 func collect_coins() -> float:
@@ -64,6 +61,7 @@ func backToMenu() -> void:
 
 # SHOP
 func _on_table_normale_shop() -> void:
+	if game_over: return
 	$Shop.visible = true
 	$TableNormale.visible = false
 	$TableTopdown.visible = false
@@ -83,6 +81,7 @@ func check_selected_coin():
 
 
 func _on_shop_exit_shop():
+	if game_over: return
 	$Shop.visible = false
 	$TableNormale.visible = true
 	$TableTopdown.visible = false
@@ -99,11 +98,18 @@ func _on_table_topdown_round_finised() -> void:
 	$top_UI.refresh()
 	backToMenu()
 	
+	gameloop()
+	
 
 
 func _on_shop_on_bought():
 	$top_UI.refresh()
 
+func afficherMessage(message:String,time:float)->void:
+	$Info_popup.visible = true
+	$Info_popup/Label.text = message
+	$Info_popup/popupTimer.wait_time = time
+	$Info_popup/popupTimer.start()
 
 func _on_popup_timer_timeout() -> void:
 	$Info_popup.visible = false

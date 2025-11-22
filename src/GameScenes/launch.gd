@@ -65,7 +65,8 @@ func placeHand() ->void:
 	
 func placeCoin(position:Vector2) ->void:
 	var coin_instance = coin_scene.instantiate()
-	coin_instance.global_position = position #Vector2(screen_width/2,screen_height/2)
+	position = Vector2(position.x-50,position.y-200)
+	coin_instance.global_position = position
 	add_child(coin_instance)
 
 func _on_hand_spawn_delay_timeout() -> void:
