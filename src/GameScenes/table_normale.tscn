@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
 [ext_resource type="Texture2D" uid="uid://clf7q0s63sfx8" path="res://assets/in-game/bgs/elements/table.png" id="3_001cw"]
 [ext_resource type="Texture2D" uid="uid://culyap7qil10c" path="res://assets/in-game/bgs/elements/merchant.png" id="3_djbji"]
-[ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="3_k0q6d"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="3_pcvq8"]
+[ext_resource type="Texture2D" uid="uid://xj6yutcfpswx" path="res://assets/menues/cross.png" id="6_djbji"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1dxgy"]
 
@@ -68,20 +68,20 @@ expand_mode = 2
 
 [node name="play_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 914.0
-offset_top = 399.0
-offset_right = 1101.0
-offset_bottom = 610.0
+offset_left = 690.0
+offset_top = 205.0
+offset_right = 858.0
+offset_bottom = 266.0
 theme = ExtResource("3_pcvq8")
 text = "PLAY
 "
 
 [node name="shop_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 895.0
-offset_top = 52.0
-offset_right = 1121.0
-offset_bottom = 208.0
+offset_left = 986.0
+offset_top = 62.0
+offset_right = 1127.0
+offset_bottom = 125.0
 theme = ExtResource("3_pcvq8")
 text = "SHOP
 "
@@ -101,6 +101,7 @@ columns = 2
 [node name="coin1" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
@@ -109,6 +110,7 @@ button_group = SubResource("ButtonGroup_1dxgy")
 [node name="coin2" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
@@ -117,6 +119,7 @@ button_group = SubResource("ButtonGroup_1dxgy")
 [node name="coin3" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
@@ -125,6 +128,7 @@ button_group = SubResource("ButtonGroup_1dxgy")
 [node name="coin4" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
@@ -133,6 +137,7 @@ button_group = SubResource("ButtonGroup_1dxgy")
 [node name="coin5" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
@@ -141,6 +146,7 @@ button_group = SubResource("ButtonGroup_1dxgy")
 [node name="coin6" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
 layout_mode = 2
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
@@ -149,10 +155,13 @@ button_group = SubResource("ButtonGroup_1dxgy")
 [node name="delete_coin" type="Button" parent="."]
 visible = false
 layout_mode = 0
-offset_right = 30.0
-offset_bottom = 30.0
+offset_top = -3.0
+offset_right = 48.0
+offset_bottom = 25.0
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
-icon = ExtResource("3_k0q6d")
+icon = ExtResource("6_djbji")
+icon_alignment = 1
 expand_icon = true
 
 [node name="delete_popup" type="Control" parent="."]
@@ -162,6 +171,27 @@ offset_left = 466.0
 offset_top = 284.0
 offset_right = 536.0
 offset_bottom = 354.0
+
+[node name="ColorRect" type="ColorRect" parent="delete_popup"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -600.0
+offset_top = -324.0
+offset_right = 682.0
+offset_bottom = 351.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 1, 1, 0)
+
+[node name="ColorRect2" type="ColorRect" parent="delete_popup"]
+layout_mode = 0
+offset_left = -36.0
+offset_top = -16.0
+offset_right = 234.0
+offset_bottom = 99.0
+color = Color(0, 0, 0, 0.627451)
 
 [node name="Label" type="Label" parent="delete_popup"]
 layout_mode = 0
@@ -173,20 +203,22 @@ text = "Are you sure ?"
 
 [node name="confirm" type="Button" parent="delete_popup"]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 35.0
-offset_right = 62.0
-offset_bottom = 74.0
+offset_left = -12.0
+offset_top = 38.0
+offset_right = 80.0
+offset_bottom = 88.0
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 text = "YES
 "
 
 [node name="cancel" type="Button" parent="delete_popup"]
 layout_mode = 0
-offset_left = 123.0
-offset_top = 35.0
-offset_right = 169.0
-offset_bottom = 74.0
+offset_left = 117.0
+offset_top = 37.0
+offset_right = 201.0
+offset_bottom = 86.0
+focus_mode = 0
 theme = ExtResource("3_pcvq8")
 text = "NO"
 

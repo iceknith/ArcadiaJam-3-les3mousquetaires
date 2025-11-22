@@ -15,7 +15,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 
-
 func _on_play_button_pressed() -> void:
 	play.emit()
 
@@ -29,11 +28,12 @@ func update_pieces():
 	
 	for coin:Button in pieces:
 		coin.text = PlayerVars.pieces[i]
+		coin.disabled = PlayerVars.pieces[i] == ""
 		i+=1
 
 
 func _on_coin_1_toggled(toggled_on):
-	var selected_piece = 1
+	selected_piece = 1
 	if PlayerVars.pieces[selected_piece-1] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin1.global_position + Vector2(-10,-10)
@@ -56,7 +56,6 @@ func _on_coin_3_toggled(toggled_on):
 		$delete_coin.global_position = $GridContainer/coin3.global_position + Vector2(-10,-10)
 	else:
 		$delete_coin.hide()
-
 
 func _on_coin_4_toggled(toggled_on):
 	selected_piece = 4

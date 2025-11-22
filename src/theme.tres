@@ -1,15 +1,17 @@
-[gd_resource type="Theme" load_steps=7 format=3 uid="uid://cw2c2a8jmrhke"]
+[gd_resource type="Theme" load_steps=8 format=3 uid="uid://cw2c2a8jmrhke"]
 
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="1_if6vc"]
 [ext_resource type="Texture2D" uid="uid://cjw6vr44p610c" path="res://assets/menues/button_unpressed.png" id="1_rnpv8"]
 [ext_resource type="Texture2D" uid="uid://ftf4ux3bc4he" path="res://assets/menues/button_pressed.png" id="2_m734d"]
 
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rnpv8"]
+
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_xh1a0"]
 texture = ExtResource("1_rnpv8")
 texture_margin_left = 7.0036755
-texture_margin_top = 7.6605487
+texture_margin_top = 12.336876
 texture_margin_right = 18.820683
-texture_margin_bottom = 6.1715555
+texture_margin_bottom = 13.725622
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
@@ -24,18 +26,19 @@ border_color = Color(0.8, 0.8, 0.8, 0)
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_k27xv"]
 texture = ExtResource("2_m734d")
 texture_margin_left = 7.0036755
-texture_margin_top = 7.6605487
+texture_margin_top = 12.0
 texture_margin_right = 18.820683
-texture_margin_bottom = 6.1715555
+texture_margin_bottom = 14.0
 axis_stretch_horizontal = 1
 axis_stretch_vertical = 1
 
 [resource]
 default_font = ExtResource("1_if6vc")
 default_font_size = 30
-Button/colors/font_color = Color(0.21960784, 0, 0, 1)
-Button/colors/font_hover_color = Color(0.39215687, 0, 0, 1)
+Button/colors/font_color = Color(0.74509805, 0, 0, 1)
+Button/colors/font_hover_color = Color(0.74509805, 0, 0, 1)
 Button/colors/font_pressed_color = Color(0.74509805, 0, 0, 1)
+Button/styles/disabled = SubResource("StyleBoxEmpty_rnpv8")
 Button/styles/hover = SubResource("StyleBoxTexture_xh1a0")
 Button/styles/normal = SubResource("StyleBoxFlat_ssy0u")
 Button/styles/pressed = SubResource("StyleBoxTexture_k27xv")
