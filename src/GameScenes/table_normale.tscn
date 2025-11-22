@@ -68,10 +68,10 @@ expand_mode = 2
 
 [node name="play_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 690.0
-offset_top = 205.0
-offset_right = 858.0
-offset_bottom = 266.0
+offset_left = 530.0
+offset_top = 219.0
+offset_right = 645.0
+offset_bottom = 280.0
 theme = ExtResource("3_pcvq8")
 text = "PLAY
 "

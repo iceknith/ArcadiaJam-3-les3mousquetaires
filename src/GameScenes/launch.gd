@@ -9,6 +9,7 @@ extends Node2D
 @export var spawnRangeSize = 0.6
 @export var hand_hauteur_position = 60
 @export var handRandomSize =0.6
+@export var placementOffset:Vector2
 @export_subgroup("Timer")
 @export var spawnStartDelay = 1.5
 @export var coinCastDelay = 0.8
@@ -44,7 +45,7 @@ func _process(delta: float) -> void:
 	if(!canPlaceHand): return
 	currentHandNumber+=1
 	# HANDS
-	placeHand()	
+	placeHand()
 	# DELAY
 	$handSpawnDelay.start()
 	canPlaceHand = false
@@ -53,13 +54,13 @@ func _process(delta: float) -> void:
 
 func placeHand() ->void:
 	var hand_instance = hand_scene.instantiate()
-	add_child(hand_instance)
 	# position main
 	var x_position = screen_width/2 + randf_range(-1,1)* spawnRange
 	var y_position = screen_height - hand_hauteur_position
 	var placement = Vector2(x_position,y_position)
 	hand_instance.global_position = placement
-	get_tree().create_timer(coinCastDelay).timeout.connect(placeCoin.bind(placement))
+	add_child(hand_instance)
+	get_tree().create_timer(coinCastDelay).timeout.connect(placeCoin.bind(placement + placementOffset))
 	
 func placeCoin(position:Vector2) ->void:
 	var coin_instance = coin_scene.instantiate()

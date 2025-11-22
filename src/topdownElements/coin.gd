@@ -20,6 +20,7 @@ signal onLanded(a,b)
 @export var dist_to_posFinale_perc:float = 1
 @export var color_perc:float = 0
 @export var decided_color:bool = false
+@export var modulateAlpha:float
 
 var positionFinale:Vector2
 var positionInit:Vector2
@@ -43,6 +44,7 @@ func _process(delta: float) -> void:
 		modulate = badSideColor + (goodSideColor - badSideColor) * color_perc
 	else: 
 		modulate = goodSideColor + (badSideColor - goodSideColor) * color_perc
+	modulate.a = modulateAlpha
 
 func animEnded() -> void:
 	pass
