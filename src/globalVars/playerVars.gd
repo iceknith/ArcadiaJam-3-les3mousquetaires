@@ -10,6 +10,9 @@ var pieces:Array = [
 	"",
 	""
 ]
+var selectedPiece = pieces[0]
 
 var wave = 0
 var money:int = 10
+
+var score = 0

@@ -16,7 +16,7 @@ visible = false
 [node name="TableTopdown" parent="." instance=ExtResource("3_qhh1e")]
 visible = false
 
-[node name="score2" type="Label" parent="."]
+[node name="PlayerScore" type="Label" parent="."]
 offset_left = 33.0
 offset_top = 27.0
 offset_right = 319.0
@@ -28,3 +28,4 @@ money
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]
+[connection signal="exitShop" from="Shop" to="." method="_on_shop_exit_shop"]

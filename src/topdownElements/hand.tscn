@@ -1,3 +1,62 @@
-[gd_scene format=3 uid="uid://bad838s86tujd"]
+[gd_scene load_steps=10 format=3 uid="uid://bad838s86tujd"]
 
-[node name="Hand" type="Node2D"]
+[ext_resource type="Texture2D" uid="uid://dxc0v4vtintsc" path="res://src/debugSprites/hand/coin-toss-0.png" id="1_v2yki"]
+[ext_resource type="Texture2D" uid="uid://b0gyb5pmx4alp" path="res://src/debugSprites/hand/coin-toss-1.png" id="2_mf4mw"]
+[ext_resource type="Texture2D" uid="uid://bivs38dsg7gy8" path="res://src/debugSprites/hand/coin-toss-2.png" id="3_xvmv4"]
+[ext_resource type="Texture2D" uid="uid://c8gsmvdgtpkrd" path="res://src/debugSprites/hand/coin-toss-3.png" id="4_7bhyd"]
+[ext_resource type="Texture2D" uid="uid://b3gcasayaw2u8" path="res://src/debugSprites/hand/coin-toss-4.png" id="5_i23mc"]
+[ext_resource type="Texture2D" uid="uid://3hg84oneckpa" path="res://src/debugSprites/hand/coin-toss-5.png" id="6_lrv37"]
+[ext_resource type="Texture2D" uid="uid://bdl3bh3fgivn3" path="res://src/debugSprites/hand/hand_placeholder.png" id="7_njjih"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_h2ijg"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_v2yki")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_mf4mw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_xvmv4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_7bhyd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_i23mc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_lrv37")
+}],
+"loop": true,
+"name": &"coin_toss",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("7_njjih")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="GDScript" id="GDScript_fwu8x"]
+script/source = "class_name hand extends AnimatedSprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[node name="Hand" type="AnimatedSprite2D"]
+sprite_frames = SubResource("SpriteFrames_h2ijg")
+animation = &"coin_toss"
+script = SubResource("GDScript_fwu8x")

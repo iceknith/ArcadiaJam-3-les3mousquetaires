@@ -1,7 +1,7 @@
 extends Node
 
-var wave
-
+var wave:int 
+var scoreThreshold:int = 10
 
 
 
@@ -12,7 +12,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	afficheScore()
 
 
 func _on_table_normale_shop() -> void:
@@ -25,3 +25,12 @@ func _on_table_normale_play() -> void:
 	$Shop.visible = false
 	$TableNormale.visible = false
 	$TableTopdown.visible = true
+
+func _on_shop_exit_shop() -> void:
+	$Shop.visible = false
+	$TableNormale.visible = true
+	$TableTopdown.visible = false
+	
+	
+func afficheScore() -> void:
+	$PlayerScore.text = "socre:" + str(PlayerVars.score) + "/" + str(scoreThreshold) + "\n" + "money:"+str(PlayerVars.money)

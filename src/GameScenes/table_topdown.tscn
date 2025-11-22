@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dy74rt86qrt0a"]
+[gd_scene load_steps=3 format=3 uid="uid://dy74rt86qrt0a"]
 
 [ext_resource type="Texture2D" uid="uid://25hs0uq7lfd6" path="res://src/debugSprites/table_vue_du_dessus.png" id="1_nakkt"]
+[ext_resource type="Texture2D" uid="uid://bo83bvurgjgls" path="res://src/debugSprites/hand/table.png" id="2_q7kqu"]
 
 [node name="TableTopdown" type="Node2D"]
 
@@ -8,3 +9,7 @@
 position = Vector2(570, 325)
 scale = Vector2(0.8385185, 1)
 texture = ExtResource("1_nakkt")
+
+[node name="Table" type="Sprite2D" parent="."]
+position = Vector2(567, 325)
+texture = ExtResource("2_q7kqu")
