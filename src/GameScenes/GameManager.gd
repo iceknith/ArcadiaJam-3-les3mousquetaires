@@ -2,6 +2,7 @@ extends Node
 
 #all vals
 @export var base_rounds = -1
+@export var debt_coeff = 0
 var game_over = false
 
 func _ready() -> void:
@@ -42,7 +43,7 @@ func new_wave()->void:
 	if game_over: return
 	PlayerVars.round_left = base_rounds + PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
-	PlayerVars.debt = 0
+	PlayerVars.debt = PlayerVars.debt + PlayerVars.wave * debt_coeff
 	$top_UI.refresh()
 	$Shop.restock()
 
