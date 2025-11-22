@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://df73jwxyyl64o"]
+[gd_scene load_steps=26 format=3 uid="uid://df73jwxyyl64o"]
 
 [ext_resource type="Script" uid="uid://begcex3rwt0lr" path="res://src/GameScenes/GameManager.gd" id="1_2rdtk"]
 [ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="10_8wwc8"]
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="10_bu5p1"]
 [ext_resource type="Texture2D" uid="uid://cr7fkrncxgp6i" path="res://assets/menues/armMouse.png" id="11_b173h"]
+[ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="12_54xyp"]
 
 [sub_resource type="Animation" id="Animation_patp3"]
 length = 0.001
@@ -401,9 +402,37 @@ tracks/1/keys = {
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
 }
 
+[sub_resource type="Animation" id="Animation_cid7t"]
+resource_name = "gameover_popup"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b173h"]
 _data = {
 &"RESET": SubResource("Animation_b173h"),
+&"gameover_popup": SubResource("Animation_cid7t"),
 &"infoPopUpShow": SubResource("Animation_bu5p1")
 }
 
@@ -501,13 +530,21 @@ text = "END OF PHASE"
 label_settings = SubResource("LabelSettings_b173h")
 horizontal_alignment = 1
 
+[node name="Restart" type="Button" parent="Info_popup"]
+visible = false
+layout_mode = 0
+offset_left = 306.0
+offset_top = 370.0
+offset_right = 858.0
+offset_bottom = 404.0
+text = "RESTART ????"
+
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Info_popup"]
 libraries = {
 &"": SubResource("AnimationLibrary_b173h")
 }
 
 [node name="HBoxContainer" type="GridContainer" parent="Info_popup"]
-visible = false
 custom_minimum_size = Vector2(99, 0)
 layout_mode = 1
 anchors_preset = 8
@@ -528,13 +565,58 @@ columns = 3
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Info_popup/HBoxContainer/choix1"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_54xyp")
+expand_mode = 1
+stretch_mode = 5
+
 [node name="choix2" type="Button" parent="Info_popup/HBoxContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Info_popup/HBoxContainer/choix2"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_54xyp")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Label" type="Label" parent="Info_popup/HBoxContainer/choix2"]
+layout_mode = 0
+offset_left = -93.0
+offset_top = -61.0
+offset_right = 429.0
+offset_bottom = -6.0
+theme_override_font_sizes/font_size = 40
+text = "BONUS SELECTION SCREEN"
+
 [node name="choix3" type="Button" parent="Info_popup/HBoxContainer"]
 custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Info_popup/HBoxContainer/choix3"]
+z_index = -1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("12_54xyp")
+expand_mode = 1
+stretch_mode = 5
 
 [node name="ShaderRect" type="ColorRect" parent="."]
 visible = false
@@ -553,6 +635,7 @@ metadata/_edit_lock_ = true
 [connection signal="on_bought" from="Shop" to="." method="_on_shop_on_bought"]
 [connection signal="roundFinised" from="TableTopdown" to="." method="_on_table_topdown_round_finised"]
 [connection signal="roundFinised" from="TableTopdown" to="TableTopdown/Launch" method="_on_table_topdown_round_finised"]
+[connection signal="pressed" from="Info_popup/Restart" to="." method="_on_restart_pressed"]
 [connection signal="pressed" from="Info_popup/HBoxContainer/choix1" to="." method="_on_choix_1_pressed"]
 [connection signal="pressed" from="Info_popup/HBoxContainer/choix2" to="." method="_on_choix_2_pressed"]
 [connection signal="pressed" from="Info_popup/HBoxContainer/choix3" to="." method="_on_choix_3_pressed"]

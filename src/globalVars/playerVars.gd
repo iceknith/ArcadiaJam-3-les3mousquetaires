@@ -18,6 +18,11 @@ var pieces:Array = [
 	"",
 	""
 ]
+
+var bonus:Array = [
+	
+]
+
 var selectedPiece:int = 0
 
 func nb_piece() -> int:

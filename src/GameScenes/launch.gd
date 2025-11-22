@@ -64,7 +64,7 @@ func placeHand() ->void:
 	var placement = Vector2(x_position,y_position)
 	hand_instance.global_position = placement
 	
-	hand_instance.scale +=0.5*Vector2(randf()*hand_instance.scale.x,randf()*hand_instance.scale.x)
+	hand_instance.scale +=0.2*Vector2(randf()*hand_instance.scale.x,randf()*hand_instance.scale.x)
 	
 	#instancie piece
 	add_child(hand_instance)
