@@ -21,6 +21,10 @@ OrganVars="*res://src/globalVars/organVars.gd"
 PlayerVars="*res://src/globalVars/playerVars.gd"
 PieceVars="*res://src/globalVars/pieceVars.gd"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [global_group]
 
 coins=""

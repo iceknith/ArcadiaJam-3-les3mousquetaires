@@ -45,6 +45,7 @@ func _process(delta: float) -> void:
 	else: 
 		modulate = goodSideColor + (badSideColor - goodSideColor) * color_perc
 	modulate.a = modulateAlpha
+	$PointLight2D.color = modulate
 
 func animEnded() -> void:
 	pass
