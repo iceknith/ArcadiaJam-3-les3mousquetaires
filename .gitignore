@@ -17,4 +17,4 @@ mono_crash.*.json
 /android/
 
 # gimp files
-*.gimp
+*.xcf
