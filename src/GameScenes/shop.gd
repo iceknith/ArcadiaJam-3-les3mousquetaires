@@ -30,9 +30,9 @@ func update()->void:
 	var organ_slots = $Organcontainer.get_children()
 	for slot:Button in organ_slots:
 		if available_organs[i] != {}:
-			slot.tooltip_text = available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
+			slot.tooltip_text = available_organs[i]["name"] + "\n " + OrganVars.organs[available_organs[i]["name"]]["desc"] + "\n " + str(available_organs[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
-			slot.get_node("TextureRect").texture = load(OrganVars.organs[available_organs[i]["name"]].image)
+			slot.get_node("TextureRect").texture = load(OrganVars.organs[available_organs[i]["name"]]["image"])
 			slot.disabled = false
 		else:
 			slot.tooltip_text=""
