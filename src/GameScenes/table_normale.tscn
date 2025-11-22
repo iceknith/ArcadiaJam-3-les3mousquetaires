@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=10 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
 [ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
@@ -8,8 +8,6 @@
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="3_pcvq8"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1dxgy"]
-
-[sub_resource type="ButtonGroup" id="ButtonGroup_k0q6d"]
 
 [sub_resource type="Animation" id="Animation_djbji"]
 resource_name = "base_anim"
@@ -114,7 +112,7 @@ layout_mode = 2
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
-button_group = SubResource("ButtonGroup_k0q6d")
+button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="coin3" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
@@ -122,7 +120,7 @@ layout_mode = 2
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
-button_group = SubResource("ButtonGroup_k0q6d")
+button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="coin4" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
@@ -130,7 +128,7 @@ layout_mode = 2
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
-button_group = SubResource("ButtonGroup_k0q6d")
+button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="coin5" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
@@ -138,7 +136,7 @@ layout_mode = 2
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
-button_group = SubResource("ButtonGroup_k0q6d")
+button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="coin6" type="Button" parent="GridContainer"]
 custom_minimum_size = Vector2(70, 70)
@@ -146,7 +144,7 @@ layout_mode = 2
 theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
-button_group = SubResource("ButtonGroup_k0q6d")
+button_group = SubResource("ButtonGroup_1dxgy")
 
 [node name="delete_coin" type="Button" parent="."]
 visible = false
