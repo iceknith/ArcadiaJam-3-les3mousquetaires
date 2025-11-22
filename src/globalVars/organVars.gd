@@ -35,6 +35,6 @@ var organs = {
 		"image" : "res://assets/in-game/organs/eye.png",
 		"effect" : "",
 		"value" : 1,
-		"price" : 0
+		"price" : 3
 	}
 }
