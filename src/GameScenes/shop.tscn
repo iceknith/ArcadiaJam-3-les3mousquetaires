@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://c4fbw2wyq73q1"]
+[gd_scene load_steps=4 format=3 uid="uid://c4fbw2wyq73q1"]
 
 [ext_resource type="Script" uid="uid://fu8hksojkt4j" path="res://src/GameScenes/shop.gd" id="1_2fllm"]
+[ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_270xf"]
+[ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="2_kul4d"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -22,23 +24,63 @@ theme_override_constants/separation = 50
 [node name="Slot1" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-text = "Arm "
+theme = ExtResource("2_270xf")
+
+[node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot1"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
 
 [node name="Slot2" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot2"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
+
 [node name="Slot3" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot3"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
 
 [node name="Slot4" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot4"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
+
 [node name="Slot5" type="Button" parent="Organcontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot5"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
 
 [node name="Coincontainer" type="HBoxContainer" parent="."]
 layout_mode = 0
@@ -52,14 +94,37 @@ theme_override_constants/separation = 54
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot1"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
+
 [node name="coin_slot2" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 
+[node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot2"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
+
 [node name="coin_slot3" type="Button" parent="Coincontainer"]
 custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
-text = "coin 3"
+
+[node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot3"]
+z_index = -1
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 40.0
+texture = ExtResource("2_kul4d")
+expand_mode = 4
 
 [node name="exit_button" type="Button" parent="."]
 layout_mode = 0

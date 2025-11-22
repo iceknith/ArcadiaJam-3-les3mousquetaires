@@ -17,6 +17,8 @@ func _process(delta: float) -> void:
 func afficheScore() -> void:
 	PlayerVars.score += collect_coins()
 	$PlayerScore.text = "score:" + str(PlayerVars.money)
+	
+
 
 func gameLoop() ->void:
 	wave +=1
@@ -58,6 +60,7 @@ func _on_shop_exit_shop():
 	$TableNormale.visible = true
 	$TableTopdown.visible = false
 	
+	$top_UI.refresh()
 	$TableNormale/delete_popup.hide()
 	$TableNormale.update_pieces()
 
@@ -65,3 +68,8 @@ func _on_table_topdown_round_finised() -> void:
 	$Shop.visible = false
 	$TableNormale.visible = true
 	$TableTopdown.visible = false
+	
+
+
+func _on_shop_on_bought():
+	$top_UI.refresh()

@@ -24,3 +24,7 @@ PieceVars="*res://src/globalVars/pieceVars.gd"
 [global_group]
 
 coins=""
+
+[gui]
+
+timers/tooltip_delay_sec=0.01

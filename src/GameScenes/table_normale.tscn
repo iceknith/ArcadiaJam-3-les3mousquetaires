@@ -50,15 +50,6 @@ text = "SHOP
 
 [node name="selection_coin" type="Node2D" parent="."]
 
-[node name="tours_remaining" type="Label" parent="."]
-layout_mode = 0
-offset_left = 391.0
-offset_top = 16.0
-offset_right = 731.0
-offset_bottom = 141.0
-theme_override_font_sizes/font_size = 50
-text = "tours restants"
-
 [node name="GridContainer" type="GridContainer" parent="."]
 modulate = Color(0.8761613, 0.5507587, 0, 1)
 self_modulate = Color(0, 0, 0, 1)
@@ -106,6 +97,7 @@ toggle_mode = true
 button_group = SubResource("ButtonGroup_k0q6d")
 
 [node name="delete_coin" type="Button" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 30.0
 offset_bottom = 30.0
