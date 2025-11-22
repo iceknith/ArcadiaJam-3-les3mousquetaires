@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://bhh3posgxeirv" path="res://src/topdownElements/coin.tscn" id="6_nbtn3"]
 [ext_resource type="PackedScene" uid="uid://bad838s86tujd" path="res://src/topdownElements/hand.tscn" id="6_xyymd"]
 [ext_resource type="PackedScene" uid="uid://d3kfhs30n01gv" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
-[ext_resource type="PackedScene" uid="uid://cipya148it67n" uid="uid://cipya148it67n" path="res://src/GameScenes/ui.tscn" id="8_ltw7p"]
 [ext_resource type="Shader" uid="uid://bich8wnvqea64" path="res://src/Shaders/CRTV.gdshader" id="9_blnsy"]
 [ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="10_8wwc8"]
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="10_bu5p1"]
@@ -17,6 +16,33 @@
 font = ExtResource("10_bu5p1")
 font_size = 75
 font_color = Color(1, 0.19607843, 0.19607843, 1)
+
+[sub_resource type="Animation" id="Animation_b173h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
 
 [sub_resource type="Animation" id="Animation_bu5p1"]
 resource_name = "infoPopUpShow"
@@ -44,33 +70,6 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1),
 "update": 0,
 "values": [Color(1, 1, 1, 1), Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
-}
-
-[sub_resource type="Animation" id="Animation_b173h"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:modulate")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Color(1, 1, 1, 1)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b173h"]
