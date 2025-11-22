@@ -84,11 +84,6 @@ func _on_start_delay_timeout() -> void:
 	play = true
 
 
-func _on_table_topdown_round_finised() -> void:
-	for child in get_children():
-		if child is Coin || child is hand:
-			child.queue_free()
-
 func change_coin_type(coin:Coin) ->void:
 	nom_piece = PlayerVars.pieces[PlayerVars.selectedPiece]
 	dico_piece = PieceVars.pieces[nom_piece]
@@ -98,3 +93,9 @@ func change_coin_type(coin:Coin) ->void:
 	coin.effect = dico_piece["effect"]
 	coin.variance+=Vector2(randf()*dico_piece["value"]*20,randf()*dico_piece["value"]*20)
 	coin.goodSideColor = dico_piece["color"]
+
+
+func _on_table_topdown_round_finised() -> void:
+	for child in get_children():
+		if child is Coin || child is hand:
+			child.queue_free()
