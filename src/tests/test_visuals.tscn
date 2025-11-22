@@ -1,8 +1,9 @@
-[gd_scene load_steps=24 format=3 uid="uid://crqshom2ulnqs"]
+[gd_scene load_steps=27 format=3 uid="uid://crqshom2ulnqs"]
 
 [ext_resource type="Texture2D" uid="uid://o8dy4on3a472" path="res://assets/in-game/table/table2.png" id="1_2enhw"]
 [ext_resource type="Texture2D" uid="uid://co2rfqx5iamwe" path="res://assets/in-game/hands/hands.png" id="2_at4in"]
 [ext_resource type="Texture2D" uid="uid://dvre3bnghdvwf" path="res://assets/in-game/coin/coin.png" id="3_n1cqa"]
+[ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="4_at4in"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qx6oi"]
 atlas = ExtResource("2_at4in")
@@ -146,14 +147,23 @@ animations = [{
 "speed": 7.5
 }]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at4in"]
+bg_color = Color(0.9740171, 0.36877128, 0.35685748, 1)
+
+[sub_resource type="Theme" id="Theme_n1cqa"]
+TooltipLabel/fonts/font = ExtResource("4_at4in")
+TooltipPanel/styles/panel = SubResource("StyleBoxFlat_at4in")
+
 [node name="TestVisuals" type="Node2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(584, 325)
 scale = Vector2(0.37159738, 0.37159738)
 texture = ExtResource("1_2enhw")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(193, 537)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lwek1")
@@ -161,6 +171,7 @@ autoplay = "default"
 frame_progress = 0.88760954
 
 [node name="AnimatedSprite2D3" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(417, 547)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lwek1")
@@ -168,6 +179,7 @@ autoplay = "default"
 frame_progress = 0.2899409
 
 [node name="AnimatedSprite2D4" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(701, 547)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lwek1")
@@ -175,6 +187,7 @@ autoplay = "default"
 frame_progress = 0.99590385
 
 [node name="AnimatedSprite2D5" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(961, 561)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lwek1")
@@ -182,6 +195,7 @@ autoplay = "default"
 frame_progress = 0.08832129
 
 [node name="AnimatedSprite2D6" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(1270, 555)
 scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_lwek1")
@@ -189,6 +203,7 @@ autoplay = "default"
 frame_progress = 0.6409282
 
 [node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(127, 259)
 scale = Vector2(1.25, 1.25)
 sprite_frames = SubResource("SpriteFrames_taijl")
@@ -197,6 +212,7 @@ frame_progress = 0.8649503
 flip_v = true
 
 [node name="AnimatedSprite2D7" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(365, 179)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_taijl")
@@ -205,6 +221,7 @@ frame_progress = 0.74584496
 flip_v = true
 
 [node name="AnimatedSprite2D8" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(623, 220.00002)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_taijl")
@@ -213,6 +230,7 @@ frame_progress = 0.74584496
 flip_v = true
 
 [node name="AnimatedSprite2D9" type="AnimatedSprite2D" parent="."]
+visible = false
 position = Vector2(869, 150.00002)
 scale = Vector2(0.75, 0.75)
 sprite_frames = SubResource("SpriteFrames_taijl")
@@ -220,3 +238,16 @@ autoplay = "default"
 frame = 6
 frame_progress = 0.25112116
 flip_v = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 301.0
+offset_top = 150.0
+offset_right = 377.0
+offset_bottom = 247.0
+tooltip_text = "qliuhileusbfskjevksiuvhls
+sefliushfuisbrv
+seiushvrpdurbvmdv
+sevùmisjrvpodnvd
+"
+tooltip_auto_translate_mode = 2
+theme = SubResource("Theme_n1cqa")
