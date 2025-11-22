@@ -22,6 +22,13 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_pressed("click"): $CursorHand.frame = 1
 	else: $CursorHand.frame = 0
+	
+	if Input.is_action_just_pressed("ui_accept"):
+		$Player_list.show()
+		$Player_list.refresh()
+	
+	if Input.is_action_just_released("ui_accept"):
+		$Player_list.hide()
 
 func gameloop():
 	if game_over: return
