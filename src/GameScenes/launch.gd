@@ -26,6 +26,8 @@ var canPlaceHand:bool = true
 var currentHandNumber = 0
 var play:bool = false
 
+var nom_piece = PlayerVars.pieces[PlayerVars.selectedPiece]
+var dico_piece = PieceVars.pieces[nom_piece]
 
 
 func _ready() -> void:
@@ -65,13 +67,13 @@ func placeHand() ->void:
 	
 func placeCoin(position:Vector2) ->void:
 	var coin_instance = coin_scene.instantiate()
+	change_coin_type(coin_instance)
 	position = Vector2(position.x-50,position.y-200)
 	coin_instance.global_position = position
 	add_child(coin_instance)
 
 func _on_hand_spawn_delay_timeout() -> void:
 	canPlaceHand = true
-
 
 func _on_start_delay_timeout() -> void:
 	play = true
@@ -81,3 +83,11 @@ func _on_table_topdown_round_finised() -> void:
 	for child in get_children():
 		if child is Coin || child is hand:
 			child.queue_free()
+
+func change_coin_type(coin:Coin) ->void:
+	nom_piece = PlayerVars.pieces[PlayerVars.selectedPiece]
+	dico_piece = PieceVars.pieces[nom_piece]
+	coin.chance = dico_piece["luck"]
+	coin.value = dico_piece["value"]
+	coin.effect = dico_piece["effect"]
+	coin.goodSideColor = dico_piece["color"]

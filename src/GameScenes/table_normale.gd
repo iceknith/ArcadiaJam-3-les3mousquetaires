@@ -3,7 +3,6 @@ extends Control
 signal shop
 signal play
 
-var selected_piece = 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -31,7 +30,6 @@ func update_pieces():
 		piece_name = PlayerVars.pieces[i]
 		if piece_name != "":
 			coin.tooltip_text= piece_name
-			print(PlayerVars.pieces[i])
 			coin.get_node("TextureRect").show()
 			coin.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
 			coin.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[PlayerVars.pieces[i]]["color"])
@@ -42,8 +40,8 @@ func update_pieces():
 
 
 func _on_coin_1_toggled(toggled_on):
-	selected_piece = 1
-	if PlayerVars.pieces[selected_piece-1] != "":
+	PlayerVars.selectedPiece = 0
+	if PlayerVars.pieces[PlayerVars.selectedPiece] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin1.global_position + Vector2(-10,-10)
 	else:
@@ -51,32 +49,32 @@ func _on_coin_1_toggled(toggled_on):
 
 
 func _on_coin_2_toggled(toggled_on):
-	selected_piece = 2
-	if PlayerVars.pieces[selected_piece-1] != "":
+	PlayerVars.selectedPiece = 1
+	if PlayerVars.pieces[PlayerVars.selectedPiece] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin2.global_position + Vector2(-10,-10)
 	else:
 		$delete_coin.hide()
 
 func _on_coin_3_toggled(toggled_on):
-	selected_piece = 3
-	if PlayerVars.pieces[selected_piece-1] != "":
+	PlayerVars.selectedPiece = 2
+	if PlayerVars.pieces[PlayerVars.selectedPiece] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin3.global_position + Vector2(-10,-10)
 	else:
 		$delete_coin.hide()
 
 func _on_coin_4_toggled(toggled_on):
-	selected_piece = 4
-	if PlayerVars.pieces[selected_piece-1] != "":
+	PlayerVars.selectedPiece = 3
+	if PlayerVars.pieces[PlayerVars.selectedPiece] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin4.global_position + Vector2(-10,-10)
 	else:
 		$delete_coin.hide()
 
 func _on_coin_5_toggled(toggled_on):
-	selected_piece = 5
-	if PlayerVars.pieces[selected_piece-1] != "":
+	PlayerVars.selectedPiece = 4
+	if PlayerVars.pieces[PlayerVars.selectedPiece] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin5.global_position + Vector2(-10,-10)
 	else:
@@ -84,8 +82,8 @@ func _on_coin_5_toggled(toggled_on):
 
 
 func _on_coin_6_toggled(toggled_on):
-	selected_piece = 6
-	if PlayerVars.pieces[selected_piece-1] != "":
+	PlayerVars.selectedPiece = 5
+	if PlayerVars.pieces[PlayerVars.selectedPiece] != "":
 		$delete_coin.show()
 		$delete_coin.global_position = $GridContainer/coin6.global_position + Vector2(-10,-10)
 	else:
@@ -95,7 +93,7 @@ func _on_delete_coin_pressed():
 	$delete_popup.show()
 
 func _on_confirm_pressed():
-	PlayerVars.pieces[selected_piece-1] = ""
+	PlayerVars.pieces[PlayerVars.selectedPiece] = ""
 	update_pieces()
 	$delete_popup.hide()
 	$delete_coin.hide()
