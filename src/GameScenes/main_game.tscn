@@ -146,7 +146,6 @@ offset_right = 229.0
 offset_bottom = 44.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = ExtResource("9_blnsy")
 theme_override_font_sizes/font_size = 64
 text = "END OF PHASE"
 label_settings = SubResource("LabelSettings_b173h")

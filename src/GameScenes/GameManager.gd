@@ -38,7 +38,7 @@ func new_wave()->void:
 	$Shop.restock()
 	
 	#INFO POPUP
-	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	var message = "NEW WAVE \n your debt is :"+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message,2)
 
 

@@ -29,7 +29,7 @@ func update_pieces():
 	for coin:Button in pieces:
 		piece_name = PlayerVars.pieces[i]
 		if piece_name != "":
-			coin.tooltip_text= piece_name
+			coin.tooltip_text= piece_name + "\nluck : " + str(PieceVars.pieces[piece_name]["luck"])
 			coin.get_node("TextureRect").show()
 			coin.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
 			coin.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[PlayerVars.pieces[i]]["color"])
