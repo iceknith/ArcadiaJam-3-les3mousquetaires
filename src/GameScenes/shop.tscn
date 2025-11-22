@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4fbw2wyq73q1"]
 
 [ext_resource type="Script" uid="uid://fu8hksojkt4j" path="res://src/GameScenes/shop.gd" id="1_2fllm"]
-[ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_270xf"]
+[ext_resource type="Theme" path="res://src/theme.tres" id="2_270xf"]
 [ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="2_kul4d"]
 
 [node name="Shop" type="Control"]
