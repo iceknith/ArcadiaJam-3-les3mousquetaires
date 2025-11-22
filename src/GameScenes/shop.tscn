@@ -7,7 +7,7 @@
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="3_8qqtn"]
 [ext_resource type="Texture2D" uid="uid://culyap7qil10c" path="res://assets/in-game/bgs/elements/merchant.png" id="3_lcx3a"]
 [ext_resource type="Texture2D" uid="uid://clf7q0s63sfx8" path="res://assets/in-game/bgs/elements/table.png" id="4_8wxb0"]
-[ext_resource type="Texture2D" uid="uid://btpwoeh1lv4tt" path="res://assets/in-game/organs/leg.png" id="4_nwjyp"]
+[ext_resource type="Texture2D" uid="uid://cg26o328wx2ig" path="res://assets/in-game/organs/feet.png" id="4_nwjyp"]
 
 [node name="Shop" type="Control"]
 layout_mode = 3

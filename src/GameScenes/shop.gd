@@ -38,7 +38,7 @@ func update()->void:
 		if available_organs[i] != {}:
 			slot.tooltip_text =  available_organs[i]["name"] + "\n " + str(available_organs[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
-			slot.get_node("TextureRect").texture = load("res://assets/in-game/organs/" + available_organs[i]["name"] +".png")
+			slot.get_node("TextureRect").texture = load(OrganVars.organs[available_organs[i]["name"]].image)
 		else:
 			slot.tooltip_text=""
 			slot.get_node("TextureRect").hide()
