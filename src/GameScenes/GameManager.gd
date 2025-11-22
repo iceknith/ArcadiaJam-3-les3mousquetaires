@@ -1,7 +1,7 @@
 extends Node
 
 #all vals
-var base_rounds
+@export var base_rounds = -1
 var game_over = false
 
 func _ready() -> void:
@@ -40,13 +40,13 @@ func gameloop():
 func new_wave()->void:
 	print("hey ?")
 	if game_over: return
-	PlayerVars.round_left = PlayerVars.organes["leg"]-1
+	PlayerVars.round_left = base_rounds + PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
 	PlayerVars.debt = 0
 	$top_UI.refresh()
 	$Shop.restock()
 
-	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	var message = "NEW WAVE \n your debt is : "+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
 
@@ -65,6 +65,12 @@ func playRound() -> void:
 	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
+	PlayerVars.pieces_durability[PlayerVars.selectedPiece] -= 1
+	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] == 0:
+		PlayerVars.pieces[PlayerVars.selectedPiece] = ""
+		$TableNormale.update_pieces()
+		$TableNormale.force_select_coin()
+		
 	PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
@@ -81,12 +87,14 @@ func _on_table_normale_shop() -> void:
 #ENTER ROUND
 func _on_table_normale_play() -> void:
 	if check_selected_coin():
+		
 		$Shop.visible = false
 		$TransitionPlayer.play("topDownLaunch")
 		
 		$TableTopdown/Launch.launch()
 		playRound()
-	else:
+		
+	elif PlayerVars.nb_piece() <= 0:
 		gameOver()
 
 
