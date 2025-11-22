@@ -13,45 +13,36 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if PlayerVars.money >= scoreThreshold && PlayerVars.round == 0:
 		PlayerVars.money -= scoreThreshold
-		wavePassed()
+		gameLoop()
 	elif PlayerVars.round <= 0:
 		gameOver()
-	if PlayerVars.money > 999:
-		win()
 
-func afficheScore() -> void:
-	PlayerVars.score += collect_coins()
-	$PlayerScore.text = "score:" + str(PlayerVars.money)
-	
 func gameOver() -> void:
 	#TODO MESSAGE GAME OVER / GAME OVER SCREEN
-	pass
-
-func wavePassed()->void:
-	gameLoop()
-
-func win()->void:
 	pass
 
 func gameLoop() ->void:
 	wave +=1
 	scoreThreshold = wave*2 # TODO 
+	PlayerVars.debt = scoreThreshold
 	$Shop.restock()
+	$top_UI.refresh()
 
-func collect_coins() -> int:
+func collect_coins() -> float:
 	var coins = get_tree().get_nodes_in_group("coins")
-	var total := 0.0
-
+	var total = 0
 	for coin in coins:
-		total += coin.value
-		coin.queue_free()
+		if coin.resultat:
+			total += coin.value
 	return total
+	
 
 func playRound() -> void:
 	PlayerVars.round-=1
 
 func backToMenu() -> void:
 	PlayerVars.money += collect_coins()
+	$top_UI.refresh()
 
 # SHOP
 func _on_table_normale_shop() -> void:
