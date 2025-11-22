@@ -48,8 +48,12 @@ func update()->void:
 	for slot:Button in piece_slots:
 		if available_pieces[i] != {}:
 			slot.tooltip_text = available_pieces[i]["name"] + "\n " + str(available_pieces[i]["price"]) + "$"
+			slot.get_node("TextureRect").show()
+			slot.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png") #sprite à modifier
+			slot.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[available_pieces[i]["name"]]["color"])
 		else:
-			slot.text=""
+			slot.tooltip_text=""
+			slot.get_node("TextureRect").hide()
 		i+=1
 
 

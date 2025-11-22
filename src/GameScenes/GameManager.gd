@@ -1,32 +1,43 @@
 extends Node
 
-
-var wave:int =0
-var scoreThreshold:int = 10
+var base_rounds
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	gameLoop() # Replace with function body.
+	PlayerVars.wave = 0
+	new_wave()
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if PlayerVars.money >= scoreThreshold && PlayerVars.round == 0:
-		PlayerVars.money -= scoreThreshold
-		gameLoop()
-	elif PlayerVars.round <= 0:
+	gameloop()
+
+
+func gameloop():
+	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
+		PlayerVars.money -= PlayerVars.debt
+		new_wave()
+	elif PlayerVars.round_left <= 0:
 		gameOver()
+
+	if PlayerVars.money > 999:
+		win()
 
 func gameOver() -> void:
 	#TODO MESSAGE GAME OVER / GAME OVER SCREEN
 	pass
 
-func gameLoop() ->void:
-	wave +=1
-	scoreThreshold = wave*2 # TODO 
-	PlayerVars.debt = scoreThreshold
-	$Shop.restock()
+func new_wave()->void:
+	PlayerVars.round_left = 3 + PlayerVars.organes["leg"]
+	PlayerVars.wave +=1
+	PlayerVars.debt = PlayerVars.wave*2 # TODO
 	$top_UI.refresh()
+	$Shop.restock()
+
+func win()->void:
+	pass
+
+
 
 func collect_coins() -> float:
 	var coins = get_tree().get_nodes_in_group("coins")
@@ -38,9 +49,10 @@ func collect_coins() -> float:
 	
 
 func playRound() -> void:
-	PlayerVars.round-=1
+	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
+	$top_UI.refresh()
 	PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 
