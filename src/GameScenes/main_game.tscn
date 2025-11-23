@@ -818,6 +818,11 @@ libraries = {
 &"": SubResource("AnimationLibrary_patp3")
 }
 
+[node name="TransitionPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_patp3")
+}
+
 [node name="top_UI" parent="." instance=ExtResource("8_ltw7p")]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
@@ -897,7 +902,7 @@ z_index = 2
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="MusicPlayers"]
 stream = ExtResource("15_patp3")
 volume_db = -5.0
-pitch_scale = 0.8
+pitch_scale = 0.9
 
 [node name="TapeSFX" type="AudioStreamPlayer" parent="MusicPlayers"]
 stream = ExtResource("16_ik4br")

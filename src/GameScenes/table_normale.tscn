@@ -149,10 +149,25 @@ text = "SHOP ->
 script = ExtResource("6_cxw46")
 metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
+[node name="body_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 36.0
+offset_top = 28.0
+offset_right = 167.0
+offset_bottom = 94.0
+focus_mode = 0
+theme = ExtResource("3_pcvq8")
+text = "View
+Body
+"
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
+
 [node name="selection_coin" type="Node2D" parent="."]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("8_cn1ww")
+metadata/_edit_lock_ = true
 
 [node name="GridContainer" type="GridContainer" parent="."]
 layout_mode = 0

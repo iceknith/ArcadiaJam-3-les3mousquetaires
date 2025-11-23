@@ -15,9 +15,13 @@ func _ready() -> void:
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+	connect_signals()
 
 func connect_signals():
 	$MusicPlayers/MusicPlayer.finished.connect(playSFX)
+	$Shop/body_button.pressed.connect(view_body)
+	$TableNormale/body_button.pressed.connect(view_body)
+	$Player_list/body_button.pressed.connect(hide_body)
 
 func _process(delta: float) -> void:
 	#Move light to mouse
@@ -29,16 +33,18 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("click"): $CursorHand.frame = 1
 	else: $CursorHand.frame = 0
 	
-	if Input.is_action_just_pressed("ui_accept"):
-		$TransitionPlayer.play("playerListShow")
-		$Player_list.refresh()
 	
-	if Input.is_action_just_released("ui_accept"):
-		$TransitionPlayer.play("playerListHide")
+	if Input.is_action_just_pressed("ui_accept") && $TableNormale.visible && \
+		!$TransitionPlayer.is_playing() && !$Player_list.visible:
+			_on_table_normale_play()
+	
+	if Input.is_action_just_pressed("ui_accept") && $Shop.visible && \
+		!$TransitionPlayer.is_playing() && !$Player_list.visible: 
+			_on_shop_exit_shop()
 	
 	# Music
-	if !$MusicPlayers/MusicPlayer.playing && !$MusicPlayers/TapeSFX.playing:
-		playSFX()
+	#if !$MusicPlayers/MusicPlayer.playing && !$MusicPlayers/TapeSFX.playing:
+	#	playSFX()
 
 func gameloop():
 	if game_over: return
@@ -166,5 +172,13 @@ func _on_bonus_menu_exit():
 
 
 func playSFX():
-	print("heyyy ?")
 	$MusicPlayers/TapeSFX.play(0)
+
+# === View Body
+
+func view_body():
+	$Player_list.refresh()
+	$TransitionPlayer2.play("playerListShow")
+
+func hide_body():
+	$TransitionPlayer2.play("playerListHide")
