@@ -52,3 +52,8 @@ var artefacts = {
 	"DUCKY" : "res://assets/in-game/bonus/ducky.png",
 	"PUPPET" : "res://assets/in-game/bonus/elmo.png"
 }
+
+var special = {
+	"nom" : "",
+	"texte" : ""
+}

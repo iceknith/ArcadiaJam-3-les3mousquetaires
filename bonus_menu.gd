@@ -40,7 +40,6 @@ func generate_selection() -> void:
 		var artefact = get_random_artefact()
 		available_choice[i] = {"bonus" : bonus, "malus" : malus, "modifier" : modifier, "artefact" : artefact}
 	update_choice()
-		
 
 func update_choice() -> void:
 	var i = 0
