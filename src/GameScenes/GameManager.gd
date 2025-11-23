@@ -6,12 +6,12 @@ extends Node
 var game_over = false
 
 func _ready() -> void:
-	$Bonus_menu.show()
-	$Bonus_menu.generate_selection()
-	PlayerVars.wave = 0
-	$Info_popup.visible=false
-	$Bonus_menu.show()
-	$Bonus_menu.generate_selection()
+	#$Bonus_menu.show()
+	#$Bonus_menu.generate_selection()
+	#PlayerVars.wave = 0
+	#$Info_popup.visible=false
+	#$Bonus_menu.show()
+	#$Bonus_menu.generate_selection()
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
