@@ -28,11 +28,11 @@ func _process(delta: float) -> void:
 	else: $CursorHand.frame = 0
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		$Player_list.show()
+		$TransitionPlayer.play("playerListShow")
 		$Player_list.refresh()
 	
 	if Input.is_action_just_released("ui_accept"):
-		$Player_list.hide()
+		$TransitionPlayer.play("playerListHide")
 	
 	# Music
 	if !$MusicPlayers/MusicPlayer.playing && !$MusicPlayers/TapeSFX.playing:

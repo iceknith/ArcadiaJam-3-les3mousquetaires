@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://df73jwxyyl64o"]
+[gd_scene load_steps=33 format=3 uid="uid://df73jwxyyl64o"]
 
 [ext_resource type="Script" uid="uid://begcex3rwt0lr" path="res://src/GameScenes/GameManager.gd" id="1_2rdtk"]
 [ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
@@ -103,6 +103,42 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Player_list:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Player_list:position")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -648)]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("Player_list:modulate")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_ik4br"]
@@ -441,9 +477,91 @@ tracks/6/keys = {
 }]
 }
 
+[sub_resource type="Animation" id="Animation_5isq0"]
+resource_name = "playerListShow"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_list:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_list:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -648), Vector2(0, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player_list:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+
+[sub_resource type="Animation" id="Animation_a5eni"]
+resource_name = "playerListHide"
+length = 0.3
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Player_list:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -648)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Player_list:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Player_list:modulate")
+tracks/2/interp = 2
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 1), Color(1, 1, 1, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_patp3"]
 _data = {
 &"RESET": SubResource("Animation_patp3"),
+&"playerListHide": SubResource("Animation_a5eni"),
+&"playerListShow": SubResource("Animation_5isq0"),
 &"shopLaunch": SubResource("Animation_ik4br"),
 &"shopStop": SubResource("Animation_33ty7"),
 &"topDownLaunch": SubResource("Animation_54xyp"),
@@ -702,16 +820,6 @@ libraries = {
 
 [node name="top_UI" parent="." instance=ExtResource("8_ltw7p")]
 
-[node name="CursorHand" type="Sprite2D" parent="."]
-z_index = 3
-position = Vector2(176, 369)
-scale = Vector2(0.2, 0.2)
-texture = ExtResource("11_b173h")
-hframes = 2
-
-[node name="fingerMarker" type="Marker2D" parent="CursorHand"]
-position = Vector2(-84.99999, -2480)
-
 [node name="PointLight2D" type="PointLight2D" parent="."]
 texture = ExtResource("10_8wwc8")
 texture_scale = 2.0
@@ -763,20 +871,22 @@ libraries = {
 &"": SubResource("AnimationLibrary_b173h")
 }
 
-[node name="ShaderRect" type="ColorRect" parent="."]
-z_index = 4096
-material = SubResource("ShaderMaterial_8wwc8")
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-mouse_filter = 2
-metadata/_edit_lock_ = true
-
 [node name="Player_list" parent="." instance=ExtResource("13_54xyp")]
 visible = false
-z_index = 4
+modulate = Color(1, 1, 1, 0)
+z_index = 3
+offset_top = -648.0
+offset_bottom = -648.0
+
+[node name="CursorHand" type="Sprite2D" parent="."]
+z_index = 3
+position = Vector2(176, 369)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("11_b173h")
+hframes = 2
+
+[node name="fingerMarker" type="Marker2D" parent="CursorHand"]
+position = Vector2(-84.99999, -2480)
 
 [node name="Bonus_menu" parent="." instance=ExtResource("14_2s2ie")]
 visible = false
@@ -796,6 +906,18 @@ volume_db = -2.5
 [node name="SlidePlayer" type="AudioStreamPlayer" parent="MusicPlayers"]
 stream = ExtResource("17_33ty7")
 volume_db = 5.0
+
+[node name="ShaderRect" type="ColorRect" parent="."]
+visible = false
+z_index = 4096
+material = SubResource("ShaderMaterial_8wwc8")
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+metadata/_edit_lock_ = true
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]
