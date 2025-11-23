@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=18 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
 [ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
@@ -6,10 +6,22 @@
 [ext_resource type="Texture2D" uid="uid://culyap7qil10c" path="res://assets/in-game/bgs/elements/merchant.png" id="3_djbji"]
 [ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="3_k0q6d"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="3_pcvq8"]
+[ext_resource type="Script" uid="uid://b42dqyn0dop0j" path="res://src/customScripts/3D_touch_button.gd" id="6_cxw46"]
 [ext_resource type="Texture2D" uid="uid://xj6yutcfpswx" path="res://assets/menues/cross.png" id="6_djbji"]
 [ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="8_cn1ww"]
 
 [sub_resource type="ButtonGroup" id="ButtonGroup_1dxgy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_cxw46"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_oub7m"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cxw46"]
+bg_color = Color(0, 0, 0, 0.19607843)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ggxth"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxnkl"]
 
 [sub_resource type="Animation" id="Animation_djbji"]
 resource_name = "base_anim"
@@ -77,6 +89,8 @@ focus_mode = 0
 theme = ExtResource("3_pcvq8")
 text = "PLAY
 "
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="shop_button" type="Button" parent="."]
 layout_mode = 0
@@ -88,6 +102,8 @@ focus_mode = 0
 theme = ExtResource("3_pcvq8")
 text = "SHOP ->
 "
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="selection_coin" type="Node2D" parent="."]
 
@@ -112,6 +128,8 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin1"]
 texture_filter = 2
@@ -133,6 +151,8 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin2"]
 texture_filter = 2
@@ -154,6 +174,8 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin3"]
 texture_filter = 2
@@ -175,6 +197,8 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin4"]
 texture_filter = 2
@@ -196,6 +220,8 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin5"]
 texture_filter = 2
@@ -217,6 +243,8 @@ theme = ExtResource("3_pcvq8")
 theme_override_font_sizes/font_size = 20
 toggle_mode = true
 button_group = SubResource("ButtonGroup_1dxgy")
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="GridContainer/coin6"]
 texture_filter = 2
@@ -231,16 +259,23 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="delete_coin" type="Button" parent="."]
-visible = false
 layout_mode = 0
 offset_top = -3.0
 offset_right = 48.0
-offset_bottom = 25.0
+offset_bottom = 36.0
 focus_mode = 0
 theme = ExtResource("3_pcvq8")
+theme_override_styles/normal = SubResource("StyleBoxEmpty_cxw46")
+theme_override_styles/pressed = SubResource("StyleBoxEmpty_oub7m")
+theme_override_styles/hover = SubResource("StyleBoxFlat_cxw46")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_ggxth")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_rxnkl")
 icon = ExtResource("6_djbji")
 icon_alignment = 1
+vertical_icon_alignment = 0
 expand_icon = true
+script = ExtResource("6_cxw46")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="delete_popup" type="Control" parent="."]
 visible = false
