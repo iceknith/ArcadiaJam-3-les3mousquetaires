@@ -139,6 +139,14 @@ func valider_choice(id):
 	else:
 		if dico["nom"] == "golden_body":
 			golden_body()
+		if dico["nom"] == "random_organ":
+			random_organ()
+		if dico["nom"] == "invest_bonus":
+			invest_bonus()
+		if dico["nom"] == "durabilite_coin":
+			durabilite_coin()
+		if dico["nom"] == "invest_bonus":
+			invest_bonus()
 
 	exit.emit()
 
@@ -158,6 +166,7 @@ func _on_choix_3_pressed() -> void:
 	valider_choice(2)
 	
 func golden_body() -> void:
+	print("golden_body")
 	var money = 0
 	for organs in PlayerVars.organes:
 		money += PlayerVars.organes[organs] 
@@ -165,6 +174,7 @@ func golden_body() -> void:
 	
 	
 func random_organ() -> void:
+	print("random_organ")
 	var nb_organs = 0
 	for organs in PlayerVars.organes:
 		nb_organs += PlayerVars.organes[organs]
@@ -173,6 +183,23 @@ func random_organ() -> void:
 	for i in range(nb_organs):
 		random_organ = OrganVars.organs[OrganVars.organs.keys()[OrganVars.organs.size()]]
 		print(random_organ)
-		
+
+func invest_bonus() -> void:
+	print("invest_bonus")
+	if(randf()>0.5):
+		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money*1.4)
+	else:
+		get_tree().get_first_node_in_group("UI").set_money(0.1)
+
+func durabilite_coin() -> void:
+	print("durabilite_coin")
+	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] != -1:
+		PlayerVars.pieces_durability[PlayerVars.selectedPiece] +=5
 	
+func super_coin() ->void:
+	print("super_coin")
+	pass
+
+func horse() -> void:
+	print("horse")
 	
