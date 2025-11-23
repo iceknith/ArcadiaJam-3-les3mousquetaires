@@ -54,6 +54,20 @@ var artefacts = {
 }
 
 var special = {
-	"nom" : "",
-	"texte" : ""
+	"golden_body" : {
+		"image" : "res://icon.svg",
+		"desc" : "TON POID EN OR\n\n+1 coin per organs"
+	},
+	"random_organ" : {
+		"image" : "res://icon.svg",
+		"desc" : "become one with your flesh"
+	},
+	"invest_bonus" : { # +40% ou - 2% de ta thune en plus
+		"image" : "res://icon.svg",
+		"desc" : "GAMBLING???"
+	},
+	"double_or_nothing" : { # double ta thune ou suprime la!
+		"image" : "res://icon.svg",
+		"desc" : "DOUBLE OR NOTHING\n\n..."
+	}
 }
