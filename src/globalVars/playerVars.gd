@@ -4,7 +4,7 @@ var organes:Dictionary = {
 	"arm" : 10,
 	"leg" : 2,
 	"tooth" : 0,
-	"lungs" : 2,
+	"lung" : 2,
 	"liver" : 1,
 	"rib" : 0,
 	"eye" : 2
