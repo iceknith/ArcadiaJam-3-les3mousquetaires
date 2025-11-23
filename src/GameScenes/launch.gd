@@ -10,6 +10,7 @@ extends Node2D
 @export var hand_hauteur_position = 60
 @export var handRandomSize =0.6
 @export var placementOffset:Vector2
+@export var hand_speed_scale:float = 0.2
 @export_subgroup("Timer")
 @export var spawnStartDelay = 1.5
 @export var coinCastDelay = 1.2
@@ -17,6 +18,7 @@ extends Node2D
 
 # all vars
 var nombre_hands =1
+var speed = 1
 var left_border = 0
 var screen_width = ProjectSettings.get_setting("display/window/size/viewport_width")
 var spawnRange = screen_width * spawnRangeSize /2
@@ -38,8 +40,9 @@ func _ready() -> void:
 # fonction appelé par le game manager
 func launch() -> void:
 	nombre_hands = PlayerVars.organes.get("arm") + PlayerVars.organes.get("tooth")
+	speed = clamp(nombre_hands * hand_speed_scale,1,5)
 	PlayerVars.organes["tooth"]=0
-	$startDelay.start()
+	$startDelay.start(spawnStartDelay/speed)
 	currentHandNumber = 0
 	get_parent().coinsThrown = 0
 
@@ -52,23 +55,24 @@ func _process(delta: float) -> void:
 	# HANDS
 	placeHand()
 	# DELAY
-	$handSpawnDelay.start()
+	$handSpawnDelay.start(handSpawnDelay/speed)
 	canPlaceHand = false
 	if currentHandNumber >= nombre_hands: play= false
 
-
 func placeHand() ->void:
 	var hand_instance = hand_scene.instantiate()
+	hand_instance.get_node("AnimationPlayer").speed_scale = speed
 	# position main
 	var x_position = screen_width/2 + randf_range(-1,1)* spawnRange
 	var y_position = screen_height - hand_hauteur_position
 	var placement = Vector2(x_position,y_position)
 	hand_instance.global_position = placement
 	add_child(hand_instance)
-	get_tree().create_timer(coinCastDelay).timeout.connect(placeCoin.bind(placement + placementOffset))
+	get_tree().create_timer(coinCastDelay/speed).timeout.connect(placeCoin.bind(placement + placementOffset))
 	
 func placeCoin(position:Vector2) ->void:
 	var coin_instance:Coin = coin_scene.instantiate()
+	coin_instance.get_node("MouvementPlayer").speed_scale = speed
 	coin_instance.animEnd.connect(get_parent()._on_coin_finish_throw)
 	change_coin_type(coin_instance)
 	position = Vector2(position.x-50,position.y-200)
@@ -80,7 +84,6 @@ func _on_hand_spawn_delay_timeout() -> void:
 
 func _on_start_delay_timeout() -> void:
 	play = true
-
 
 func change_coin_type(coin:Coin) ->void:
 	nom_piece = PlayerVars.pieces[PlayerVars.selectedPiece]
