@@ -85,6 +85,10 @@ var special = {
 	"mirror" : { # HORSE
 		"image" : "res://assets/in-game/bonus/mirror.png",
 		"desc" : "MIRROR\n\nDouble your best organ\n...\nat a cost"
+	},
+	"midas" : { # HORSE
+		"image" : "res://assets/in-game/organs/heart.png",
+		"desc" : "HEART\n\nCoin for free\n...\nYou sure won't regret this!"
 	}
 	
 }
