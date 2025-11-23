@@ -6,12 +6,8 @@ extends Node
 var game_over = false
 
 func _ready() -> void:
-	#$Bonus_menu.show()
-	#$Bonus_menu.generate_selection()
-	#PlayerVars.wave = 0
-	#$Info_popup.visible=false
-	#$Bonus_menu.show()
-	#$Bonus_menu.generate_selection()
+	PlayerVars.wave = 0
+	$Info_popup.visible=false
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -76,7 +72,7 @@ func collect_coins() -> float:
 	var total = 0
 	for coin in coins:
 		if coin.resultat: #PlayerVars.coin_multiplicateur + PlayerVars["organs"]["lung"]
-			total += coin.value * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
+			total += (coin.value+ PlayerVars.coin_additionneur) * PlayerVars.coin_multiplicateur 
 	return total
 
 func check_selected_coin():

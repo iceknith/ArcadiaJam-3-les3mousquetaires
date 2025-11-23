@@ -64,7 +64,7 @@ var special = {
 	},
 	"invest_bonus" : { # +40% ou - 2% de ta thune en plus
 		"image" : "res://assets/in-game/bonus/jobApplication.png",
-		"desc" : "COIN\n\nReady to invest!\nYearn for the cash"
+		"desc" : "JOB APPLICATION\n\nReady to invest!\nYearn for the cash"
 	},
 	"double_or_nothing" : { # double ta thune ou suprime la!
 		"image" : "res://assets/in-game/bonus/pigeon.png",
