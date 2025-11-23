@@ -60,7 +60,7 @@ func set_money(value:float):
 
 func _on_round_ended() -> void:
 	await get_tree().create_timer(bufferTimeBeforeAdding).timeout
-	$money/MoneyTransvaseTimer.wait_time = totalCountDownTime/(roundf(moneyBuffer) + 1)
+	$money/MoneyTransvaseTimer.wait_time = totalCountDownTime/(roundf(abs(moneyBuffer)) + 1)
 	$money/MoneyTransvaseTimer.start()
 
 func _on_money_transvase_timer_timeout() -> void:

@@ -234,6 +234,20 @@ scale = Vector2(0.5, 0.5)
 sprite_frames = SubResource("SpriteFrames_7xjrf")
 autoplay = "default"
 
+[node name="body_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 18.0
+offset_right = 152.0
+offset_bottom = 92.0
+focus_mode = 0
+theme = ExtResource("2_cfpsb")
+text = "View
+Body
+"
+script = ExtResource("3_gobay")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
+
 [connection signal="pressed" from="HBoxContainer/choix1" to="." method="_on_choix_1_pressed"]
 [connection signal="pressed" from="HBoxContainer/choix2" to="." method="_on_choix_2_pressed"]
 [connection signal="pressed" from="HBoxContainer/choix3" to="." method="_on_choix_3_pressed"]

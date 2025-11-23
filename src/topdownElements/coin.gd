@@ -53,6 +53,7 @@ func _ready() -> void:
 			finalValue = valueNeg * PlayerVars.organes.get(effectNeg)
 		else:
 			finalValue = valueNeg
+		finalValue = finalValue * PlayerVars.coin_multiplicateur
 	
 	
 	if resultat: 

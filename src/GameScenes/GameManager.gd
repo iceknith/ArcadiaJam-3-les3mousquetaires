@@ -17,6 +17,7 @@ func connect_signals():
 	$MusicPlayers/MusicPlayer.finished.connect(playSFX)
 	$Shop/body_button.pressed.connect(view_body)
 	$TableNormale/body_button.pressed.connect(view_body)
+	$Bonus_menu/body_button.pressed.connect(view_body)
 	$Player_list/body_button.pressed.connect(hide_body)
 
 func _process(delta: float) -> void:
