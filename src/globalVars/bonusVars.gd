@@ -63,7 +63,7 @@ var special = {
 		"desc" : "CHAINSAW\n\nReady for a new look ?\nBecome one with your flesh"
 	},
 	"invest_bonus" : { # +40% ou - 2% de ta thune en plus
-		"image" : "res://assets/in-game/coin/coin_icon.png",
+		"image" : "res://assets/in-game/bonus/jobApplication.png",
 		"desc" : "COIN\n\nReady to invest!\nYearn for the cash"
 	},
 	"double_or_nothing" : { # double ta thune ou suprime la!
@@ -75,8 +75,8 @@ var special = {
 		"desc" : "LOG\n\nUpgrade the durability \nof your coins\n+2 durability"
 	},
 	"super_coin" : { # UPGRADE your current coin
-		"image" : "res://assets/in-game/bonus/mirror.png",
-		"desc" : "MIRROR\n\nUpgrade the value of \nyour current coin"
+		"image" : "res://assets/in-game/coin/coin_icon.png",
+		"desc" : "SUPER COIN\n\nUpgrade the value of \nyour current coin"
 	},
 	"horse" : { # HORSE
 		"image" : "res://assets/in-game/bonus/horseHead.png",
@@ -84,7 +84,7 @@ var special = {
 	},
 	"mirror" : { # HORSE
 		"image" : "res://assets/in-game/bonus/mirror.png",
-		"desc" : "MIRROR\n\ndouble your best organ at a cost"
+		"desc" : "MIRROR\n\nDouble your best organ\n...\nat a cost"
 	}
 	
 }
