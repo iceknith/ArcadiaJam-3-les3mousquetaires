@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhh3posgxeirv"]
+[gd_scene load_steps=13 format=3 uid="uid://bhh3posgxeirv"]
 
 [ext_resource type="Texture2D" uid="uid://dkhidasixtyx6" path="res://assets/in-game/coin/coin_no_color.png" id="1_0msn4"]
 [ext_resource type="Script" uid="uid://g1cik0pvqtko" path="res://src/topdownElements/coin.gd" id="1_e3qj5"]
@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://5iovvf33h5hf" path="res://assets/sounds/coin-flip-shimmer-85750.mp3" id="4_78jqr"]
 [ext_resource type="AudioStream" uid="uid://0kkfyeqkjd0n" path="res://assets/sounds/drop-coin-384921.mp3" id="5_ubt1o"]
 [ext_resource type="AudioStream" uid="uid://bqvsmnr5fcop5" path="res://assets/sounds/coi_fail.mp3" id="6_7hqb5"]
+[ext_resource type="AudioStream" uid="uid://quvwb3bg0ink" path="res://assets/sounds/HORSE - Sound Effect.mp3" id="7_ubt1o"]
 
 [sub_resource type="Animation" id="Animation_imjkf"]
 length = 0.001
@@ -314,3 +315,7 @@ stream = ExtResource("5_ubt1o")
 
 [node name="CoinLandNo" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("6_7hqb5")
+
+[node name="horse" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ubt1o")
+autoplay = true

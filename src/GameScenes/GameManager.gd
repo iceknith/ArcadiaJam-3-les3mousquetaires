@@ -7,8 +7,6 @@ var game_over = false
 
 func _ready() -> void:
 	PlayerVars.wave = 0
-	$Bonus_menu.show()
-	$Bonus_menu.generate_selection()
 	$Info_popup.visible=false
 	
 	new_wave()
@@ -80,10 +78,10 @@ func backToMenu() -> void:
 	PlayerVars.pieces_durability[PlayerVars.selectedPiece] -= 1
 	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] == 0:
 		PlayerVars.pieces[PlayerVars.selectedPiece] = ""
-		$TableNormale.update_pieces()
 		$TableNormale.force_select_coin()
 		
 	#PlayerVars.money += collect_coins()
+	$TableNormale.update_pieces()
 	$top_UI.refresh()
 	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
 		gameOver()

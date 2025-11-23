@@ -26,7 +26,7 @@ var pieces:Dictionary = {
 		"valuePos" : 10,
 		"effectNeg" : "",
 		"valueNeg" : 0,
-		"price" : 1,
+		"price" : 2,
 		"color" : 0x00a555ff,
 		"luck" : 0.2,
 		"dura" : 2
@@ -36,7 +36,7 @@ var pieces:Dictionary = {
 		"valuePos" : 3,
 		"effectNeg" : "",
 		"valueNeg" : 0.3,
-		"price" : 3,
+		"price" : 1,
 		"color" : 0x00b2d1ff,
 		"luck" : 0.7,
 		"dura" : 1
@@ -53,7 +53,7 @@ var pieces:Dictionary = {
 	},
 	"orange" : {
 		"effectPos" : "leg",
-		"valuePos" : 2,
+		"valuePos" : 1,
 		"effectNeg" : "liver",
 		"valueNeg" : -1,
 		"price" : 2,
@@ -74,20 +74,20 @@ var pieces:Dictionary = {
 	"forest" : {
 		"effectPos" : "lung",
 		"valuePos" : 1,
-		"effectNeg" : "",
+		"effectNeg" : "liver",
 		"valueNeg" : 0.5,
 		"price" : 3,
 		"color" : 0x2f1f1fff,
 		"luck" : 0.6,
 		"dura" : 3
 	},
-	"pink" : {
+	"GOLD" : {
 		"effectPos" : "",
 		"valuePos" : 1000,
 		"effectNeg" : "",
 		"valueNeg" : 0,
 		"price" : 8,
-		"color" : 0xff69b4ff,
+		"color" : 0xffd700ff,
 		"luck" : 0.01,
 		"dura" : 1 
 	},
