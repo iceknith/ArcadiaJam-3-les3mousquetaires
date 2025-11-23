@@ -1,9 +1,12 @@
-[gd_scene load_steps=27 format=3 uid="uid://crqshom2ulnqs"]
+[gd_scene load_steps=31 format=3 uid="uid://crqshom2ulnqs"]
 
 [ext_resource type="Texture2D" uid="uid://o8dy4on3a472" path="res://assets/in-game/table/table2.png" id="1_2enhw"]
 [ext_resource type="Texture2D" uid="uid://co2rfqx5iamwe" path="res://assets/in-game/hands/hands.png" id="2_at4in"]
 [ext_resource type="Texture2D" uid="uid://dvre3bnghdvwf" path="res://assets/in-game/coin/coin.png" id="3_n1cqa"]
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="4_at4in"]
+[ext_resource type="Shader" uid="uid://dg4f8iq84q7vw" path="res://src/customScripts/3Dshader.gdshader" id="4_qx6oi"]
+[ext_resource type="Script" uid="uid://b42dqyn0dop0j" path="res://src/customScripts/3D_touch_button.gd" id="5_n1cqa"]
+[ext_resource type="Texture2D" uid="uid://d37nvghll6drw" path="res://assets/menues/light.png" id="7_j2p06"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qx6oi"]
 atlas = ExtResource("2_at4in")
@@ -147,6 +150,17 @@ animations = [{
 "speed": 7.5
 }]
 
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_j2p06"]
+shader = ExtResource("4_qx6oi")
+shader_parameter/isInRadians = true
+shader_parameter/pivotPoint = Vector2(0, 0)
+shader_parameter/xRadians = 0.0
+shader_parameter/yRadians = 0.0
+shader_parameter/zRadians = 0.0
+shader_parameter/xDegrees = 53.554002543815
+shader_parameter/yDegrees = 41.858001988255
+shader_parameter/zDegrees = 32.9070015630825
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_at4in"]
 bg_color = Color(0.9740171, 0.36877128, 0.35685748, 1)
 
@@ -240,10 +254,11 @@ frame_progress = 0.25112116
 flip_v = true
 
 [node name="Button" type="Button" parent="."]
-offset_left = 301.0
-offset_top = 150.0
-offset_right = 377.0
-offset_bottom = 247.0
+material = SubResource("ShaderMaterial_j2p06")
+offset_left = 286.0
+offset_top = 79.0
+offset_right = 508.0
+offset_bottom = 335.0
 tooltip_text = "qliuhileusbfskjevksiuvhls
 sefliushfuisbrv
 seiushvrpdurbvmdv
@@ -251,3 +266,15 @@ sevùmisjrvpodnvd
 "
 tooltip_auto_translate_mode = 2
 theme = SubResource("Theme_n1cqa")
+script = ExtResource("5_n1cqa")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
+
+[node name="TextureRect" type="TextureRect" parent="Button"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_j2p06")
+expand_mode = 1
