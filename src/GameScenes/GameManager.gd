@@ -77,7 +77,7 @@ func backToMenu() -> void:
 		$TableNormale.update_pieces()
 		$TableNormale.force_select_coin()
 		
-	PlayerVars.money += collect_coins()
+	#PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
 		gameOver()

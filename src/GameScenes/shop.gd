@@ -99,7 +99,7 @@ func buy_organ(slot:int) -> void:
 		return
 	if PlayerVars.money >= available_organs[slot]["price"]:
 		#achat de l'organe
-		PlayerVars.money -= available_organs[slot]["price"]
+		get_tree().get_first_node_in_group("UI").buy_things(available_organs[slot]["price"])
 		PlayerVars.organes[available_organs[slot]["name"]] += 1
 		
 		print("+1 ",available_organs[slot]["name"],", vous avez :", PlayerVars.organes)
@@ -114,7 +114,7 @@ func buy_piece(slot:int) -> void:
 	if PlayerVars.money >= available_pieces[slot]["price"]:
 		if PlayerVars.nb_piece() < 6: #verif inventaire à ajouter
 		#achat de la piece
-			PlayerVars.money -= available_pieces[slot]["price"]
+			get_tree().get_first_node_in_group("UI").buy_things(available_pieces[slot]["price"])
 			ajouter_piece(available_pieces[slot]["name"])
 			print("+1 piece ",available_pieces[slot]["name"],", vous avez : ",PlayerVars.pieces)
 			available_pieces[slot] = {}
