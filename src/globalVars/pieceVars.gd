@@ -18,36 +18,36 @@ var pieces:Dictionary = {
 		"valueNeg" : 0,
 		"price" : 0,
 		"color" : 0x7a5eb8ff,
-		"luck" : 0.8,
-		"dura" : 1
+		"luck" : 0.6,
+		"dura" : 4
 	},
-	"green" : {
+	"Jade" : {
 		"effectPos" : "",
-		"valuePos" : 10,
+		"valuePos" : 5,
 		"effectNeg" : "",
 		"valueNeg" : 0,
-		"price" : 2,
+		"price" : 5,
 		"color" : 0x00a555ff,
 		"luck" : 0.2,
-		"dura" : 2
+		"dura" : 4
 	},
-	"blue" : {
+	"hungry" : {
 		"effectPos" : "tooth",
-		"valuePos" : 3,
+		"valuePos" : 2,
 		"effectNeg" : "",
 		"valueNeg" : 0.3,
 		"price" : 1,
 		"color" : 0x00b2d1ff,
 		"luck" : 0.7,
-		"dura" : 1
+		"dura" : 2
 	},
-	"cyan" : {
+	"finger" : {
 		"effectPos" : "arm",
 		"valuePos" : 0.5,
 		"effectNeg" : "",
 		"valueNeg" : 0,
 		"price" : 2,
-		"color" : 0x26e0beff,
+		"color" : 0xd2691eff,
 		"luck" : 0.4,
 		"dura" : 3
 	},
@@ -61,7 +61,7 @@ var pieces:Dictionary = {
 		"luck" : 0.4,
 		"dura" : 3
 	},
-	"black" : {
+	"oreo™" : {
 		"effectPos" : "",
 		"valuePos" : 10,
 		"effectNeg" : "",
@@ -77,7 +77,7 @@ var pieces:Dictionary = {
 		"effectNeg" : "liver",
 		"valueNeg" : 0.5,
 		"price" : 3,
-		"color" : 0x2f1f1fff,
+		"color" : 0x4a7856ff  ,
 		"luck" : 0.6,
 		"dura" : 3
 	},
@@ -91,16 +91,26 @@ var pieces:Dictionary = {
 		"luck" : 0.01,
 		"dura" : 1 
 	},
-	"crimson" : {
+	"blood" : {
+		"effectPos" : "",
+		"valuePos" : 0,
+		"effectNeg" : "",
+		"valueNeg" : 2,
+		"price" : 0,
+		"color" : 0x8b0000ff,
+		"luck" : 0.3,
+		"dura" : 2 
+	},
+	"silver" : {
 		"effectPos" : "eye",
 		"valuePos" : 3,
 		"effectNeg" : "",
-		"valueNeg" : -1,
+		"valueNeg" : -0.5,
 		"price" : 0,
-		"color" : 0xcf2343ff,
+		"color" : 0xe6f3ffff,
 		"luck" : 0.3,
 		"dura" : 1 
-	}#
+	}
 }
 
 func get_coin_tooltip(piece_name:String, dura_included:bool) -> String:

@@ -154,6 +154,8 @@ func valider_choice(id):
 			invest_bonus()
 		if dico["nom"] == "double_or_nothing":
 			double_or_nothing()
+		if dico["nom"] == "horse":
+			horse()
 
 	exit.emit()
 
@@ -205,13 +207,10 @@ func durabilite_coin() -> void:
 	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] != -1:
 		PlayerVars.pieces_durability[PlayerVars.selectedPiece] +=5
 	
-func super_coin() ->void:
-	print("super_coin")
-	pass
 
 func horse() -> void:
 	print("horse")
-	PlayerVars.horse = false
+	PlayerVars.horse = true
 
 
 func double_or_nothing() -> void:
@@ -222,3 +221,8 @@ func double_or_nothing() -> void:
 
 func super_coin() -> void:
 	PieceVars.pieces["yellow"]["valuePos"] *= (1+randf())
+
+func mirror() -> void:
+	pass
+	#fouble your organ
+	#luck = - 0.3

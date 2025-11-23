@@ -81,6 +81,10 @@ var special = {
 	"horse" : { # HORSE
 		"image" : "res://assets/in-game/bonus/horseHead.png",
 		"desc" : "HORSE\n\nHorse, horse horse."
+	},
+	"mirror" : { # HORSE
+		"image" : "res://assets/in-game/bonus/mirror.png",
+		"desc" : "MIRROR\n\ndouble your best organ at a cost"
 	}
 	
 }
