@@ -41,12 +41,17 @@ func nb_piece() -> int:
 			count+=1
 	return count
 
-var base_luck:float = 1
+var luck:float = 1
 
 
 var wave:int = 0
 var debt:int = 0
 var round_left:int = 2
-var money:float = 0
+var money:float = 100
+
+# multiplicateurs
+var coin_multiplicateur = 1
+# additionneur
+var coin_additionneur = 0
 
 var score = 0

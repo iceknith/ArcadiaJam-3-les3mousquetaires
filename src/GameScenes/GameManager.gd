@@ -37,11 +37,6 @@ func gameloop():
 		$Bonus_menu.show()
 		$Bonus_menu.generate_selection()
 		new_wave()
-
-
-
-
-
 	
 func new_wave()->void:
 	print("hey ?")
@@ -60,8 +55,8 @@ func collect_coins() -> float:
 	var coins = get_tree().get_nodes_in_group("coins")
 	var total = 0
 	for coin in coins:
-		if coin.resultat:
-			total += coin.value
+		if coin.resultat: #PlayerVars.coin_multiplicateur + PlayerVars["organs"]["lung"]
+			total += coin.value * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
 	return total
 
 func check_selected_coin():
