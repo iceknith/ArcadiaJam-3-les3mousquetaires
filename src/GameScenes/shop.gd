@@ -1,4 +1,5 @@
 extends Control
+
 signal exitShop
 signal on_bought
 
@@ -101,6 +102,8 @@ func buy_organ(slot:int) -> void:
 		#achat de l'organe
 		get_tree().get_first_node_in_group("UI").buy_things(available_organs[slot]["price"])
 		PlayerVars.organes[available_organs[slot]["name"]] += 1
+		if available_organs[slot]["name"] == "leg":
+			PlayerVars.round_left+=1
 		
 		print("+1 ",available_organs[slot]["name"],", vous avez :", PlayerVars.organes)
 		available_organs[slot] = {}

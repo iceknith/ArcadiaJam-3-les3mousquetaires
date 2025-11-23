@@ -9,9 +9,29 @@ var bonus = {
 		"type" : "organ",
 		"weight" : 2
 	},
+	"tooth" : {
+		"type" : "organ",
+		"weight" : 10
+	},
+	"lung" : {
+		"type" : "organ",
+		"weight" : 1
+	},
+	"liver" : {
+		"type" : "organ",
+		"weight" : 1
+	},
 	"coin" : {
 		"type" : "money",
 		"weight" : 5
+	},
+	"coin2" : {
+		"type" : "money",
+		"weight" : 8
+	},
+	"coin3" : {
+		"type" : "money",
+		"weight" : 3
 	},
 	"luck" : {
 		"type" : "modifier",
@@ -26,6 +46,9 @@ var modifiers = [
 
 
 var artefacts = {
-	"WATERING CAN" : "src//",
-	"GUN" : "src//"
+	"WATERING CAN" : "res://assets/in-game/bonus/watering_can.png",
+	"SPACE PISTOL" : "res://assets/in-game/bonus/space-pistol.png",
+	"PISTOL" : "res://assets/in-game/bonus/pistol.png",
+	"DUCKY" : "res://assets/in-game/bonus/ducky.png",
+	"PUPPET" : "res://assets/in-game/bonus/elmo.png"
 }

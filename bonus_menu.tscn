@@ -96,7 +96,7 @@ offset_bottom = 176.0
 grow_horizontal = 2
 theme = ExtResource("2_cfpsb")
 theme_override_font_sizes/font_size = 40
-text = "CHOOSE A PERK"
+text = "CHOOSE AN ARTIFACT"
 horizontal_alignment = 1
 
 [connection signal="pressed" from="HBoxContainer/choix1" to="." method="_on_choix_1_pressed"]

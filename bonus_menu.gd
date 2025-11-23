@@ -34,6 +34,8 @@ func generate_selection() -> void:
 	for i in range(3):
 		var bonus = get_random_bonus()
 		var malus = get_random_malus()
+		while bonus["on"] == malus["on"]:
+			malus = get_random_malus()
 		var modifier = get_random_modifier()
 		var artefact = get_random_artefact()
 		available_choice[i] = {"bonus" : bonus, "malus" : malus, "modifier" : modifier, "artefact" : artefact}
@@ -43,24 +45,45 @@ func generate_selection() -> void:
 
 func update_choice() -> void:
 	var i = 0
-	var tooltip
-	var dico
+	var tooltip:String
+	var nom:String
+	var dico:Dictionary
 	var image
 	var choices = $HBoxContainer.get_children()
 	for choice:Button in choices:
 		tooltip = ""
 		dico = available_choice[i]
 		image = choice.get_node("TextureRect")
-		image.texture = load("res://assets/in-game/bgs/elements/journal.png")
+		image.texture = load(dico["artefact"]["image"])
 		if dico["modifier"]["type"] == "add":
 			tooltip += dico["artefact"]["nom"] + "\n\n"
-			tooltip += "+ " + str(dico["bonus"]["weight"])+ " " + dico["bonus"]["on"]
-			tooltip += "\nBut \n- " + str(dico["malus"]["weight"]) + " " + dico["malus"]["on"]
-			
+			tooltip += "+ " + str(dico["bonus"]["weight"])+ " "
+			nom = dico["bonus"]["on"]
+			if nom.left(4) == "coin":
+				tooltip += "coin"
+			else:
+				tooltip += dico["bonus"]["on"]
+			tooltip += "\nBut \n- " + str(dico["malus"]["weight"]) + " "
+			nom = dico["malus"]["on"]
+			if nom.left(4) == "coin":
+				tooltip += "coin"
+			else:
+				tooltip += nom
+	
 		if dico["modifier"]["type"] == "mult":
 			tooltip += dico["artefact"]["nom"] + "\n\n"
-			tooltip += "Double the " + dico["bonus"]["on"]
-			tooltip += "\nBut \nHalves the " + dico["malus"]["on"]
+			tooltip += "Double the " 
+			nom = dico["bonus"]["on"]
+			if nom.left(4) == "coin":
+				tooltip += "coin"
+			else:
+				tooltip+=nom
+			tooltip += "\nBut \nHalves the "
+			nom = dico["malus"]["on"]
+			if nom.left(4) == "coin":
+				tooltip += "coin"
+			else:
+				tooltip += nom	
 		
 		choice.tooltip_text = tooltip
 		i+=1
@@ -78,6 +101,8 @@ func valider_choice(id):
 			
 		if dico["malus"]["type"] == "organ":
 			PlayerVars.organes[dico["malus"]["on"]] -= dico["malus"]["weight"]
+			if PlayerVars.organes[dico["malus"]["on"]]<0:
+				PlayerVars.organes[dico["malus"]["on"]]=0
 		elif dico["malus"]["type"] == "money":
 			PlayerVars.money -= dico["malus"]["weight"]
 		elif dico["malus"]["type"] == "modifier":
