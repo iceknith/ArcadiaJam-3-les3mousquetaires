@@ -42,5 +42,13 @@ var organs = {
 		"value" : 1,
 		"price" : 3,
 		"desc" : "+10% luck"
+	},
+	"heart" : {
+		"image" : "res://icon.svg",
+		"effect" : "",
+		"value" : 1,
+		"price" : 15,
+		"desc" : "+1 life"
 	}
+
 }

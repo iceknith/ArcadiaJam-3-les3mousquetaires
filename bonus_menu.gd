@@ -138,3 +138,15 @@ func _on_choix_2_pressed() -> void:
 func _on_choix_3_pressed() -> void:
 	print("option 3 chosie")
 	valider_choice(2)
+	
+func golden_body() -> void:
+	var money = 0
+	for organs in PlayerVars.organes:
+		money += PlayerVars.organes[organs] 
+	get_tree().get_first_node_in_group("UI").set_money(money)
+	
+	
+func random_organ() -> void:
+	pass
+	var organe_aleatoire = OrganVars.values().pick_random()
+	
