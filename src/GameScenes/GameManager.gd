@@ -1,7 +1,7 @@
 extends Node
 
 #all vals
-@export var base_rounds:int = 0
+@export var base_rounds:int = 1
 @export var debt_coeff:float = 0
 var game_over = false
 
@@ -37,18 +37,13 @@ func gameloop():
 		$Bonus_menu.show()
 		$Bonus_menu.generate_selection()
 		new_wave()
-
-
-
-
-
 	
 func new_wave()->void:
-	print("hey ?")
 	if game_over: return
 	PlayerVars.round_left = base_rounds + PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
-	PlayerVars.debt = PlayerVars.debt + PlayerVars.wave * debt_coeff
+	if PlayerVars.wave == 1: PlayerVars.debt = 1
+	else: PlayerVars.debt = PlayerVars.debt * 2
 	$top_UI.refresh()
 	$Shop.restock()
 
@@ -60,17 +55,18 @@ func collect_coins() -> float:
 	var coins = get_tree().get_nodes_in_group("coins")
 	var total = 0
 	for coin in coins:
-		if coin.resultat:
-			total += coin.value
+		if coin.resultat: #PlayerVars.coin_multiplicateur + PlayerVars["organs"]["lung"]
+			total += coin.value * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
 	return total
 
 func check_selected_coin():
 	return (PlayerVars.pieces[PlayerVars.selectedPiece]!="")
 
 func playRound() -> void:
-	PlayerVars.round_left-=1
+	pass
 
 func backToMenu() -> void:
+	PlayerVars.round_left-=1
 	PlayerVars.pieces_durability[PlayerVars.selectedPiece] -= 1
 	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] == 0:
 		PlayerVars.pieces[PlayerVars.selectedPiece] = ""
@@ -118,9 +114,7 @@ func _on_table_topdown_round_finised() -> void:
 	$Shop.visible = false
 	$TransitionPlayer.play("topDownStop")
 	
-	$top_UI.refresh()
 	backToMenu()
-	
 	gameloop()
 
 func _on_shop_on_bought():

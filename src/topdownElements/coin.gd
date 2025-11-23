@@ -29,7 +29,7 @@ var positionInit:Vector2
 var resultat:bool
 
 func _ready() -> void:
-	resultat = randf() <= chance
+	resultat = randf() <= chance*PlayerVars.luck 
 	positionInit = position
 	positionFinale = positionInit + mouvementMedian + Vector2(randf()*variance.x, randf()*variance.y)
 	var visibleRect = get_window().get_visible_rect()
@@ -39,7 +39,7 @@ func _ready() -> void:
 	
 	if resultat: 
 		$Label.label_settings.font_color = goodSideColor
-		$Label.text = "+ " + str(value)
+		$Label.text = "+ " + str(value * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur)
 	else: 
 		$Label.label_settings.font_color = badSideColor
 		$Label.text = "Oops"

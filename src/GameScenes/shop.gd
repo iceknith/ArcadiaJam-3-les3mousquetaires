@@ -104,7 +104,12 @@ func buy_organ(slot:int) -> void:
 		PlayerVars.organes[available_organs[slot]["name"]] += 1
 		if available_organs[slot]["name"] == "leg":
 			PlayerVars.round_left+=1
-		
+		if available_organs[slot]["name"] == "lung":
+			PlayerVars.coin_multiplicateur+=1
+		if available_organs[slot]["name"] == "liver":
+			PlayerVars.coin_additionneur+=1
+		if available_organs[slot]["name"] == "eye":
+			PlayerVars.luck*=1.1
 		print("+1 ",available_organs[slot]["name"],", vous avez :", PlayerVars.organes)
 		available_organs[slot] = {}
 		update()
