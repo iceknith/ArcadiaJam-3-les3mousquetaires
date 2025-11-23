@@ -154,6 +154,8 @@ func valider_choice(id):
 			double_or_nothing()
 		if dico["nom"] == "horse":
 			horse()
+		if dico["nom"] == "mirror":
+			mirror()
 
 	exit.emit()
 
