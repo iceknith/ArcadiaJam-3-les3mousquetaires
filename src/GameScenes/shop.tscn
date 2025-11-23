@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c4fbw2wyq73q1"]
+[gd_scene load_steps=13 format=3 uid="uid://c4fbw2wyq73q1"]
 
 [ext_resource type="Script" uid="uid://fu8hksojkt4j" path="res://src/GameScenes/shop.gd" id="1_2fllm"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_270xf"]
@@ -11,6 +11,10 @@
 [ext_resource type="Script" uid="uid://b42dqyn0dop0j" path="res://src/customScripts/3D_touch_button.gd" id="7_dqdu7"]
 [ext_resource type="Texture2D" uid="uid://clweg0gsdl2hs" path="res://assets/in-game/shop/nail.png" id="8_gnil5"]
 [ext_resource type="Texture2D" uid="uid://76vq6nhd7nrg" path="res://assets/in-game/bgs/elements/journal.png" id="9_dqdu7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dqdu7"]
+font_size = 20
+font_color = Color(0.61960787, 0, 0, 1)
 
 [node name="Shop" type="Control"]
 layout_mode = 3
@@ -433,6 +437,17 @@ theme = ExtResource("2_270xf")
 text = "<- go back"
 script = ExtResource("7_dqdu7")
 metadata/_custom_type_script = "uid://b42dqyn0dop0j"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 385.0
+offset_top = 392.0
+offset_right = 514.0
+offset_bottom = 435.0
+theme = ExtResource("2_270xf")
+text = "Press [space]
+to view body"
+label_settings = SubResource("LabelSettings_dqdu7")
 
 [connection signal="pressed" from="Organcontainer/Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Organcontainer/Slot2" to="." method="_on_slot_2_pressed"]

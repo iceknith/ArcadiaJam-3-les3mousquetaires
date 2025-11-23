@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c4pl1gcvgpwei"]
+[gd_scene load_steps=5 format=3 uid="uid://c4pl1gcvgpwei"]
 
 [ext_resource type="Script" uid="uid://5oljrws7erqi" path="res://bonus_menu.gd" id="1_0ardv"]
 [ext_resource type="Texture2D" uid="uid://djvebnathbm2r" path="res://icon.svg" id="1_0h8gp"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_cfpsb"]
+[ext_resource type="Script" uid="uid://b42dqyn0dop0j" path="res://src/customScripts/3D_touch_button.gd" id="3_gobay"]
 
 [node name="Bonus_menu" type="Control"]
 layout_mode = 3
@@ -45,6 +46,8 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme = ExtResource("2_cfpsb")
 theme_override_font_sizes/font_size = 40
+script = ExtResource("3_gobay")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/choix1"]
 z_index = -1
@@ -63,6 +66,8 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme = ExtResource("2_cfpsb")
 theme_override_font_sizes/font_size = 40
+script = ExtResource("3_gobay")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/choix2"]
 z_index = -1
@@ -81,6 +86,8 @@ custom_minimum_size = Vector2(300, 300)
 layout_mode = 2
 theme = ExtResource("2_cfpsb")
 theme_override_font_sizes/font_size = 40
+script = ExtResource("3_gobay")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/choix3"]
 z_index = -1

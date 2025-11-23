@@ -81,13 +81,13 @@ var pieces:Dictionary = {
 		"luck" : 0.6,
 		"dura" : 3
 	},
-	"pink" : {
+	"GOLD" : {
 		"effectPos" : "",
 		"valuePos" : 1000,
 		"effectNeg" : "",
 		"valueNeg" : 0,
 		"price" : 8,
-		"color" : 0xff69b4ff,
+		"color" : 0xffd700ff,
 		"luck" : 0.01,
 		"dura" : 1 
 	},
