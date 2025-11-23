@@ -568,6 +568,7 @@ libraries = {
 [node name="top_UI" parent="." instance=ExtResource("8_ltw7p")]
 
 [node name="CursorHand" type="Sprite2D" parent="."]
+z_index = 3
 position = Vector2(176, 369)
 scale = Vector2(0.2, 0.2)
 texture = ExtResource("11_b173h")
@@ -640,9 +641,11 @@ metadata/_edit_lock_ = true
 
 [node name="Player_list" parent="." instance=ExtResource("13_54xyp")]
 visible = false
+z_index = 4
 
 [node name="Bonus_menu" parent="." instance=ExtResource("14_2s2ie")]
 visible = false
+z_index = 2
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]

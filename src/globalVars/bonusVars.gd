@@ -26,6 +26,9 @@ var modifiers = [
 
 
 var artefacts = {
-	"WATERING CAN" : "src//",
-	"GUN" : "src//"
+	"WATERING CAN" : "res://assets/in-game/bonus/watering_can.png",
+	"SPACE PISTOL" : "res://assets/in-game/bonus/space-pistol.png",
+	"PISTOL" : "res://assets/in-game/bonus/pistol.png",
+	"DUCKY" : "res://assets/in-game/bonus/ducky.png",
+	"PUPPET" : "res://assets/in-game/bonus/elmo.png"
 }

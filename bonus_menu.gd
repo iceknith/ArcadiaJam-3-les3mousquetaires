@@ -34,6 +34,8 @@ func generate_selection() -> void:
 	for i in range(3):
 		var bonus = get_random_bonus()
 		var malus = get_random_malus()
+		while bonus["on"] == malus["on"]:
+			malus = get_random_malus()
 		var modifier = get_random_modifier()
 		var artefact = get_random_artefact()
 		available_choice[i] = {"bonus" : bonus, "malus" : malus, "modifier" : modifier, "artefact" : artefact}
@@ -51,7 +53,7 @@ func update_choice() -> void:
 		tooltip = ""
 		dico = available_choice[i]
 		image = choice.get_node("TextureRect")
-		image.texture = load("res://assets/in-game/bgs/elements/journal.png")
+		image.texture = load(dico["artefact"]["image"])
 		if dico["modifier"]["type"] == "add":
 			tooltip += dico["artefact"]["nom"] + "\n\n"
 			tooltip += "+ " + str(dico["bonus"]["weight"])+ " " + dico["bonus"]["on"]

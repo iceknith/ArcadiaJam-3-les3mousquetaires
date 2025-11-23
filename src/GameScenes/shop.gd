@@ -1,4 +1,5 @@
 extends Control
+
 signal exitShop
 signal on_bought
 

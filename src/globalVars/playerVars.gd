@@ -4,7 +4,7 @@ var organes:Dictionary = {
 	"arm" : 10,
 	"leg" : 2,
 	"tooth" : 0,
-	"lung" : 2,
+	"lungs" : 2,
 	"liver" : 1,
 	"rib" : 0,
 	"eye" : 2
@@ -40,6 +40,9 @@ func nb_piece() -> int:
 		if (pieces[i]!=""):
 			count+=1
 	return count
+
+var base_luck:float = 1
+
 
 var wave:int = 0
 var debt:int = 0
