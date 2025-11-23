@@ -59,15 +59,14 @@ func update()->void:
 
 
 func restock() -> void:
-	var promo
-	var inflation
+	var promo 
+	var inflation = 0.6 * PlayerVars.wave
 	
 	var i = 0
 	var organ
 	var organ_slots = $Organcontainer.get_children()
 	for slot:Button in organ_slots:
 		promo = randf_range(0.7, 1.3)
-		inflation = 0.6 * PlayerVars.wave
 		
 		organ = get_random_organ()
 		available_organs[i]["name"]= organ["name"]
@@ -79,7 +78,6 @@ func restock() -> void:
 	var piece_slots = $Coincontainer.get_children()
 	for slot:Button in piece_slots:
 		promo = randf_range(0.7, 1.3)
-		inflation = 60 * PlayerVars.wave
 		
 		piece = get_random_piece()
 		available_pieces[i]["name"]= piece["name"]
