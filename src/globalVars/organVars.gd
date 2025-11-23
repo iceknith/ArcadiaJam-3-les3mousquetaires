@@ -20,7 +20,7 @@ var organs = {
 		"effect" : "",
 		"value" : 1,
 		"price" : 10,
-		"desc" : "x2 coin value"
+		"desc" : "+1 coin value multiplier"
 	},
 	"liver" : {
 		"image" : "res://assets/in-game/organs/liver.png",
