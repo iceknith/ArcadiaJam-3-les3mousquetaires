@@ -1,7 +1,7 @@
 class_name piece extends Node
 
 var organes:Dictionary = {
-	"arm" : 100,
+	"arm" : 4,
 	"leg" : 2,
 	"tooth" : 0,
 	"lung" : 1,
@@ -12,7 +12,7 @@ var organes:Dictionary = {
 
 var pieces:Array = [
 	"yellow",
-	"",
+	"orange",
 	"",
 	"",
 	"",
@@ -21,7 +21,7 @@ var pieces:Array = [
 
 var pieces_durability:Array = [
 	-1,
-	0,
+	2,
 	0,
 	0,
 	0,
