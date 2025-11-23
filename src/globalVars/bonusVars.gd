@@ -56,27 +56,27 @@ var artefacts = {
 var special = {
 	"golden_body" : {
 		"image" : "res://assets/in-game/bonus/tele.png",
-		"desc" : "TON POID EN OR\n\n+1 coin per organs"
+		"desc" : "TELEVISION\n\nDon't you know you're \nworth your weight in gold?\n\n+1 coin per organs"
 	},
 	"random_organ" : {
 		"image" : "res://assets/in-game/bonus/chainsaw.png",
-		"desc" : "CHAINSAW\n\nbecome one with your flesh"
+		"desc" : "CHAINSAW\n\nReady for a new look ?\nBecome one with your flesh"
 	},
 	"invest_bonus" : { # +40% ou - 2% de ta thune en plus
 		"image" : "res://assets/in-game/coin/coin_icon.png",
-		"desc" : "GAMBLING???"
+		"desc" : "COIN\n\nReady to invest!\nYearn for the cash"
 	},
 	"double_or_nothing" : { # double ta thune ou suprime la!
 		"image" : "res://assets/in-game/bonus/pigeon.png",
-		"desc" : "DOUBLE OR NOTHING\n\n..."
+		"desc" : "BIRD\n\nDid you know 90% of gamblers \nquit just before they hit it big?\n..."
 	},
 	"durabilite_coin" : { # fusion all of your coin intro one
-		"image" : "res://icon.svg",
-		"desc" : "GOLD!\n\nupgrade the durability of your current piece"
+		"image" : "res://assets/in-game/bonus/logs.png",
+		"desc" : "LOG\n\nUpgrade the durability \nof your coins\n+2 durability"
 	},
 	"super_coin" : { # UPGRADE your current coin
-		"image" : "res://src/debugSprites/1euro.png",
-		"desc" : "GOLD!\n\nupgrade your current pieces"
+		"image" : "res://assets/in-game/bonus/mirror.png",
+		"desc" : "MIRROR\n\nUpgrade the value of \nyour current coin"
 	},
 	"horse" : { # HORSE
 		"image" : "res://assets/in-game/bonus/horseHead.png",

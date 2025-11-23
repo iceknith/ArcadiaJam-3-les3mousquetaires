@@ -26,11 +26,11 @@ func _process(delta: float) -> void:
 	else: $CursorHand.frame = 0
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		$Player_list.show()
+		$TransitionPlayer.play("playerListShow")
 		$Player_list.refresh()
 	
 	if Input.is_action_just_released("ui_accept"):
-		$Player_list.hide()
+		$TransitionPlayer.play("playerListHide")
 	
 	# Music
 	if !$MusicPlayers/MusicPlayer.playing && !$MusicPlayers/TapeSFX.playing:
@@ -51,6 +51,7 @@ func new_wave()->void:
 	else: PlayerVars.debt = PlayerVars.debt * 2
 	$top_UI.refresh()
 	$Shop.restock()
+	$TableNormale.update_pieces()
 	var message =""
 	if PlayerVars.wave==1:
 		message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"

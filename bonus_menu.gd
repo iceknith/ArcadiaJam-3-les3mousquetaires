@@ -150,8 +150,8 @@ func valider_choice(id):
 			invest_bonus()
 		if dico["nom"] == "durabilite_coin":
 			durabilite_coin()
-		if dico["nom"] == "invest_bonus":
-			invest_bonus()
+		if dico["nom"] == "super_coin":
+			super_coin()
 		if dico["nom"] == "double_or_nothing":
 			double_or_nothing()
 		if dico["nom"] == "horse":
@@ -191,13 +191,13 @@ func random_organ() -> void:
 
 	var random_organ
 	for i in range(nb_organs):
-		random_organ = OrganVars.organs[OrganVars.organs.keys()[OrganVars.organs.size()]]
+		random_organ = OrganVars.organs.keys()[randi_range(0,OrganVars.organs.size()-1)]
 		print(random_organ)
 		PlayerVars.organes[random_organ] += 1
 
 func invest_bonus() -> void:
 	print("invest_bonus")
-	if(randf()>0.5):
+	if(randf()>0.2):
 		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money*1.4)
 	else:
 		get_tree().get_first_node_in_group("UI").set_money(0.1)
@@ -207,6 +207,9 @@ func durabilite_coin() -> void:
 	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] != -1:
 		PlayerVars.pieces_durability[PlayerVars.selectedPiece] +=5
 	
+func super_coin() -> void:
+	print("yellow++")
+	PieceVars.pieces["yellow"]["valuePos"] = roundf(10 * PieceVars.pieces["yellow"]["valuePos"] * (1+randf()))/10
 
 func horse() -> void:
 	print("horse")
@@ -219,10 +222,8 @@ func double_or_nothing() -> void:
 	else:
 		get_tree().get_first_node_in_group("UI").set_money(0)
 
-func super_coin() -> void:
-	PieceVars.pieces["yellow"]["valuePos"] *= (1+randf())
-
 func mirror() -> void:
 	pass
 	#fouble your organ
 	#luck = - 0.3
+
