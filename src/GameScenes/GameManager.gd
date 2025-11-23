@@ -6,8 +6,12 @@ extends Node
 var game_over = false
 
 func _ready() -> void:
+	$Bonus_menu.show()
+	$Bonus_menu.generate_selection()
 	PlayerVars.wave = 0
 	$Info_popup.visible=false
+	$Bonus_menu.show()
+	$Bonus_menu.generate_selection()
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -60,9 +64,9 @@ func new_wave()->void:
 	$TableNormale.update_pieces()
 	var message =""
 	if PlayerVars.wave==1:
-		message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
+		message = "NEW WAVE \n your debt is:\n"+str(PlayerVars.debt)+" coins"
 	else:
-		message = "WAVE"+str(PlayerVars.wave)+" \n your dept is: "+str(PlayerVars.debt)+" pieces"
+		message = "WAVE"+str(PlayerVars.wave)+" \n your debt is:\n"+str(PlayerVars.debt)+" coins"
 	afficherMessage(message)
 
 

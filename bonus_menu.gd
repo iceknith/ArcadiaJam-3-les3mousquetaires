@@ -154,6 +154,8 @@ func valider_choice(id):
 			double_or_nothing()
 		if dico["nom"] == "horse":
 			horse()
+		if dico["nom"] == "mirror":
+			mirror()
 
 	exit.emit()
 
@@ -225,6 +227,7 @@ func double_or_nothing() -> void:
 		get_tree().get_first_node_in_group("UI").set_money(0)
 
 func mirror() -> void:
+	print("mirror")
 	var organ_max = "arm"
 	for organ in OrganVars.organs.keys():
 		if PlayerVars.organes[organ] == PlayerVars.organes[organ_max]:

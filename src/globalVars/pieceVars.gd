@@ -61,7 +61,7 @@ var pieces:Dictionary = {
 		"luck" : 0.4,
 		"dura" : 3
 	},
-	"oreo™" : {
+	"oreo" : {
 		"effectPos" : "",
 		"valuePos" : 10,
 		"effectNeg" : "",
@@ -117,13 +117,15 @@ func get_coin_tooltip(piece_name:String, dura_included:bool) -> String:
 	var texte = piece_name + " coin"
 	texte += "\nluck : " + str(pieces[piece_name]["luck"])
 	
-	if pieces[piece_name]["effectPos"] == "": texte += "\nvalue heads : " + str(pieces[piece_name]["valuePos"])
-	else: texte += "\nvalue heads : " + str(pieces[piece_name]["valuePos"]) + " per " + pieces[piece_name]["effectPos"]
+	if pieces[piece_name]["effectPos"] == "": 
+		texte += "\nvalue heads : " + str(pieces[piece_name]["valuePos"])
+	else: 
+		texte += "\nvalue heads : " + str(pieces[piece_name]["valuePos"]) + " per " + pieces[piece_name]["effectPos"]
 	
 	if pieces[piece_name]["effectNeg"] == "":
-		if pieces[piece_name]["valueNeg"] != 0: texte += "\nvalue tails : " + str(pieces[piece_name]["valuePos"])
+		if pieces[piece_name]["valueNeg"] != 0: texte += "\nvalue tails : -" + str(pieces[piece_name]["valuePos"])
 	else: 
-		texte += "\nvalue tails : " + str(pieces[piece_name]["valuePos"]) + " per " + pieces[piece_name]["effectNeg"]
+		texte += "\nvalue tails : -" + str(pieces[piece_name]["valueNeg"]) + " per " + pieces[piece_name]["effectNeg"]
 	
 	if dura_included: texte += "\n durability : " + str(PieceVars.pieces[piece_name]["dura"])
 
