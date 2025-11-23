@@ -19,14 +19,14 @@ var organs = {
 		"image" : "res://assets/in-game/organs/lungs.png",
 		"effect" : "",
 		"value" : 1,
-		"price" : 10,
+		"price" : 8,
 		"desc" : "+1 coin value multiplier"
 	},
 	"liver" : {
 		"image" : "res://assets/in-game/organs/liver.png",
 		"effect" : "",
 		"value" : 1,
-		"price" : 8,
+		"price" : 6,
 		"desc" : "+1 coin value"
 	},
 	"tooth" : {

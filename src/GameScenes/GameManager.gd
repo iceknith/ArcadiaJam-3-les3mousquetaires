@@ -56,9 +56,9 @@ func new_wave()->void:
 	$TableNormale.update_pieces()
 	var message =""
 	if PlayerVars.wave==1:
-		message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
+		message = "NEW WAVE \n your debt is: "+str(PlayerVars.debt)+" coins"
 	else:
-		message = "WAVE"+str(PlayerVars.wave)+" \n your dept is: "+str(PlayerVars.debt)+" pieces"
+		message = "WAVE"+str(PlayerVars.wave)+" \n your debt is: "+str(PlayerVars.debt)+" coins"
 	afficherMessage(message)
 
 

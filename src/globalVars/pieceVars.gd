@@ -110,8 +110,18 @@ var pieces:Dictionary = {
 		"color" : 0xe6f3ffff,
 		"luck" : 0.3,
 		"dura" : 1 
+	,
+	"rusted" : {
+		"effectPos" : "liver",
+		"valuePos" : 1.5,
+		"effectNeg" : "",
+		"valueNeg" : 1,
+		"price" : 0,
+		"color" : 0xb7410eff ,
+		"luck" : 0.3,
+		"dura" : 4
 	}
-}
+}}
 
 func get_coin_tooltip(piece_name:String, dura_included:bool) -> String:
 	var texte = piece_name + " coin"
