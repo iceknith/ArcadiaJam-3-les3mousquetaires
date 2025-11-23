@@ -9,9 +9,29 @@ var bonus = {
 		"type" : "organ",
 		"weight" : 2
 	},
+	"tooth" : {
+		"type" : "organ",
+		"weight" : 10
+	},
+	"lung" : {
+		"type" : "organ",
+		"weight" : 1
+	},
+	"liver" : {
+		"type" : "organ",
+		"weight" : 1
+	},
 	"coin" : {
 		"type" : "money",
 		"weight" : 5
+	},
+	"coin2" : {
+		"type" : "money",
+		"weight" : 8
+	},
+	"coin3" : {
+		"type" : "money",
+		"weight" : 3
 	},
 	"luck" : {
 		"type" : "modifier",

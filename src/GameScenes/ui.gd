@@ -16,7 +16,7 @@ func _process(delta):
 
 func refresh():
 	$money.text = str(displayedMoney) + " / " + str(PlayerVars.debt)
-	if moneyBuffer > 0: 
+	if moneyBuffer > 0:
 		$AddMoney.text = "+"
 		$AddMoney.show()
 	elif moneyBuffer < 0:
