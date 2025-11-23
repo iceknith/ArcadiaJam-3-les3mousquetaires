@@ -89,8 +89,10 @@ func change_coin_type(coin:Coin) ->void:
 	nom_piece = PlayerVars.pieces[PlayerVars.selectedPiece]
 	dico_piece = PieceVars.pieces[nom_piece]
 	coin.chance = dico_piece["luck"]
-	coin.value = dico_piece["value"]
-	coin.effect = dico_piece["effect"]
+	coin.valuePos = dico_piece["valuePos"]
+	coin.effectPos = dico_piece["effectPos"]
+	coin.valueNeg = dico_piece["valueNeg"]
+	coin.effectNeg = dico_piece["effectNeg"]
 	coin.goodSideColor = dico_piece["color"]
 
 

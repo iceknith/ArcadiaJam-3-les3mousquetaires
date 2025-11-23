@@ -35,7 +35,7 @@ func update_pieces():
 				dura = ""
 			else:
 				dura = "\ndurability : " + str(PlayerVars.pieces_durability[i])
-			coin.tooltip_text= piece_name + " coin\nluck : " + str(PieceVars.pieces[piece_name]["luck"]) + "\nvalue : " + str(PieceVars.pieces[piece_name]["value"]) + dura
+			coin.tooltip_text= PieceVars.get_coin_tooltip(piece_name, false) + dura
 			coin.get_node("TextureRect").show()
 			coin.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
 			coin.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[PlayerVars.pieces[i]]["color"])

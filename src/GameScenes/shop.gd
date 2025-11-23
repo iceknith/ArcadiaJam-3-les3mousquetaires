@@ -46,10 +46,10 @@ func update()->void:
 	for slot:Button in piece_slots:
 		if available_pieces[i] != {}:
 			piece_name = available_pieces[i]["name"]
-			slot.tooltip_text = piece_name + " coin\nluck : " + str(PieceVars.pieces[piece_name]["luck"]) + "\n value : " + str(PieceVars.pieces[piece_name]["value"]) + "\n durability : " + str(PieceVars.pieces[piece_name]["dura"]) + "\n " + str(available_pieces[i]["price"]) + "$"
+			slot.tooltip_text = PieceVars.get_coin_tooltip(piece_name, true) + "\n " + str(available_pieces[i]["price"]) + "$"
 			slot.get_node("TextureRect").show()
 			slot.get_node("TextureRect").texture = load("res://assets/in-game/coin/coin_icon.png")
-			slot.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[available_pieces[i]["name"]]["color"])
+			slot.get_node("TextureRect").modulate = Color.hex(PieceVars.pieces[piece_name]["color"])
 			slot.disabled = false
 		else:
 			slot.tooltip_text=""
