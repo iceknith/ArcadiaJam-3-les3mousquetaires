@@ -46,13 +46,13 @@ func _ready() -> void:
 			finalValue = valuePos * PlayerVars.organes.get(effectPos)
 		else:
 			finalValue = valuePos
+		finalValue = finalValue * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
 	else:
 		if effectNeg in OrganVars.organs.keys():
 			finalValue = valueNeg * PlayerVars.organes.get(effectNeg)
 		else:
 			finalValue = valueNeg
 	
-	finalValue = finalValue * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
 	
 	if resultat: 
 		$Label.label_settings.font_color = goodSideColor

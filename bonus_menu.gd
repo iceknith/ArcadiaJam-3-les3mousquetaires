@@ -39,9 +39,7 @@ func generate_selection() -> void:
 		var modifier = get_random_modifier()
 		var artefact = get_random_artefact()
 		available_choice[i] = {"bonus" : bonus, "malus" : malus, "modifier" : modifier, "artefact" : artefact}
-	
 	update_choice()
-		
 
 func update_choice() -> void:
 	var i = 0
@@ -83,7 +81,7 @@ func update_choice() -> void:
 			if nom.left(4) == "coin":
 				tooltip += "coin"
 			else:
-				tooltip += nom	
+				tooltip += nom
 		
 		choice.tooltip_text = tooltip
 		i+=1
@@ -97,7 +95,7 @@ func valider_choice(id):
 		elif dico["bonus"]["type"] == "money":
 			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + dico["bonus"]["weight"])
 		elif dico["bonus"]["type"] == "modifier":
-			pass
+			PlayerVars.base_modifier[dico["bonus"]["on"]] += dico["bonus"]["weight"]
 			
 		if dico["malus"]["type"] == "organ":
 			PlayerVars.organes[dico["malus"]["on"]] -= dico["malus"]["weight"]
@@ -106,7 +104,7 @@ func valider_choice(id):
 		elif dico["malus"]["type"] == "money":
 			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money - dico["bonus"]["weight"])
 		elif dico["malus"]["type"] == "modifier":
-			pass
+			PlayerVars.base_modifier[dico["bonus"]["on"]] = max(1,PlayerVars.base_modifier[dico["bonus"]["on"]],dico["bonus"]["weight"]) 
 
 
 	if dico["modifier"]["type"] == "mult":
@@ -115,14 +113,14 @@ func valider_choice(id):
 		elif dico["bonus"]["type"] == "money":
 			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money * 2)
 		elif dico["bonus"]["type"] == "modifier":
-			pass
+			PlayerVars.base_modifier[dico["bonus"]["on"]] = PlayerVars.base_modifier[dico["bonus"]["on"]] * 2
 
 		if dico["malus"]["type"] == "organ":
 			PlayerVars.organes[dico["malus"]["on"]] = int(PlayerVars.organes[dico["malus"]["on"]] / 2)
 		elif dico["malus"]["type"] == "money":
 			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money / 2)
 		elif dico["malus"]["type"] == "modifier":
-			pass
+			PlayerVars.base_modifier[dico["bonus"]["on"]] = PlayerVars.base_modifier[dico["bonus"]["on"]] / 2
 
 	exit.emit()
 

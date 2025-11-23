@@ -9,6 +9,7 @@ var displayedMoney:float
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	add_to_group("UI")
+	displayedMoney = PlayerVars.money
 	refresh()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

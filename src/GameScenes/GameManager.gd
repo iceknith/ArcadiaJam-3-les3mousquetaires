@@ -52,8 +52,11 @@ func new_wave()->void:
 	else: PlayerVars.debt = PlayerVars.debt * 2
 	$top_UI.refresh()
 	$Shop.restock()
-
-	var message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
+	var message =""
+	if PlayerVars.wave==1:
+		message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
+	else:
+		message = "WAVE"+str(PlayerVars.wave)+" \n your dept is: "+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
 
