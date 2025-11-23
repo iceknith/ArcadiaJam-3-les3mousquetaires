@@ -189,4 +189,6 @@ func double_or_nothing() -> void:
 		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + PlayerVars.money)
 	else:
 		get_tree().get_first_node_in_group("UI").set_money(0)
-	
+
+func super_coin() -> void:
+	PieceVars.pieces["yellow"]["valuePos"] *= (1+randf())
