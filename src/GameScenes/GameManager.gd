@@ -7,8 +7,6 @@ var game_over = false
 
 func _ready() -> void:
 	PlayerVars.wave = 0
-	$Bonus_menu.show()
-	$Bonus_menu.generate_selection()
 	$Info_popup.visible=false
 	
 	new_wave()
@@ -28,11 +26,11 @@ func _process(delta: float) -> void:
 	else: $CursorHand.frame = 0
 	
 	if Input.is_action_just_pressed("ui_accept"):
-		$Player_list.show()
+		$TransitionPlayer.play("playerListShow")
 		$Player_list.refresh()
 	
 	if Input.is_action_just_released("ui_accept"):
-		$Player_list.hide()
+		$TransitionPlayer.play("playerListHide")
 	
 	# Music
 	if !$MusicPlayers/MusicPlayer.playing && !$MusicPlayers/TapeSFX.playing:

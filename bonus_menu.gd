@@ -211,6 +211,7 @@ func super_coin() -> void:
 
 func horse() -> void:
 	print("horse")
+	PlayerVars.horse = false
 
 
 func double_or_nothing() -> void:
