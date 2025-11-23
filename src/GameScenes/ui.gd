@@ -48,6 +48,7 @@ func buy_things(value:float):
 	displayedMoney -= value
 	$money/AddMoneyAnim.stop()
 	$money/AddMoneyAnim.play("boughAnim")
+	$CashRegisterMoney.play(0)
 	refresh()
 
 func set_money(value:float):
@@ -69,6 +70,7 @@ func _on_money_transvase_timer_timeout() -> void:
 		moneyBuffer -= addedQuantity
 		$money/AddMoneyAnim.stop()
 		$money/AddMoneyAnim.play("transvase")
+		$CashRegisterMoney.play(0)
 		refresh()
 	else: 
 		$money/MoneyTransvaseTimer.stop()

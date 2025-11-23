@@ -1,8 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://d3kfhs30n01gv"]
+[gd_scene load_steps=23 format=3 uid="uid://d3kfhs30n01gv"]
 
 [ext_resource type="Script" uid="uid://bjifb3n314qyc" path="res://src/GameScenes/ui.gd" id="1_mqhac"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_mfi7c"]
 [ext_resource type="Texture2D" uid="uid://dvre3bnghdvwf" path="res://assets/in-game/coin/coin.png" id="2_mqhac"]
+[ext_resource type="AudioStream" uid="uid://vfvxssars3g2" path="res://assets/sounds/cash-register-purchase-87313.mp3" id="4_q0b2q"]
 
 [sub_resource type="Animation" id="Animation_sajbk"]
 length = 0.001
@@ -346,5 +347,8 @@ sprite_frames = SubResource("SpriteFrames_gr84p")
 autoplay = "default"
 frame = 2
 frame_progress = 0.7786369
+
+[node name="CashRegisterMoney" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_q0b2q")
 
 [connection signal="timeout" from="money/MoneyTransvaseTimer" to="." method="_on_money_transvase_timer_timeout"]

@@ -80,3 +80,7 @@ func animEnded() -> void:
 	animEnd.emit()
 	# C'est ici qu'on change l'argent qui est ajoutée au joueur
 	get_tree().get_nodes_in_group("UI")[0].add_money(finalValue)
+
+func coinLand() -> void:
+	if resultat: $CoinLandYes.play()
+	else: $CoinLandNo.play()
