@@ -37,8 +37,7 @@ func refresh():
 
 func add_money(value:float):
 	PlayerVars.money += value
-
-	moneyBuffer += value * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
+	moneyBuffer += value
 	$money/AddMoneyAnim.stop()
 
 	$money/AddMoneyAnim.play("addBufferMoney")
