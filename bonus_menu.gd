@@ -156,6 +156,8 @@ func valider_choice(id):
 			horse()
 		if dico["nom"] == "mirror":
 			mirror()
+		if dico["nom"] == "midas":
+			midas()
 
 	exit.emit()
 
@@ -234,3 +236,10 @@ func mirror() -> void:
 			organ_max = organ
 	PlayerVars.organes[organ_max] = PlayerVars.organes[organ_max] * 2
 	PlayerVars.base_modifier["luck"] = PlayerVars.base_modifier["luck"]/2
+
+func midas() -> void:
+	var  random_piece
+	for i in range(6):
+		random_piece = PieceVars.pieces.keys()[randi_range(0,PieceVars.pieces.size()-1)]
+		PlayerVars.pieces[i] = random_piece
+		PlayerVars.pieces_durability[i] = PieceVars.pieces[random_piece]["dura"]
