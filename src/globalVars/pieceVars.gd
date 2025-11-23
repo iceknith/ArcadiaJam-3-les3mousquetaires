@@ -97,7 +97,7 @@ var pieces:Dictionary = {
 		"effectNeg" : "",
 		"valueNeg" : 2,
 		"price" : 0,
-		"color" : 0x8b0000ff,
+		"color" : 0xff1493ff,
 		"luck" : 0.3,
 		"dura" : 2 
 	},
@@ -133,7 +133,7 @@ func get_coin_tooltip(piece_name:String, dura_included:bool) -> String:
 		texte += "\nvalue heads : " + str(pieces[piece_name]["valuePos"]) + " per " + pieces[piece_name]["effectPos"]
 	
 	if pieces[piece_name]["effectNeg"] == "":
-		if pieces[piece_name]["valueNeg"] != 0: texte += "\nvalue tails : -" + str(pieces[piece_name]["valuePos"])
+		if pieces[piece_name]["valueNeg"] != 0: texte += "\nvalue tails : " + str(pieces[piece_name]["valuePos"])
 	else: 
 		texte += "\nvalue tails : -" + str(pieces[piece_name]["valueNeg"]) + " per " + pieces[piece_name]["effectNeg"]
 	
