@@ -3,6 +3,8 @@ extends Control
 signal shop
 signal play
 
+@export var croupierAcceleration:float = 1
+@onready var baseCroupierPos:Vector2 = $croupier.position
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -10,14 +12,14 @@ func _ready() -> void:
 	force_select_coin()
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	var newPosX = clampf((get_local_mouse_position() - get_viewport_rect().size/2).x/64 + baseCroupierPos.x, 100, 240)
+	$croupier.position.x = lerp($croupier.position.x, newPosX, croupierAcceleration*delta)
+	$play_button.global_position = $croupier/Marker2D.global_position
 
 func _on_play_button_pressed() -> void:
 	play.emit()
-
 
 func _on_shop_button_pressed() -> void:
 	shop.emit()

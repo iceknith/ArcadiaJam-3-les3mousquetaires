@@ -152,6 +152,8 @@ func valider_choice(id):
 			super_coin()
 		if dico["nom"] == "double_or_nothing":
 			double_or_nothing()
+		if dico["nom"] == "horse":
+			horse()
 
 	exit.emit()
 
@@ -212,7 +214,8 @@ func super_coin() -> void:
 
 func horse() -> void:
 	print("horse")
-	PlayerVars.horse = false
+	PlayerVars.horse = true
+	PlayerVars.luck+=0.2
 
 
 func double_or_nothing() -> void:

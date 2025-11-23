@@ -33,7 +33,7 @@ var resultat:bool
 var finalValue:float
 
 func _ready() -> void:
-	if !PlayerVars.horse: $horse.queue_free()
+	if PlayerVars.horse==false: $horse.queue_free()
 	resultat = randf() <= chance*PlayerVars.luck 
 	positionInit = position
 	positionFinale = positionInit + mouvementMedian + Vector2(randf()*variance.x, randf()*variance.y)
