@@ -876,6 +876,10 @@ libraries = {
 &"": SubResource("AnimationLibrary_b173h")
 }
 
+[node name="Bonus_menu" parent="." instance=ExtResource("14_2s2ie")]
+visible = false
+z_index = 2
+
 [node name="Player_list" parent="." instance=ExtResource("13_54xyp")]
 visible = false
 modulate = Color(1, 1, 1, 0)
@@ -892,10 +896,6 @@ hframes = 2
 
 [node name="fingerMarker" type="Marker2D" parent="CursorHand"]
 position = Vector2(-84.99999, -2480)
-
-[node name="Bonus_menu" parent="." instance=ExtResource("14_2s2ie")]
-visible = false
-z_index = 2
 
 [node name="MusicPlayers" type="Node" parent="."]
 
