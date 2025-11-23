@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c4fbw2wyq73q1"]
+[gd_scene load_steps=12 format=3 uid="uid://c4fbw2wyq73q1"]
 
 [ext_resource type="Script" uid="uid://fu8hksojkt4j" path="res://src/GameScenes/shop.gd" id="1_2fllm"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_270xf"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://culyap7qil10c" path="res://assets/in-game/bgs/elements/merchant.png" id="3_lcx3a"]
 [ext_resource type="Texture2D" uid="uid://clf7q0s63sfx8" path="res://assets/in-game/bgs/elements/table.png" id="4_8wxb0"]
 [ext_resource type="Texture2D" uid="uid://cg26o328wx2ig" path="res://assets/in-game/organs/feet.png" id="4_nwjyp"]
+[ext_resource type="Script" uid="uid://b42dqyn0dop0j" path="res://src/customScripts/3D_touch_button.gd" id="7_dqdu7"]
 [ext_resource type="Texture2D" uid="uid://clweg0gsdl2hs" path="res://assets/in-game/shop/nail.png" id="8_gnil5"]
 [ext_resource type="Texture2D" uid="uid://76vq6nhd7nrg" path="res://assets/in-game/bgs/elements/journal.png" id="9_dqdu7"]
 
@@ -72,6 +73,8 @@ layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
 theme_override_fonts/font = ExtResource("3_8qqtn")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot1"]
 z_index = -1
@@ -127,6 +130,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot2"]
 z_index = -1
@@ -182,6 +187,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot3"]
 z_index = -1
@@ -237,6 +244,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot4"]
 z_index = -1
@@ -292,6 +301,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Organcontainer/Slot5"]
 z_index = -1
@@ -355,6 +366,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot1"]
 modulate = Color(2.9841065e-06, 0.6991832, 0.8195215, 1)
@@ -374,6 +387,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot2"]
 z_index = -1
@@ -392,6 +407,8 @@ custom_minimum_size = Vector2(100, 100)
 layout_mode = 2
 focus_mode = 0
 theme = ExtResource("2_270xf")
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="TextureRect" type="TextureRect" parent="Coincontainer/coin_slot3"]
 z_index = -1
@@ -409,11 +426,13 @@ stretch_mode = 5
 layout_mode = 0
 offset_left = 50.0
 offset_top = 16.0
-offset_right = 207.0
+offset_right = 243.0
 offset_bottom = 100.0
 focus_mode = 0
 theme = ExtResource("2_270xf")
 text = "<- go back"
+script = ExtResource("7_dqdu7")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [connection signal="pressed" from="Organcontainer/Slot1" to="." method="_on_slot_1_pressed"]
 [connection signal="pressed" from="Organcontainer/Slot2" to="." method="_on_slot_2_pressed"]

@@ -1,10 +1,10 @@
 class_name piece extends Node
 
 var organes:Dictionary = {
-	"arm" : 2,
+	"arm" : 10,
 	"leg" : 2,
 	"tooth" : 0,
-	"lungs" : 2,
+	"lung" : 2,
 	"liver" : 1,
 	"rib" : 0,
 	"eye" : 2
@@ -17,6 +17,15 @@ var pieces:Array = [
 	"",
 	"",
 	""
+]
+
+var pieces_durability:Array = [
+	-1,
+	0,
+	0,
+	0,
+	0,
+	0
 ]
 
 var bonus:Array = [
@@ -32,9 +41,12 @@ func nb_piece() -> int:
 			count+=1
 	return count
 
+var base_luck:float = 1
+
+
 var wave:int = 0
-var debt:int = 10
+var debt:int = 0
 var round_left:int = 2
-var money:int = 0
+var money:float = 0
 
 var score = 0

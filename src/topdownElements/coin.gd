@@ -1,6 +1,6 @@
 class_name Coin extends Sprite2D
 
-signal onLanded(a,b)
+signal animEnd
 
 @export_group("Stats")
 @export var chance:float = 0.5
@@ -29,7 +29,7 @@ var positionInit:Vector2
 var resultat:bool
 
 func _ready() -> void:
-	resultat = randf() < chance
+	resultat = randf() <= chance
 	positionInit = position
 	positionFinale = positionInit + mouvementMedian + Vector2(randf()*variance.x, randf()*variance.y)
 	var visibleRect = get_window().get_visible_rect()
@@ -56,4 +56,9 @@ func _process(delta: float) -> void:
 	$PointLight2D.color = modulate
 
 func animEnded() -> void:
-	pass
+	animEnd.emit()
+	# C'est ici qu'on change l'argent qui est ajoutée au joueur
+	if resultat:
+		get_tree().get_nodes_in_group("UI")[0].add_money(value)
+	else:
+		pass

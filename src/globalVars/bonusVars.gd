@@ -1,22 +1,54 @@
 extends Node
 
 var bonus = {
-	"bonus1" : {
-		"image" : "res://assets/in-game/organs/hand.png",
-		"effect" : "",
-		"value" : 1,
-		"desc" : "+1 flip/round"
+	"arm" : {
+		"type" : "organ",
+		"weight" : 2
 	},
-	"bonus2" : {
-		"image" : "res://assets/in-game/organs/feet.png",
-		"effect" : "",
-		"value" : 1,
-		"desc" : "+1 round/wave"
+	"leg" : {
+		"type" : "organ",
+		"weight" : 2
 	},
-	"bonus3" : {
-		"image" : "res://assets/in-game/organs/lungs.png",
-		"effect" : "",
-		"value" : 1,
-		"desc" : "x2 coin value"
+	"tooth" : {
+		"type" : "organ",
+		"weight" : 10
+	},
+	"lung" : {
+		"type" : "organ",
+		"weight" : 1
+	},
+	"liver" : {
+		"type" : "organ",
+		"weight" : 1
+	},
+	"coin" : {
+		"type" : "money",
+		"weight" : 5
+	},
+	"coin2" : {
+		"type" : "money",
+		"weight" : 8
+	},
+	"coin3" : {
+		"type" : "money",
+		"weight" : 3
+	},
+	"luck" : {
+		"type" : "modifier",
+		"weight" : 0.1
 	}
+}
+
+var modifiers = [
+	"mult",
+	"add"
+]
+
+
+var artefacts = {
+	"WATERING CAN" : "res://assets/in-game/bonus/watering_can.png",
+	"SPACE PISTOL" : "res://assets/in-game/bonus/space-pistol.png",
+	"PISTOL" : "res://assets/in-game/bonus/pistol.png",
+	"DUCKY" : "res://assets/in-game/bonus/ducky.png",
+	"PUPPET" : "res://assets/in-game/bonus/elmo.png"
 }

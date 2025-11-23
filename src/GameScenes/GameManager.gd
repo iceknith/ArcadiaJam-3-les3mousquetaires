@@ -1,13 +1,13 @@
 extends Node
 
 #all vals
-var base_rounds
+@export var base_rounds:int = 0
+@export var debt_coeff:float = 0
 var game_over = false
 
 func _ready() -> void:
 	PlayerVars.wave = 0
 	$Info_popup.visible=false
-	$Info_popup/HBoxContainer.visible = false
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -23,25 +23,36 @@ func _process(delta: float) -> void:
 	if Input.is_action_pressed("click"): $CursorHand.frame = 1
 	else: $CursorHand.frame = 0
 	
+	if Input.is_action_just_pressed("ui_accept"):
+		$Player_list.show()
+		$Player_list.refresh()
 	
+	if Input.is_action_just_released("ui_accept"):
+		$Player_list.hide()
 
 func gameloop():
 	if game_over: return
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
 		PlayerVars.money -= PlayerVars.debt
-		bonusSelection()
+		$Bonus_menu.show()
+		$Bonus_menu.generate_selection()
+		new_wave()
+
+
+
+
 
 	
 func new_wave()->void:
 	print("hey ?")
 	if game_over: return
-	PlayerVars.round_left = PlayerVars.organes["leg"]
+	PlayerVars.round_left = base_rounds + PlayerVars.organes["leg"]
 	PlayerVars.wave +=1
-	PlayerVars.debt = 0
+	PlayerVars.debt = PlayerVars.debt + PlayerVars.wave * debt_coeff
 	$top_UI.refresh()
 	$Shop.restock()
 
-	var message = "NEW WAVE \n your dept is :"+str(PlayerVars.debt)+" pieces"
+	var message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
 
@@ -60,7 +71,13 @@ func playRound() -> void:
 	PlayerVars.round_left-=1
 
 func backToMenu() -> void:
-	PlayerVars.money += collect_coins()
+	PlayerVars.pieces_durability[PlayerVars.selectedPiece] -= 1
+	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] == 0:
+		PlayerVars.pieces[PlayerVars.selectedPiece] = ""
+		$TableNormale.update_pieces()
+		$TableNormale.force_select_coin()
+		
+	#PlayerVars.money += collect_coins()
 	$top_UI.refresh()
 	if PlayerVars.money < PlayerVars.debt && PlayerVars.round_left <= 0 && !game_over:
 		gameOver()
@@ -76,12 +93,14 @@ func _on_table_normale_shop() -> void:
 #ENTER ROUND
 func _on_table_normale_play() -> void:
 	if check_selected_coin():
+		
 		$Shop.visible = false
 		$TransitionPlayer.play("topDownLaunch")
 		
 		$TableTopdown/Launch.launch()
 		playRound()
-	else:
+		
+	elif PlayerVars.nb_piece() <= 0:
 		gameOver()
 
 
@@ -112,40 +131,7 @@ func afficherMessage(message:String)->void:
 	$Info_popup/Label.text = message
 
 # SELECTION BONUS FIN WAVE ============================================
-var bouton_1_bonus
 
-
-func _on_choix_1_pressed() -> void:
-	print("option 1 chosie")
-	exitBonusSelection()
-
-
-func _on_choix_2_pressed() -> void:
-	print("option 2 chosie")
-	exitBonusSelection()
-
-
-func _on_choix_3_pressed() -> void:
-	print("option 3 chosie")
-	exitBonusSelection()
-
-func bonusSelection() ->void:
-	$Info_popup/AnimationPlayer.play("selectScreenPopup")
-	$Info_popup/Label.text = "DEBUG"
-	$Info_popup.visible = true
-	$Info_popup/HBoxContainer.visible=true
-	$CursorHand.z_index = 100
-	
-	#var bonus = $Info_popup/HBoxContainer.get_children()
-	#for slot:Button in bonus:
-	#	slot.get_node("TextureRect").texture = load(BonusVars.bonus[available_organs[i]["name"]]["image"])
-
-
-
-
-func exitBonusSelection() ->void:
-	$Info_popup/HBoxContainer.hide()
-	new_wave()
 
 # GAME OVER ============================================
 	
@@ -153,7 +139,6 @@ func gameOver() -> void:
 	game_over = true
 	print("GAME OVER !")
 	$Info_popup.visible=true
-	$Info_popup/HBoxContainer.visible=false
 	$Info_popup/AnimationPlayer.play("gameover_popup")
 	var message = "GAME OVER"
 	$Info_popup/Label.text = message
@@ -161,4 +146,11 @@ func gameOver() -> void:
 
 func restart_game() -> void:
 	print("y")
+	PlayerVars.set_script(null)
+	PlayerVars.set_script(preload("res://src/globalVars/playerVars.gd"))
 	get_tree().reload_current_scene()
+
+
+func _on_bonus_menu_exit():
+	$top_UI.refresh()
+	$Bonus_menu.hide()
