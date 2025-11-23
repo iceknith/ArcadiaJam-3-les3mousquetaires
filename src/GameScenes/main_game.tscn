@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://df73jwxyyl64o"]
+[gd_scene load_steps=31 format=3 uid="uid://df73jwxyyl64o"]
 
 [ext_resource type="Script" uid="uid://begcex3rwt0lr" path="res://src/GameScenes/GameManager.gd" id="1_2rdtk"]
 [ext_resource type="PackedScene" uid="uid://uci32s7kdqss" path="res://src/GameScenes/table_normale.tscn" id="1_aptux"]
@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://c4pl1gcvgpwei" path="res://bonus_menu.tscn" id="14_2s2ie"]
 [ext_resource type="AudioStream" uid="uid://dxeiudj7k4tpc" path="res://assets/sounds/grim-salvo-1300liquidate.mp3" id="15_patp3"]
 [ext_resource type="AudioStream" uid="uid://beeuf6hytg55r" path="res://assets/sounds/vhs-tape-70898.mp3" id="16_ik4br"]
+[ext_resource type="AudioStream" uid="uid://wkftpjfkyiop" path="res://assets/sounds/slide.mp3" id="17_33ty7"]
 
 [sub_resource type="Animation" id="Animation_patp3"]
 length = 0.001
@@ -167,6 +168,20 @@ tracks/4/keys = {
 "update": 0,
 "values": [0.9, 0.8]
 }
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MusicPlayers/SlidePlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_33ty7"]
 resource_name = "shopStop"
@@ -230,6 +245,20 @@ tracks/4/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [0.8, 0.9]
+}
+tracks/5/type = "method"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MusicPlayers/SlidePlayer")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_54xyp"]
@@ -307,6 +336,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [0.9, 1.0]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MusicPlayers/SlidePlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_2s2ie"]
 resource_name = "topDownStop"
@@ -383,6 +426,20 @@ tracks/5/keys = {
 "update": 0,
 "values": [1.0, 0.9]
 }
+tracks/6/type = "method"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MusicPlayers/SlidePlayer")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [0.0],
+"method": &"play"
+}]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_patp3"]
 _data = {
@@ -439,6 +496,7 @@ tracks/2/keys = {
 
 [sub_resource type="Animation" id="Animation_cid7t"]
 resource_name = "gameover_popup"
+length = 4.0
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -462,6 +520,20 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [true]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("..")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(4),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"restart_game"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_bu5p1"]
@@ -715,11 +787,15 @@ z_index = 2
 [node name="MusicPlayer" type="AudioStreamPlayer" parent="MusicPlayers"]
 stream = ExtResource("15_patp3")
 volume_db = -5.0
-pitch_scale = 0.9
+pitch_scale = 0.8
 
 [node name="TapeSFX" type="AudioStreamPlayer" parent="MusicPlayers"]
 stream = ExtResource("16_ik4br")
 volume_db = -2.5
+
+[node name="SlidePlayer" type="AudioStreamPlayer" parent="MusicPlayers"]
+stream = ExtResource("17_33ty7")
+volume_db = 5.0
 
 [connection signal="play" from="TableNormale" to="." method="_on_table_normale_play"]
 [connection signal="shop" from="TableNormale" to="." method="_on_table_normale_shop"]

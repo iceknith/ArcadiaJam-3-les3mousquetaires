@@ -12,4 +12,5 @@ Coin Throw Sound: https://pixabay.com/sound-effects/coin-flip-shimmer-85750/
 Coin Land: https://pixabay.com/sound-effects/drop-coin-384921/
 Coin Fail: https://pixabay.com/sound-effects/wood-falling-80049/
 Coin Register: https://pixabay.com/sound-effects/cash-register-purchase-87313/
+Slide: https://pixabay.com/sound-effects/empty-glass-table-foley-slide-3-237638/
 
