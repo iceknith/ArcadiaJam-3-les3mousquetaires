@@ -1,8 +1,11 @@
-[gd_scene load_steps=9 format=3 uid="uid://bhh3posgxeirv"]
+[gd_scene load_steps=12 format=3 uid="uid://bhh3posgxeirv"]
 
 [ext_resource type="Texture2D" uid="uid://dkhidasixtyx6" path="res://assets/in-game/coin/coin_no_color.png" id="1_0msn4"]
 [ext_resource type="Script" uid="uid://g1cik0pvqtko" path="res://src/topdownElements/coin.gd" id="1_e3qj5"]
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="3_dkdi1"]
+[ext_resource type="AudioStream" uid="uid://5iovvf33h5hf" path="res://assets/sounds/coin-flip-shimmer-85750.mp3" id="4_78jqr"]
+[ext_resource type="AudioStream" uid="uid://0kkfyeqkjd0n" path="res://assets/sounds/drop-coin-384921.mp3" id="5_ubt1o"]
+[ext_resource type="AudioStream" uid="uid://bqvsmnr5fcop5" path="res://assets/sounds/coi_fail.mp3" id="6_7hqb5"]
 
 [sub_resource type="Animation" id="Animation_imjkf"]
 length = 0.001
@@ -110,6 +113,18 @@ tracks/8/keys = {
 "update": 0,
 "values": [Vector2(-71, -33)]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("CoinToss:playing")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_dkdi1"]
 resource_name = "mouvementAnim"
@@ -189,9 +204,12 @@ tracks/6/path = NodePath(".")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
-"times": PackedFloat32Array(3.3),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(3.1666667, 3.3),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
+"args": [],
+"method": &"coinLand"
+}, {
 "args": [],
 "method": &"animEnded"
 }]
@@ -231,6 +249,18 @@ tracks/9/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(-71, -33), Vector2(-71, -100)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("CoinToss:playing")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_1fq1m"]
@@ -274,3 +304,13 @@ offset_right = 72.0
 offset_bottom = 31.0
 text = "Oops"
 label_settings = SubResource("LabelSettings_0msn4")
+
+[node name="CoinToss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_78jqr")
+volume_db = 20.0
+
+[node name="CoinLandYes" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_ubt1o")
+
+[node name="CoinLandNo" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_7hqb5")

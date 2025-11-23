@@ -46,13 +46,13 @@ func _ready() -> void:
 			finalValue = valuePos * PlayerVars.organes.get(effectPos)
 		else:
 			finalValue = valuePos
+		finalValue = finalValue * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
 	else:
 		if effectNeg in OrganVars.organs.keys():
 			finalValue = valueNeg * PlayerVars.organes.get(effectNeg)
 		else:
 			finalValue = valueNeg
 	
-	finalValue = finalValue * PlayerVars.coin_multiplicateur + PlayerVars.coin_additionneur
 	
 	if resultat: 
 		$Label.label_settings.font_color = goodSideColor
@@ -80,3 +80,7 @@ func animEnded() -> void:
 	animEnd.emit()
 	# C'est ici qu'on change l'argent qui est ajoutée au joueur
 	get_tree().get_nodes_in_group("UI")[0].add_money(finalValue)
+
+func coinLand() -> void:
+	if resultat: $CoinLandYes.play()
+	else: $CoinLandNo.play()

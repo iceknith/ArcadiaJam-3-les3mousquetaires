@@ -12,6 +12,8 @@ func _ready() -> void:
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
+func connect_signals():
+	$MusicPlayers/MusicPlayer.finished.connect(playSFX)
 
 func _process(delta: float) -> void:
 	#Move light to mouse
@@ -29,6 +31,10 @@ func _process(delta: float) -> void:
 	
 	if Input.is_action_just_released("ui_accept"):
 		$Player_list.hide()
+	
+	# Music
+	if !$MusicPlayers/MusicPlayer.playing && !$MusicPlayers/TapeSFX.playing:
+		playSFX()
 
 func gameloop():
 	if game_over: return
@@ -152,3 +158,8 @@ func restart_game() -> void:
 func _on_bonus_menu_exit():
 	$top_UI.refresh()
 	$Bonus_menu.hide()
+
+
+func playSFX():
+	print("heyyy ?")
+	$MusicPlayers/TapeSFX.play(0)
