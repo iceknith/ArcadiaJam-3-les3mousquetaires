@@ -35,10 +35,8 @@ func get_random_special() -> Dictionary:
 	return {"type" : "special", "nom" : special_name, "image" : BonusVars.special[special_name]["image"], "desc" : BonusVars.special[special_name]["desc"]}
 
 func generate_selection() -> void:
-	var random
 	for i in range(3):
-		random = randi()%2
-		if random<1 : 
+		if randf()>0.33 :
 			var bonus = get_random_bonus()
 			var malus = get_random_malus()
 			while bonus["on"] == malus["on"]:
@@ -154,6 +152,8 @@ func valider_choice(id):
 			super_coin()
 		if dico["nom"] == "double_or_nothing":
 			double_or_nothing()
+		if dico["nom"] == "horse":
+			horse()
 
 	exit.emit()
 
@@ -202,8 +202,11 @@ func invest_bonus() -> void:
 
 func durabilite_coin() -> void:
 	print("durabilite_coin")
-	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] != -1:
-		PlayerVars.pieces_durability[PlayerVars.selectedPiece] +=5
+	var i = 0
+	for piece_name in PlayerVars.pieces:
+		if piece_name != "" and piece_name != "yellow":
+			PlayerVars.pieces[i] += 2
+			i+=1
 	
 func super_coin() -> void:
 	print("yellow++")
@@ -211,7 +214,8 @@ func super_coin() -> void:
 
 func horse() -> void:
 	print("horse")
-	PlayerVars.horse = false
+	PlayerVars.horse = true
+	PlayerVars.luck+=0.2
 
 
 func double_or_nothing() -> void:
@@ -219,3 +223,11 @@ func double_or_nothing() -> void:
 		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + PlayerVars.money)
 	else:
 		get_tree().get_first_node_in_group("UI").set_money(0)
+
+func mirror() -> void:
+	var organ_max = "arm"
+	for organ in OrganVars.organs.keys():
+		if PlayerVars.organes[organ] == PlayerVars.organes[organ_max]:
+			organ_max = organ
+	PlayerVars.organes[organ_max] = PlayerVars.organes[organ_max] * 2
+	PlayerVars.base_modifier["luck"] = PlayerVars.base_modifier["luck"]/2
