@@ -204,10 +204,6 @@ func durabilite_coin() -> void:
 	print("durabilite_coin")
 	if PlayerVars.pieces_durability[PlayerVars.selectedPiece] != -1:
 		PlayerVars.pieces_durability[PlayerVars.selectedPiece] +=5
-	
-func super_coin() ->void:
-	print("super_coin")
-	pass
 
 func horse() -> void:
 	print("horse")
