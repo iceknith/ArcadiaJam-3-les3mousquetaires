@@ -1,22 +1,31 @@
 extends Node
 
-var organs = {
-	"bonus1" : {
-		"image" : "res://assets/in-game/organs/hand.png",
-		"effect" : "",
-		"value" : 1,
-		"desc" : "+1 flip/round"
+var bonus = {
+	"arm" : {
+		"type" : "organ",
+		"weight" : 2
 	},
-	"bonus2" : {
-		"image" : "res://assets/in-game/organs/feet.png",
-		"effect" : "",
-		"value" : 1,
-		"desc" : "+1 round/wave"
+	"leg" : {
+		"type" : "organ",
+		"weight" : 2
 	},
-	"bonus3" : {
-		"image" : "res://assets/in-game/organs/lungs.png",
-		"effect" : "",
-		"value" : 1,
-		"desc" : "x2 coin value"
+	"coin" : {
+		"type" : "money",
+		"weight" : 5
+	},
+	"luck" : {
+		"type" : "modifier",
+		"weight" : 0.1
 	}
+}
+
+var modifiers = [
+	"mult",
+	"add"
+]
+
+
+var artefacts = {
+	"WATERING CAN" : "src//",
+	"GUN" : "src//"
 }
