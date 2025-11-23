@@ -52,7 +52,7 @@ func new_wave()->void:
 	$top_UI.refresh()
 	$Shop.restock()
 
-	var message = "NEW WAVE \n your debt is : "+str(PlayerVars.debt)+" pieces"
+	var message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
 
@@ -146,6 +146,8 @@ func gameOver() -> void:
 
 func restart_game() -> void:
 	print("y")
+	PlayerVars.set_script(null)
+	PlayerVars.set_script(preload("res://src/globalVars/playerVars.gd"))
 	get_tree().reload_current_scene()
 
 

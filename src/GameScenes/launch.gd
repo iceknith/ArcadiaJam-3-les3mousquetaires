@@ -41,6 +41,7 @@ func launch() -> void:
 	PlayerVars.organes["tooth"]=0
 	$startDelay.start()
 	currentHandNumber = 0
+	get_parent().coinsThrown = 0
 
 # utilise le process car on travaille avec des timer 
 func _process(delta: float) -> void:
@@ -67,7 +68,8 @@ func placeHand() ->void:
 	get_tree().create_timer(coinCastDelay).timeout.connect(placeCoin.bind(placement + placementOffset))
 	
 func placeCoin(position:Vector2) ->void:
-	var coin_instance = coin_scene.instantiate()
+	var coin_instance:Coin = coin_scene.instantiate()
+	coin_instance.animEnd.connect(get_parent()._on_coin_finish_throw)
 	change_coin_type(coin_instance)
 	position = Vector2(position.x-50,position.y-200)
 	coin_instance.global_position = position

@@ -80,13 +80,13 @@ text = "PLAY
 
 [node name="shop_button" type="Button" parent="."]
 layout_mode = 0
-offset_left = 986.0
+offset_left = 950.0
 offset_top = 62.0
 offset_right = 1127.0
 offset_bottom = 125.0
 focus_mode = 0
 theme = ExtResource("3_pcvq8")
-text = "SHOP
+text = "SHOP ->
 "
 
 [node name="selection_coin" type="Node2D" parent="."]
