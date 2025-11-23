@@ -2,7 +2,7 @@ class_name piece extends Node
 
 var organes:Dictionary = {
 	"arm" : 2,
-	"leg" : 1,
+	"leg" : 2,
 	"tooth" : 0,
 	"lung" : 1,
 	"liver" : 0,
@@ -47,7 +47,7 @@ var luck:float = 1
 var wave:int = 0
 var debt:int = 0
 var round_left:int = 2
-var money:float = 0
+var money:float = 100
 
 # multiplicateurs
 var coin_multiplicateur = 1
