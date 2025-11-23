@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://uci32s7kdqss"]
+[gd_scene load_steps=19 format=3 uid="uid://uci32s7kdqss"]
 
 [ext_resource type="Script" uid="uid://cthx56qbk22j8" path="res://src/GameScenes/table_normale.gd" id="1_1dxgy"]
 [ext_resource type="Texture2D" uid="uid://b3u8k4qhx7q8g" path="res://assets/in-game/bgs/elements/bg.png" id="2_pcvq8"]
@@ -23,11 +23,52 @@ bg_color = Color(0, 0, 0, 0.19607843)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_rxnkl"]
 
+[sub_resource type="Animation" id="Animation_cxw46"]
+length = 0.001
+tracks/0/type = "bezier"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("croupier:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"handle_modes": PackedInt32Array(0),
+"points": PackedFloat32Array(127.99999, -0.0005, 0, 0.0005, 0),
+"times": PackedFloat32Array(0)
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("croupier:size")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1152, 643)]
+}
+
 [sub_resource type="Animation" id="Animation_djbji"]
 resource_name = "base_anim"
+length = 6.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("croupier:size")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 3.0333333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(1152, 643), Vector2(1152, 647.066)]
+}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ake5v"]
 _data = {
+&"RESET": SubResource("Animation_cxw46"),
 &"base_anim": SubResource("Animation_djbji")
 }
 
@@ -68,6 +109,9 @@ grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(0.7, 0.7)
 texture = ExtResource("3_djbji")
+
+[node name="Marker2D" type="Marker2D" parent="croupier"]
+position = Vector2(514.28564, 130.00002)
 
 [node name="table" type="TextureRect" parent="."]
 z_index = -1
@@ -261,8 +305,8 @@ stretch_mode = 5
 [node name="delete_coin" type="Button" parent="."]
 layout_mode = 0
 offset_top = -3.0
-offset_right = 48.0
-offset_bottom = 36.0
+offset_right = 25.846153
+offset_bottom = 18.0
 focus_mode = 0
 theme = ExtResource("3_pcvq8")
 theme_override_styles/normal = SubResource("StyleBoxEmpty_cxw46")
@@ -339,6 +383,7 @@ text = "NO"
 libraries = {
 &"": SubResource("AnimationLibrary_ake5v")
 }
+autoplay = "base_anim"
 
 [connection signal="pressed" from="play_button" to="." method="_on_play_button_pressed"]
 [connection signal="pressed" from="shop_button" to="." method="_on_shop_button_pressed"]
