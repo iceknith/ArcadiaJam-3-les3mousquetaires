@@ -7,6 +7,8 @@ var game_over = false
 
 func _ready() -> void:
 	PlayerVars.wave = 0
+	$Bonus_menu.show()
+	$Bonus_menu.generate_selection()
 	$Info_popup.visible=false
 	
 	new_wave()

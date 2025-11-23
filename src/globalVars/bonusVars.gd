@@ -55,23 +55,32 @@ var artefacts = {
 
 var special = {
 	"golden_body" : {
-		"image" : "res://icon.svg",
+		"image" : "res://assets/in-game/bonus/tele.png",
 		"desc" : "TON POID EN OR\n\n+1 coin per organs"
 	},
 	"random_organ" : {
-		"image" : "res://icon.svg",
-		"desc" : "become one with your flesh"
+		"image" : "res://assets/in-game/bonus/chainsaw.png",
+		"desc" : "CHAINSAW\n\nbecome one with your flesh"
 	},
 	"invest_bonus" : { # +40% ou - 2% de ta thune en plus
-		"image" : "res://icon.svg",
+		"image" : "res://assets/in-game/coin/coin_icon.png",
 		"desc" : "GAMBLING???"
 	},
 	"double_or_nothing" : { # double ta thune ou suprime la!
-		"image" : "res://icon.svg",
+		"image" : "res://assets/in-game/bonus/pigeon.png",
 		"desc" : "DOUBLE OR NOTHING\n\n..."
 	},
-	"respire" : { # 3 lungs et te laisse qu'une main
+	"durabilite_coin" : { # fusion all of your coin intro one
 		"image" : "res://icon.svg",
-		"desc" : "RESPIRE!\n\ngives you 3 lung but takes your hands"
+		"desc" : "GOLD!\n\nupgrade the durability of your current piece"
+	},
+	"super_coin" : { # UPGRADE your current coin
+		"image" : "res://src/debugSprites/1euro.png",
+		"desc" : "GOLD!\n\nupgrade your current pieces"
+	},
+	"horse" : { # HORSE
+		"image" : "res://assets/in-game/bonus/horseHead.png",
+		"desc" : "HORSE\n\nHorse, horse horse."
 	}
+	
 }

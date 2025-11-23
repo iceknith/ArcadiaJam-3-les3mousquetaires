@@ -161,7 +161,7 @@ func golden_body() -> void:
 	var money = 0
 	for organs in PlayerVars.organes:
 		money += PlayerVars.organes[organs] 
-	get_tree().get_first_node_in_group("UI").set_money(money)
+	get_tree().get_first_node_in_group("UI").set_money(money + PlayerVars.money)
 	
 	
 func random_organ() -> void:
