@@ -318,4 +318,5 @@ stream = ExtResource("6_7hqb5")
 
 [node name="horse" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_ubt1o")
+volume_db = -5.0
 autoplay = true

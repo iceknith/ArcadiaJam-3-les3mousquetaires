@@ -913,7 +913,6 @@ stream = ExtResource("17_33ty7")
 volume_db = 5.0
 
 [node name="ShaderRect" type="ColorRect" parent="."]
-visible = false
 z_index = 4096
 material = SubResource("ShaderMaterial_8wwc8")
 anchors_preset = 15

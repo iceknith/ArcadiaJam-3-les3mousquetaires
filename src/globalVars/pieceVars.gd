@@ -135,7 +135,7 @@ func get_coin_tooltip(piece_name:String, dura_included:bool) -> String:
 	if pieces[piece_name]["effectNeg"] == "":
 		if pieces[piece_name]["valueNeg"] != 0: texte += "\nvalue tails : " + str(pieces[piece_name]["valueNeg"])
 	else: 
-		texte += "\nvalue tails : -" + str(pieces[piece_name]["valueNeg"]) + " per " + pieces[piece_name]["effectNeg"]
+		texte += "\nvalue tails : " + str(pieces[piece_name]["valueNeg"]) + " per " + pieces[piece_name]["effectNeg"]
 	
 	if dura_included: texte += "\n durability : " + str(PieceVars.pieces[piece_name]["dura"])
 
