@@ -13,7 +13,7 @@
 [ext_resource type="FontFile" uid="uid://c6xw0d2miuuod" path="res://assets/menues/sabdion-font/Sabdion-YqgZj.otf" id="10_bu5p1"]
 [ext_resource type="Texture2D" uid="uid://cr7fkrncxgp6i" path="res://assets/menues/armMouse.png" id="11_b173h"]
 [ext_resource type="PackedScene" uid="uid://fywtbwohbctn" path="res://src/GameScenes/player_list.tscn" id="13_54xyp"]
-[ext_resource type="PackedScene" path="res://bonus_menu.tscn" id="14_2s2ie"]
+[ext_resource type="PackedScene" uid="uid://c4pl1gcvgpwei" path="res://bonus_menu.tscn" id="14_2s2ie"]
 [ext_resource type="AudioStream" uid="uid://dxeiudj7k4tpc" path="res://assets/sounds/grim-salvo-1300liquidate.mp3" id="15_patp3"]
 [ext_resource type="AudioStream" uid="uid://beeuf6hytg55r" path="res://assets/sounds/vhs-tape-70898.mp3" id="16_ik4br"]
 
