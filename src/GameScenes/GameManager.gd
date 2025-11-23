@@ -3,6 +3,7 @@ extends Node
 #all vals
 @export var base_rounds:int = 1
 @export var debt_coeff:float = 0
+@export var wave_multiplier = 1
 var game_over = false
 
 func _ready() -> void:
@@ -52,10 +53,13 @@ func gameloop():
 	
 func new_wave()->void:
 	if game_over: return
-	PlayerVars.round_left = base_rounds + PlayerVars.organes["leg"]
+	PlayerVars.round_left = max(base_rounds, PlayerVars.organes["leg"])
+	if PlayerVars.wave == 0: PlayerVars.debt = 1
+	else: 
+		if PlayerVars.wave%5 == 1:
+			wave_multiplier += 1
+		PlayerVars.debt = PlayerVars.debt * wave_multiplier
 	PlayerVars.wave +=1
-	if PlayerVars.wave == 1: PlayerVars.debt = 1
-	else: PlayerVars.debt = PlayerVars.debt * 2
 	$top_UI.refresh()
 	$Shop.restock()
 	$TableNormale.update_pieces()
