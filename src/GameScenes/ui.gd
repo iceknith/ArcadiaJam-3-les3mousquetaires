@@ -1,9 +1,10 @@
 extends Node
 
+@export var bufferTimeBeforeAdding:float = 0.5
+@export var totalCountDownTime:float = 1.2
+
 var moneyBuffer:float
 var displayedMoney:float
-
-var bufferTimeBeforeAdding:float = 0.3
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -36,22 +37,27 @@ func refresh():
 func add_money(value:float):
 	PlayerVars.money += value
 	moneyBuffer += value
+	$money/AddMoneyAnim.stop()
 	$money/AddMoneyAnim.play("addBufferMoney")
 	refresh()
 
 func buy_things(value:float):
 	PlayerVars.money -= value
 	displayedMoney -= value
+	$money/AddMoneyAnim.stop()
 	$money/AddMoneyAnim.play("boughAnim")
 	refresh()
 
 func set_money(value:float):
 	PlayerVars.money = value
 	displayedMoney = value
+	$money/AddMoneyAnim.stop()
 	$money/AddMoneyAnim.play("boughAnim")
 	refresh()
 
 func _on_round_ended() -> void:
+	await get_tree().create_timer(bufferTimeBeforeAdding).timeout
+	$money/MoneyTransvaseTimer.wait_time = totalCountDownTime/(roundf(moneyBuffer) + 1)
 	$money/MoneyTransvaseTimer.start()
 
 func _on_money_transvase_timer_timeout() -> void:
@@ -59,6 +65,8 @@ func _on_money_transvase_timer_timeout() -> void:
 		var addedQuantity:float = min(sign(moneyBuffer), moneyBuffer)
 		displayedMoney += addedQuantity
 		moneyBuffer -= addedQuantity
+		$money/AddMoneyAnim.stop()
 		$money/AddMoneyAnim.play("transvase")
 		refresh()
-	else: $money/MoneyTransvaseTimer.stop()
+	else: 
+		$money/MoneyTransvaseTimer.stop()

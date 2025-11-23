@@ -2,7 +2,7 @@ extends Node2D
 
 signal roundFinised
 
-@export var scoreTime = 3
+@export var scoreTime = 2
 
 #other vars
 var gameDone = false
