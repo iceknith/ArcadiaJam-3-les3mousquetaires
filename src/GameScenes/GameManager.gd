@@ -145,7 +145,7 @@ func gameOver() -> void:
 
 
 func restart_game() -> void:
-	print("y")
+	print("restart")
 	PlayerVars.set_script(null)
 	PlayerVars.set_script(preload("res://src/globalVars/playerVars.gd"))
 	get_tree().reload_current_scene()

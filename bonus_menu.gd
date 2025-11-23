@@ -95,7 +95,7 @@ func valider_choice(id):
 		if dico["bonus"]["type"] == "organ":
 			PlayerVars.organes[dico["bonus"]["on"]] += dico["bonus"]["weight"]
 		elif dico["bonus"]["type"] == "money":
-			PlayerVars.money += dico["bonus"]["weight"]
+			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + dico["bonus"]["weight"])
 		elif dico["bonus"]["type"] == "modifier":
 			pass
 			
@@ -104,7 +104,7 @@ func valider_choice(id):
 			if PlayerVars.organes[dico["malus"]["on"]]<0:
 				PlayerVars.organes[dico["malus"]["on"]]=0
 		elif dico["malus"]["type"] == "money":
-			PlayerVars.money -= dico["malus"]["weight"]
+			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money - dico["bonus"]["weight"])
 		elif dico["malus"]["type"] == "modifier":
 			pass
 
@@ -113,14 +113,14 @@ func valider_choice(id):
 		if dico["bonus"]["type"] == "organ":
 			PlayerVars.organes[dico["bonus"]["on"]] = PlayerVars.organes[dico["bonus"]["on"]]*2
 		elif dico["bonus"]["type"] == "money":
-			PlayerVars.money = PlayerVars.money*2
+			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money * 2)
 		elif dico["bonus"]["type"] == "modifier":
 			pass
 
 		if dico["malus"]["type"] == "organ":
 			PlayerVars.organes[dico["malus"]["on"]] = int(PlayerVars.organes[dico["malus"]["on"]] / 2)
 		elif dico["malus"]["type"] == "money":
-			PlayerVars.money = PlayerVars.money / 2
+			get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money / 2)
 		elif dico["malus"]["type"] == "modifier":
 			pass
 

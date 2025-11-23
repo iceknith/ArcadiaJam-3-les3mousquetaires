@@ -41,7 +41,6 @@ func nb_piece() -> int:
 			count+=1
 	return count
 
-var base_luck:float = 1
 
 
 var wave:int = 0
@@ -50,3 +49,11 @@ var round_left:int = 2
 var money:float = 0
 
 var score = 0
+
+var base_modifier = {
+		"luck" : 1,
+		"value" : 1
+	}
+
+func update_stat_organs():
+	pass
