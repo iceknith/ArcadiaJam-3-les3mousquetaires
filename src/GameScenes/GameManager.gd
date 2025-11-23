@@ -47,7 +47,7 @@ func new_wave()->void:
 	$top_UI.refresh()
 	$Shop.restock()
 
-	var message = "NEW WAVE \n your dept is: "+str(PlayerVars.debt)+" pieces"
+	var message = "NEW WAVE \n your debt is: "+str(PlayerVars.debt)+" pieces"
 	afficherMessage(message)
 
 
