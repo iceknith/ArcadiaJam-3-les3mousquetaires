@@ -1,14 +1,13 @@
 extends Node
 
 #all vals
-@export var base_rounds = -1
-@export var debt_coeff = 0
+@export var base_rounds:int = 0
+@export var debt_coeff:float = 0
 var game_over = false
 
 func _ready() -> void:
 	PlayerVars.wave = 0
 	$Info_popup.visible=false
-	$Info_popup/HBoxContainer.visible = false
 	
 	new_wave()
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
@@ -35,7 +34,13 @@ func gameloop():
 	if game_over: return
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
 		PlayerVars.money -= PlayerVars.debt
-		bonusSelection()
+		$Bonus_menu.show()
+		$Bonus_menu.generate_selection()
+		new_wave()
+
+
+
+
 
 	
 func new_wave()->void:
@@ -126,36 +131,7 @@ func afficherMessage(message:String)->void:
 	$Info_popup/Label.text = message
 
 # SELECTION BONUS FIN WAVE ============================================
-var bouton_1_bonus
 
-
-func _on_choix_1_pressed() -> void:
-	print("option 1 chosie")
-	exitBonusSelection()
-
-
-func _on_choix_2_pressed() -> void:
-	print("option 2 chosie")
-	exitBonusSelection()
-
-
-func _on_choix_3_pressed() -> void:
-	print("option 3 chosie")
-	exitBonusSelection()
-
-func bonusSelection() ->void:
-	$Info_popup/AnimationPlayer.play("selectScreenPopup")
-	$Info_popup/Label.text = "DEBUG"
-	$Info_popup.visible = true
-	$Info_popup/HBoxContainer.visible=true
-	$CursorHand.z_index = 100
-	
-
-
-
-func exitBonusSelection() ->void:
-	$Info_popup/HBoxContainer.hide()
-	new_wave()
 
 # GAME OVER ============================================
 	
@@ -163,7 +139,6 @@ func gameOver() -> void:
 	game_over = true
 	print("GAME OVER !")
 	$Info_popup.visible=true
-	$Info_popup/HBoxContainer.visible=false
 	$Info_popup/AnimationPlayer.play("gameover_popup")
 	var message = "GAME OVER"
 	$Info_popup/Label.text = message
@@ -172,3 +147,8 @@ func gameOver() -> void:
 func restart_game() -> void:
 	print("y")
 	get_tree().reload_current_scene()
+
+
+func _on_bonus_menu_exit():
+	$top_UI.refresh()
+	$Bonus_menu.hide()
