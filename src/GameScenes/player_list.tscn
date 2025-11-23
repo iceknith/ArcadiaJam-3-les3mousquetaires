@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://fywtbwohbctn"]
+[gd_scene load_steps=6 format=3 uid="uid://fywtbwohbctn"]
 
 [ext_resource type="Script" uid="uid://8gkg70lmednt" path="res://src/GameScenes/player_list.gd" id="1_n034w"]
 [ext_resource type="Script" uid="uid://bc7weugwxcff8" path="res://src/GameScenes/container.gd" id="2_cnbi8"]
 [ext_resource type="Texture2D" uid="uid://btpwoeh1lv4tt" path="res://assets/in-game/organs/leg.png" id="2_h52i5"]
 [ext_resource type="Theme" uid="uid://cw2c2a8jmrhke" path="res://src/theme.tres" id="2_l25jw"]
+[ext_resource type="Script" uid="uid://b42dqyn0dop0j" path="res://src/customScripts/3D_touch_button.gd" id="3_w5vj5"]
 
 [node name="Player_list" type="Control"]
 layout_mode = 3
@@ -22,6 +23,19 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 0.78431374)
+
+[node name="body_button" type="Button" parent="."]
+layout_mode = 0
+offset_left = 954.0
+offset_top = 533.0
+offset_right = 1099.0
+offset_bottom = 610.0
+focus_mode = 0
+theme = ExtResource("2_l25jw")
+text = "Back
+"
+script = ExtResource("3_w5vj5")
+metadata/_custom_type_script = "uid://b42dqyn0dop0j"
 
 [node name="ScrollContainer" type="ScrollContainer" parent="."]
 layout_mode = 1
@@ -89,6 +103,7 @@ Rounds : $Rounds
 
 "
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
 
 [node name="Label2" type="Label" parent="."]
 layout_mode = 1
@@ -113,3 +128,4 @@ Luck: $Luck
 
 "
 horizontal_alignment = 1
+metadata/_edit_lock_ = true
