@@ -177,7 +177,7 @@ func random_organ() -> void:
 
 func double_or_nothing() -> void:
 	if randi() == 1:
-		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money * PlayerVars.money)
+		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + PlayerVars.money)
 	else:
-		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money * PlayerVars.money)
+		get_tree().get_first_node_in_group("UI").set_money(0)
 	
