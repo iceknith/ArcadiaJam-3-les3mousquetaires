@@ -65,3 +65,5 @@ func update_stat_organs():
 	luck = pow(pow(1.1,organes["eye"]-2),base_modifier["luck"])
 	coin_multiplicateur = base_modifier["value"] * max(0.5,organes["lung"]) #0.5 sans poumon 1 avec 1 et ensuite 2,3,4 etc
 	coin_additionneur = organes["liver"]
+
+var horse = false
