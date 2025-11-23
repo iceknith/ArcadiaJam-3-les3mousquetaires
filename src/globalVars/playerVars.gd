@@ -58,8 +58,10 @@ var score = 0
 
 var base_modifier = {
 		"luck" : 1,
-		"value" : 1
+		"value" : 0.5
 	}
 
 func update_stat_organs():
-	pass
+	luck = (1.1)^organes["eye"]
+	coin_multiplicateur = 1 + organes["lung"]
+	coin_additionneur = organes["liver"]
