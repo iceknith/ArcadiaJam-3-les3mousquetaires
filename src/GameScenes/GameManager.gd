@@ -35,11 +35,11 @@ func _process(delta: float) -> void:
 	
 	
 	if Input.is_action_just_pressed("ui_accept") && $TableNormale.visible && \
-		!$TransitionPlayer.is_playing() && !$Player_list.visible:
+		!$TransitionPlayer.is_playing() && !$Player_list.visible && !$Bonus_menu.visible && !$Info_popup.visible:
 			_on_table_normale_play()
 	
 	if Input.is_action_just_pressed("ui_accept") && $Shop.visible && \
-		!$TransitionPlayer.is_playing() && !$Player_list.visible: 
+		!$TransitionPlayer.is_playing() && !$Player_list.visible && !$Bonus_menu.visible && !$Info_popup.visible: 
 			_on_shop_exit_shop()
 	
 	# Music

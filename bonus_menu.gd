@@ -52,6 +52,7 @@ func generate_selection() -> void:
 		else: #special_choice
 			available_choice[i] = get_random_special()
 	update_choice()
+	$money.text = str(PlayerVars.money) + "    "
 
 func update_choice() -> void:
 	var i = 0
