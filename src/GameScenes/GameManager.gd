@@ -39,7 +39,7 @@ func _process(delta: float) -> void:
 func gameloop():
 	if game_over: return
 	if PlayerVars.money >= PlayerVars.debt && PlayerVars.round_left == 0:
-		PlayerVars.money -= PlayerVars.debt
+		$top_UI.buy_things(PlayerVars.debt)
 		$Bonus_menu.show()
 		$Bonus_menu.generate_selection()
 	
