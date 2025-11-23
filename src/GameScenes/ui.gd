@@ -45,6 +45,12 @@ func buy_things(value:float):
 	$money/AddMoneyAnim.play("boughAnim")
 	refresh()
 
+func set_money(value:float):
+	PlayerVars.money = value
+	displayedMoney = value
+	$money/AddMoneyAnim.play("boughAnim")
+	refresh()
+
 func _on_round_ended() -> void:
 	$money/MoneyTransvaseTimer.start()
 
