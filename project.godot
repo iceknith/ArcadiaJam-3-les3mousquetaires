@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="ArcadiaJam#3-les3mousquetaires"
+config/name="Organ Gambler"
 run/main_scene="uid://df73jwxyyl64o"
 config/features=PackedStringArray("4.5", "Forward Plus")
 config/icon="res://icon.svg"
