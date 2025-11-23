@@ -95,9 +95,10 @@ func _on_table_normale_play() -> void:
 		
 		$TableTopdown/Launch.launch()
 		playRound()
-		
 	elif PlayerVars.nb_piece() <= 0:
 		gameOver()
+	
+	PlayerVars.update_stat_organs()
 
 
 func _on_shop_exit_shop():
