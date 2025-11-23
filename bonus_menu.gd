@@ -43,7 +43,12 @@ func generate_selection() -> void:
 			var malus = get_random_malus()
 			while bonus["on"] == malus["on"]:
 				malus = get_random_malus()
-			var modifier = get_random_modifier()
+			var modifier
+			if randf()>0.7:
+				modifier = {"type" : "mult"}
+			else :
+				modifier = {"type" : "add"}
+
 			var artefact = get_random_artefact()
 			available_choice[i] = {"bonus" : bonus, "malus" : malus, "modifier" : modifier, "artefact" : artefact, "type" : "normal"}
 		else: #special_choice
@@ -119,7 +124,7 @@ func valider_choice(id):
 			elif dico["malus"]["type"] == "money":
 				get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money - dico["malus"]["weight"])
 			elif dico["malus"]["type"] == "modifier":
-				PlayerVars.base_modifier[dico["malus"]["on"]] = max(1,PlayerVars.base_modifier[dico["bonus"]["on"]],dico["malus"]["weight"]) 
+				PlayerVars.base_modifier[dico["malus"]["on"]] = max(1,PlayerVars.base_modifier[dico["malus"]["on"]],dico["malus"]["weight"]) 
 
 
 		if dico["modifier"]["type"] == "mult":
@@ -131,7 +136,7 @@ func valider_choice(id):
 				PlayerVars.base_modifier[dico["bonus"]["on"]] = PlayerVars.base_modifier[dico["bonus"]["on"]] * 2
 
 			if dico["malus"]["type"] == "organ":
-				PlayerVars.organes[dico["malus"]["on"]] = int(PlayerVars.organes[dico["malus"]["on"]] / 2)
+				PlayerVars.organes[dico["malus"]["on"]] = int(PlayerVars.organes[dico["malus"]["on"]] / 2 + 0.5)
 			elif dico["malus"]["type"] == "money":
 				get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money / 2)
 			elif dico["malus"]["type"] == "modifier":
@@ -147,6 +152,8 @@ func valider_choice(id):
 			durabilite_coin()
 		if dico["nom"] == "invest_bonus":
 			invest_bonus()
+		if dico["nom"] == "double_or_nothing":
+			double_or_nothing()
 
 	exit.emit()
 
@@ -170,7 +177,7 @@ func golden_body() -> void:
 	var money = 0
 	for organs in PlayerVars.organes:
 		money += PlayerVars.organes[organs] 
-	get_tree().get_first_node_in_group("UI").set_money(money + PlayerVars.money)
+	get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + money)
 	
 	
 func random_organ() -> void:
@@ -178,11 +185,13 @@ func random_organ() -> void:
 	var nb_organs = 0
 	for organs in PlayerVars.organes:
 		nb_organs += PlayerVars.organes[organs]
-	
+		PlayerVars.organes[organs] = 0
+
 	var random_organ
 	for i in range(nb_organs):
 		random_organ = OrganVars.organs[OrganVars.organs.keys()[OrganVars.organs.size()]]
 		print(random_organ)
+		PlayerVars.organes[random_organ] += 1
 
 func invest_bonus() -> void:
 	print("invest_bonus")
@@ -202,4 +211,11 @@ func super_coin() ->void:
 
 func horse() -> void:
 	print("horse")
+
+
+func double_or_nothing() -> void:
+	if randi() == 1:
+		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + PlayerVars.money)
+	else:
+		get_tree().get_first_node_in_group("UI").set_money(0)
 	
