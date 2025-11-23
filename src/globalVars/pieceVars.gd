@@ -68,12 +68,12 @@ var pieces:Dictionary = {
 		"valueNeg" : -10,
 		"price" : 2,
 		"color" : 0x0a0a0aff,
-		"luck" : 0.5,
+		"luck" : 0.6,
 		"dura" : 10
 	},
-	"red" : {
-		"effectPos" : "",
-		"valuePos" : 2,
+	"forest" : {
+		"effectPos" : "lung",
+		"valuePos" : 1,
 		"effectNeg" : "",
 		"valueNeg" : 0.5,
 		"price" : 3,
@@ -97,7 +97,7 @@ var pieces:Dictionary = {
 		"effectNeg" : "",
 		"valueNeg" : -1,
 		"price" : 0,
-		"color" : 0xdc143cff,
+		"color" : 0xcf2343ff,
 		"luck" : 0.3,
 		"dura" : 1 
 	}#

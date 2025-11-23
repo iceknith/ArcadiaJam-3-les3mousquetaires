@@ -3,7 +3,7 @@ extends Node
 var bonus = {
 	"arm" : {
 		"type" : "organ",
-		"weight" : 2
+		"weight" : 3
 	},
 	"leg" : {
 		"type" : "organ",
