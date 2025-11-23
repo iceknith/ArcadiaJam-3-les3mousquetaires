@@ -23,6 +23,7 @@ func _on_coin_finish_throw() -> void:
 
 func roundEnd() -> void:
 	roundFinised.emit()
+	PlayerVars.organes["tooth"]=0
 	gameDone = false
 	
 

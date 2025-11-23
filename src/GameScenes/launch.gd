@@ -41,7 +41,6 @@ func _ready() -> void:
 func launch() -> void:
 	nombre_hands = PlayerVars.organes.get("arm") + PlayerVars.organes.get("tooth")
 	speed = clamp(nombre_hands * hand_speed_scale,1,5)
-	PlayerVars.organes["tooth"]=0
 	$startDelay.start(spawnStartDelay/speed)
 	currentHandNumber = 0
 	get_parent().coinsThrown = 0

@@ -79,6 +79,7 @@ func _process(delta: float) -> void:
 func animEnded() -> void:
 	animEnd.emit()
 	# C'est ici qu'on change l'argent qui est ajoutée au joueur
+	print(finalValue)
 	get_tree().get_nodes_in_group("UI")[0].add_money(finalValue)
 
 func coinLand() -> void:

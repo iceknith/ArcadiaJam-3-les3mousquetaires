@@ -69,5 +69,9 @@ var special = {
 	"double_or_nothing" : { # double ta thune ou suprime la!
 		"image" : "res://icon.svg",
 		"desc" : "DOUBLE OR NOTHING\n\n..."
+	},
+	"respire" : { # 3 lungs et te laisse qu'une main
+		"image" : "res://icon.svg",
+		"desc" : "RESPIRE!\n\ngives you 3 lung but takes your hands"
 	}
 }

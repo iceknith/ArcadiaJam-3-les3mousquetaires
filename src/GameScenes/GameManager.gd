@@ -42,7 +42,6 @@ func gameloop():
 		PlayerVars.money -= PlayerVars.debt
 		$Bonus_menu.show()
 		$Bonus_menu.generate_selection()
-		new_wave()
 	
 func new_wave()->void:
 	if game_over: return
@@ -158,6 +157,7 @@ func restart_game() -> void:
 func _on_bonus_menu_exit():
 	$top_UI.refresh()
 	$Bonus_menu.hide()
+	new_wave()
 
 
 func playSFX():

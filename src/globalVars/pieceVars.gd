@@ -20,7 +20,6 @@ var pieces:Dictionary = {
 		"color" : 0x7a5eb8ff,
 		"luck" : 0.8,
 		"dura" : 1
-		
 	},
 	"green" : {
 		"effectPos" : "",
@@ -61,7 +60,47 @@ var pieces:Dictionary = {
 		"color" : 0xf29a3dff,
 		"luck" : 0.4,
 		"dura" : 3
-	}
+	},
+	"black" : {
+		"effectPos" : "",
+		"valuePos" : 10,
+		"effectNeg" : "",
+		"valueNeg" : -10,
+		"price" : 2,
+		"color" : 0x0a0a0aff,
+		"luck" : 0.5,
+		"dura" : 10
+	},
+	"red" : {
+		"effectPos" : "",
+		"valuePos" : 2,
+		"effectNeg" : "",
+		"valueNeg" : 0.5,
+		"price" : 3,
+		"color" : 0x2f1f1fff,
+		"luck" : 0.6,
+		"dura" : 3
+	},
+	"pink" : {
+		"effectPos" : "",
+		"valuePos" : 1000,
+		"effectNeg" : "",
+		"valueNeg" : 0,
+		"price" : 8,
+		"color" : 0xff69b4ff,
+		"luck" : 0.01,
+		"dura" : 1 
+	},
+	"crimson" : {
+		"effectPos" : "eye",
+		"valuePos" : 3,
+		"effectNeg" : "",
+		"valueNeg" : -1,
+		"price" : 0,
+		"color" : 0xdc143cff,
+		"luck" : 0.3,
+		"dura" : 1 
+	}#
 }
 
 func get_coin_tooltip(piece_name:String, dura_included:bool) -> String:

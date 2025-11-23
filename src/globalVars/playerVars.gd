@@ -2,7 +2,7 @@ class_name piece extends Node
 
 var organes:Dictionary = {
 	"arm" : 2,
-	"leg" : 0,
+	"leg" : 2,
 	"tooth" : 0,
 	"lung" : 1,
 	"liver" : 0,
