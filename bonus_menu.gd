@@ -161,18 +161,23 @@ func golden_body() -> void:
 	var money = 0
 	for organs in PlayerVars.organes:
 		money += PlayerVars.organes[organs] 
-	get_tree().get_first_node_in_group("UI").set_money(money)
+	get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + money)
 	
 	
 func random_organ() -> void:
 	var nb_organs = 0
 	for organs in PlayerVars.organes:
 		nb_organs += PlayerVars.organes[organs]
-	
+		PlayerVars.organes[organs] = 0
+
 	var random_organ
 	for i in range(nb_organs):
 		random_organ = OrganVars.organs[OrganVars.organs.keys()[OrganVars.organs.size()]]
-		print(random_organ)
-		
-	
+		PlayerVars.organes[random_organ] += 1
+
+func double_or_nothing() -> void:
+	if randi() == 1:
+		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + PlayerVars.money)
+	else:
+		get_tree().get_first_node_in_group("UI").set_money(0)
 	
