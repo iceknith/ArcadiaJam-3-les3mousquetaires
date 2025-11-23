@@ -13,12 +13,12 @@ var pieces:Dictionary = {
 	},
 	"purple" : {
 		"effectPos" : "",
-		"valuePos" : 0.5,
-		"effectNeg" : "",
-		"valueNeg" : 0,
+		"valuePos" : 2,
+		"effectNeg" : "eye",
+		"valueNeg" : -1,
 		"price" : 0,
 		"color" : 0x7a5eb8ff,
-		"luck" : 0.6,
+		"luck" : 0.5,
 		"dura" : 4
 	},
 	"Jade" : {

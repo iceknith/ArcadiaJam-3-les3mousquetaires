@@ -47,7 +47,7 @@ var luck:float = 1
 var wave:int = 0
 var debt:int = 0
 var round_left:int = 2
-var money:float = 100
+var money:float = 0
 
 # multiplicateurs
 var coin_multiplicateur = 1
