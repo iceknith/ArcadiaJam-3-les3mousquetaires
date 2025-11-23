@@ -214,6 +214,7 @@ func super_coin() -> void:
 func horse() -> void:
 	print("horse")
 	PlayerVars.horse = true
+	PlayerVars.luck+=0.2
 
 
 func double_or_nothing() -> void:
@@ -226,4 +227,3 @@ func mirror() -> void:
 	pass
 	#fouble your organ
 	#luck = - 0.3
-
