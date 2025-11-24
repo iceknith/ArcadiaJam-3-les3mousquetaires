@@ -210,7 +210,7 @@ func durabilite_coin() -> void:
 	var i = 0
 	for piece_name in PlayerVars.pieces:
 		if piece_name != "" and piece_name != "yellow":
-			PlayerVars.pieces[i] += 2
+			PlayerVars.pieces_durability[i] += 2
 			i+=1
 	
 func super_coin() -> void:
@@ -233,7 +233,7 @@ func mirror() -> void:
 	print("mirror")
 	var organ_max = "arm"
 	for organ in OrganVars.organs.keys():
-		if PlayerVars.organes[organ] == PlayerVars.organes[organ_max]:
+		if PlayerVars.organes[organ] >= PlayerVars.organes[organ_max]:
 			organ_max = organ
 	PlayerVars.organes[organ_max] = PlayerVars.organes[organ_max] * 2
 	PlayerVars.base_modifier["luck"] = PlayerVars.base_modifier["luck"]/2

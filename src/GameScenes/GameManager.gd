@@ -151,6 +151,7 @@ func afficherMessage(message:String)->void:
 # GAME OVER ============================================
 	
 func gameOver() -> void:
+	PieceVars.pieces["yellow"]["valuePos"] = 1 #pour reset la valeur de la piece de base - easter egg ?
 	game_over = true
 	print("GAME OVER !")
 	$Info_popup.visible=true
