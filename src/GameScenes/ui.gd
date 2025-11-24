@@ -3,8 +3,10 @@ extends Node
 @export var bufferTimeBeforeAdding:float = 0.5
 @export var totalCountDownTime:float = 1.2
 
-var moneyBuffer:float
+var moneyBuffer:float = 1000000000
 var displayedMoney:float
+var addingMultiplyier:float
+@onready var animatedSpriteOffset = $AnimatedSprite2D.position.x - $money.position.x
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -34,6 +36,10 @@ func refresh():
 		$round_left.text = "Last round"
 	else:
 		$round_left.text = str(PlayerVars.round_left) + " rounds left"
+	
+	print()
+	$AnimatedSprite2D.position.x = $money.position.x + animatedSpriteOffset
+	
 
 func add_money(value:float):
 	PlayerVars.money += value
@@ -61,11 +67,13 @@ func set_money(value:float):
 func _on_round_ended() -> void:
 	await get_tree().create_timer(bufferTimeBeforeAdding).timeout
 	$money/MoneyTransvaseTimer.wait_time = totalCountDownTime/(roundf(abs(moneyBuffer)) + 1)
+	if abs(moneyBuffer) > 100:
+		addingMultiplyier = abs(moneyBuffer)/100
 	$money/MoneyTransvaseTimer.start()
 
 func _on_money_transvase_timer_timeout() -> void:
 	if moneyBuffer != 0:
-		var addedQuantity:float = min(sign(moneyBuffer), moneyBuffer)
+		var addedQuantity:float = sign(moneyBuffer) * min(1 * addingMultiplyier, abs(moneyBuffer))
 		displayedMoney += addedQuantity
 		moneyBuffer -= addedQuantity
 		$money/AddMoneyAnim.stop()
