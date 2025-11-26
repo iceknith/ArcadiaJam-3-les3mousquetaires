@@ -207,9 +207,8 @@ func invest_bonus() -> void:
 
 func durabilite_coin() -> void:
 	print("durabilite_coin")
-	var i = 0
-	for piece_name in PlayerVars.pieces:
-		if piece_name != "" and piece_name != "yellow":
+	for i in range(6):
+		if PlayerVars.pieces[i] != "" and PlayerVars.pieces[i] != "yellow":
 			PlayerVars.pieces_durability[i] += 2
 			i+=1
 	
@@ -224,7 +223,7 @@ func horse() -> void:
 
 
 func double_or_nothing() -> void:
-	if randi() == 1:
+	if randf() > 0.5:
 		get_tree().get_first_node_in_group("UI").set_money(PlayerVars.money + PlayerVars.money)
 	else:
 		get_tree().get_first_node_in_group("UI").set_money(0)

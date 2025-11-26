@@ -21,7 +21,7 @@ var pieces:Array = [
 
 var pieces_durability:Array = [
 	-1,
-	2,
+	0,
 	0,
 	0,
 	0,
